@@ -1,0 +1,40 @@
+@import "../variables";
+
+.nav-wrap {
+  // background-color: white;
+  // transition: background-color 2s;
+}
+
+.contact-wrap {
+  padding-left: $margin-sides;
+  padding-top: $margin-sides;
+  padding-bottom: 100px;
+  .flex-wrap {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .left-col {
+    width: 50%;
+    position: relative;
+    padding-right: 3em;
+    .tagline {
+      font-family: $serif;
+      line-height: 50px;
+    }
+    .address {
+      margin: $margin-sides 0;
+    }
+  }
+  .right-col {
+    width: 50%;
+    position: relative;
+  }
+  .map {
+    margin-top: 100px;
+    width: 100%;
+    position: relative;
+    min-height: 300px;
+  }
+}

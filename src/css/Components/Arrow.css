@@ -1,0 +1,99 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.arrow {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.75em; }
+
+.arrow-down:after {
+  content: "";
+  display: inline-block;
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid #001938;
+  border-right: 1px solid #001938;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.arrow-up:after {
+  content: "";
+  display: inline-block;
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+  width: 7px;
+  height: 7px;
+  border-left: 1px solid #001938;
+  border-bottom: 1px solid #001938;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.arrow-right:after {
+  content: "";
+  display: inline-block;
+  margin-top: -2em;
+  margin-bottom: 0.1em;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #001938;
+  border-top: 2px solid #001938;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.home .arrow-down:after {
+  content: "";
+  display: inline-block;
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.home .arrow-up:after {
+  content: "";
+  display: inline-block;
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+  width: 7px;
+  height: 7px;
+  border-left: 1px solid #999999 !important;
+  border-bottom: 1px solid #999999 !important;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.home .arrow-right:after {
+  content: "";
+  display: inline-block;
+  margin-top: -2em;
+  margin-bottom: 0.1em;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #999999 !important;
+  border-top: 2px solid #999999 !important;
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }

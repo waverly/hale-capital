@@ -1,0 +1,56 @@
+@import "../variables";
+
+.portfolio-wrap {
+  padding: $margin-sides;
+
+  bold {
+    font-family: $sans-serif;
+  }
+
+  .grey {
+    color: $lightgrey;
+  }
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    .text-left {
+      display: inline-block;
+      .index {
+        font-size: $font-size-small;
+      }
+    }
+    .text-right {
+      display: inline-block;
+      .active {
+        color: $lightgrey;
+      }
+      h3 {
+        line-height: $line-height-h1;
+      }
+    }
+  }
+  .portfolio-grid {
+    position: relative;
+    display: grid;
+    width: 100%;
+    margin-top: $margin-sides;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: minmax(200px, 300px);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  .testimonial-wrap {
+    width: 100%;
+    position: relative;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

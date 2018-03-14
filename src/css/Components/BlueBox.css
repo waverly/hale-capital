@@ -1,0 +1,34 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.blue-box {
+  position: absolute;
+  z-index: 1; }
+  .blue-box .light-blue {
+    background-color: #ecf8ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+  .blue-box .dark-blue {
+    background-color: #c2edff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3%;
+    left: 3%; }

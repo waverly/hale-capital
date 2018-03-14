@@ -1,0 +1,37 @@
+@import "../variables";
+
+.testimonial {
+  width: 60%;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .inner-wrap {
+    display: flex;
+    z-index: 3;
+    position: relative;
+    .quote-icon {
+      height: 100%;
+      width: 100px;
+      font-size: 140px;
+      font-family: $serif;
+      transform: rotate(180deg);
+      transform-origin: top;
+      padding-left: 25px;
+
+      display: flex;
+      justify-content: center;
+    }
+    .text-wrap {
+      margin-top: -40px;
+
+      .author {
+        margin-left: 0.5em;
+        display: inline;
+        font-family: $serif-italic;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.highlight {
+  background: blue; }
+
+.our-team {
+  width: 100vw;
+  padding: 10vw;
+  min-height: 50vh;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+  .our-team .inner-wrap {
+    width: 80%; }
+    .our-team .inner-wrap .bio-section {
+      width: 100%;
+      position: relative;
+      height: 300px;
+      background-color: red; }
+  .our-team .team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative; }
+
+.col-1 {
+  column-count: 2;
+  margin-top: -150px; }
+  .col-1 .description {
+    margin-top: 200px;
+    padding: 50px 0 50px 50px; }
+  .col-1 .paragraph {
+    padding: 0px 0 50px 50px; }
+
+.col-2 {
+  position: relative;
+  z-index: 7;
+  float: right;
+  padding: 50px 0 50px 50px; }
+  .col-2 img {
+    max-width: 100%; }

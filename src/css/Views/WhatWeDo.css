@@ -1,0 +1,22 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+.col-left .paragraph {
+  margin: 2em 0; }

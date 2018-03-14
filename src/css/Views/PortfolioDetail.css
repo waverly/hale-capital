@@ -1,0 +1,45 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.portfolio-detail-wrap {
+  padding-left: 50px;
+  position: relative;
+  min-height: 100vh; }
+  .portfolio-detail-wrap .separator {
+    width: 100%;
+    height: 5px;
+    background-color: #faf8f3;
+    margin-bottom: 20px; }
+  .portfolio-detail-wrap .context {
+    position: relative; }
+    .portfolio-detail-wrap .context p {
+      font-family: sectra, sans-serif;
+      font-size: 14px; }
+  .portfolio-detail-wrap .inner-wrap {
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .portfolio-detail-wrap .inner-wrap .left {
+      width: 49%;
+      padding-right: 50px; }
+      .portfolio-detail-wrap .inner-wrap .left .description {
+        font-family: sectra, sans-serif; }
+    .portfolio-detail-wrap .inner-wrap .right {
+      width: 50%; }
+      .portfolio-detail-wrap .inner-wrap .right img {
+        max-width: 100%; }

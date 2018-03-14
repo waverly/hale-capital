@@ -1,0 +1,40 @@
+@import "../variables";
+
+.portfolio-detail-wrap {
+  padding-left: $margin-sides;
+  position: relative;
+  min-height: 100vh;
+  .separator {
+    width: 100%;
+    height: 5px;
+    background-color: $offwhite;
+    margin-bottom: 20px;
+  }
+  .context {
+    position: relative;
+    p {
+      font-family: $serif;
+      font-size: $font-size-small;
+    }
+  }
+  .inner-wrap {
+    margin-top: $margin-sides;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left {
+      width: 49%;
+      padding-right: $margin-sides;
+      .description {
+        font-family: $serif;
+      }
+    }
+    .right {
+      width: 50%;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

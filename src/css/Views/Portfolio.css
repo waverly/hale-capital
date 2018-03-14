@@ -1,0 +1,57 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.portfolio-wrap {
+  padding: 50px; }
+  .portfolio-wrap bold {
+    font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  .portfolio-wrap .grey {
+    color: #999999; }
+  .portfolio-wrap .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative; }
+    .portfolio-wrap .portfolio-header .text-left {
+      display: inline-block; }
+      .portfolio-wrap .portfolio-header .text-left .index {
+        font-size: 14px; }
+    .portfolio-wrap .portfolio-header .text-right {
+      display: inline-block; }
+      .portfolio-wrap .portfolio-header .text-right .active {
+        color: #999999; }
+      .portfolio-wrap .portfolio-header .text-right h3 {
+        line-height: 100px; }
+  .portfolio-wrap .portfolio-grid {
+    position: relative;
+    display: grid;
+    width: 100%;
+    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: minmax(200px, 300px);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center; }
+  .portfolio-wrap .testimonial-wrap {
+    width: 100%;
+    position: relative;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }

@@ -1,0 +1,23 @@
+@import "../variables";
+
+.page-header {
+  width: 100%;
+  background-color: $gold;
+  height: 200px;
+  padding-left: $margin-sides;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .header-info {
+    color: white;
+    .index {
+      font-size: $font-size-small;
+    }
+    .title {
+      h1 {
+        color: white;
+      }
+    }
+  }
+}

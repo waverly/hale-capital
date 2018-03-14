@@ -1,0 +1,45 @@
+@import "../variables";
+
+.home-wrap {
+  width: 100vw;
+  position: relative;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding: $margin-sides;
+
+  .tagline {
+    width: 75%;
+    position: relative;
+    z-index: 3;
+    h1 {
+      font-size: $font-size-xl;
+      color: white;
+    }
+  }
+
+  .bg-fade {
+    background-color: $midgrey;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+  .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+}

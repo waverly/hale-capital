@@ -1,0 +1,459 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+/*....................................General settings..................................*/
+/*.....................TEXT MARK STYLES......................*/
+::-moz-selection {
+  background: transparent;
+  text-shadow: none; }
+
+::selection {
+  background: transparent;
+  text-shadow: none; }
+
+/*.....................ACTIVE CLASSES......................*/
+.active {
+  opacity: 1; }
+
+.blacked_text {
+  color: #ffffff; }
+
+.blacked_path {
+  fill: #ffffff; }
+
+.blacked_background {
+  background-color: #000000; }
+
+/*....................HIDING SCROLLBAR.....................*/
+::-webkit-scrollbar {
+  display: none; }
+
+* {
+  -webkit-overflow-scrolling: touch; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  outline: 0; }
+
+/*.....................GENERAL STYLES......................*/
+.display-none {
+  display: none !important; }
+
+.display-block {
+  display: block; }
+
+html {
+  font-family: helvetica;
+  width: 100%;
+  margin: 0, 0;
+  padding: 0, 0;
+  box-sizing: border-box;
+  background-color: transparent; }
+
+body {
+  width: 100vw;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: block;
+  position: relative;
+  background: #ffffff;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400; }
+
+p,
+a,
+li {
+  font-size: 21px;
+  list-style-type: none;
+  letter-spacing: 1px;
+  color: #444444; }
+
+h1,
+h2,
+h3 {
+  color: #444444; }
+
+input,
+textarea,
+select,
+a,
+li {
+  text-decoration: none; }
+
+a {
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 26px;
+  font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  a:active {
+    color: #999999; }
+  a:hover {
+    color: #999999; }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    a {
+      font-size: 12px;
+      line-height: 17px; } }
+
+.a-hover {
+  color: #000000;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  .a-hover:hover {
+    color: #999999;
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+
+p {
+  font-size: 21px;
+  line-height: 26px;
+  font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    p {
+      font-size: 12px;
+      line-height: 17px; } }
+
+h1 {
+  font-size: 72px;
+  line-height: 100px;
+  font-family: sectra, sans-serif;
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h1 {
+      font-size: 45px; } }
+
+h2 {
+  font-size: 60px;
+  line-height: 70px;
+  font-family: sectra, sans-serif;
+  letter-spacing: 0px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h2 {
+      font-size: 38px;
+      line-height: 42px; } }
+
+h3 {
+  font-size: 36px;
+  line-height: 60px;
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h3 {
+      font-size: 25px;
+      line-height: 30px; } }
+
+.sans-serif {
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
+
+.serif {
+  font-family: sectra, sans-serif !important; }
+  .serif p {
+    font-family: sectra, sans-serif !important; }
+
+.serif-italic {
+  font-family: sectra-italic, serif; }
+
+span.highlight {
+  background-color: #fffade;
+  color: #444444 !important; }
+
+highlight {
+  display: inline;
+  background-color: #fffade;
+  color: #444444 !important; }
+
+.pop {
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 14;
+  border-top: 1px solid black;
+  background: rgba(255, 255, 255, 0.2); }
+
+.col-wrap {
+  display: flex;
+  justify-content: space-between; }
+
+.col-left {
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  padding: 50px; }
+
+.paragraph p {
+  margin-top: 20px; }
+
+.col-right {
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  top: -150px; }
+  .col-right img {
+    max-width: 100%; }
+  .col-right .inner-wrap {
+    width: 100%;
+    top: 0px; }
+    .col-right .inner-wrap img {
+      max-width: 100%; }
+    .col-right .inner-wrap .caption {
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 60px; }
+
+.list-wrap {
+  position: relative;
+  display: flex;
+  margin-top: 50px; }
+
+ul.list {
+  position: relative;
+  z-index: 3; }
+  ul.list li {
+    font-size: 36px;
+    line-height: 60px;
+    font-family: sectra, sans-serif; }
+
+.section-wrap {
+  font: 16px / 1 Arial;
+  position: relative;
+  min-height: 100vh;
+  margin-top: 150px;
+  width: calc(100vw - 50px); }
+
+/*.........................MAIN............................*/
+table {
+  width: 100vw;
+  height: 100vh; }
+  table tr td {
+    vertical-align: middle; }
+
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.nav-wrap.home {
+  background-color: transparent;
+  transition: 2s;
+  color: white; }
+  .nav-wrap.home a,
+  .nav-wrap.home p {
+    color: white; }
+
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  transition: 2s;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  z-index: 10; }
+  .nav-wrap a,
+  .nav-wrap p {
+    font-size: 14px;
+    display: block; }
+  .nav-wrap .name .name-p:hover {
+    cursor: pointer;
+    color: #999999; }
+  .nav-wrap .active {
+    color: #999999; }
+  .nav-wrap .logo {
+    width: 30vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; }
+    .nav-wrap .logo .logomark,
+    .nav-wrap .logo .textmark {
+      display: inline-block; }
+    .nav-wrap .logo .textmark {
+      margin-left: 2em; }
+  .nav-wrap .text-wrap {
+    display: flex;
+    width: 70vw;
+    justify-content: flex-end;
+    align-items: flex-start; }
+  .nav-wrap .nav-item {
+    min-width: 120px;
+    width: auto;
+    padding: 15px;
+    position: relative;
+    line-height: 26px;
+    font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    letter-spacing: 1px; }
+    .nav-wrap .nav-item.contact {
+      width: auto; }
+    .nav-wrap .nav-item .index {
+      font-size: 14px; }
+    .nav-wrap .nav-item .item-title {
+      font-family: sectra-italic, serif;
+      font-size: 14px; }
+    .nav-wrap .nav-item .nav-children {
+      font-family: sectra-italic, serif;
+      display: none;
+      position: absolute;
+      margin-top: 0.7em;
+      background-color: white;
+      width: 100%;
+      background-color: white;
+      top: 0;
+      left: 0;
+      padding: 60px 0px 0px 0px;
+      border: 1px solid #999999; }
+      .nav-wrap .nav-item .nav-children .nav-child {
+        font-family: sectra-italic, serif;
+        height: 30px !important;
+        padding: 0 14px; }
+        .nav-wrap .nav-item .nav-children .nav-child a {
+          color: #001938;
+          line-height: 30px !important; }
+    .nav-wrap .nav-item:hover {
+      z-index: 3; }
+      .nav-wrap .nav-item:hover .index {
+        color: #999999;
+        position: relative;
+        z-index: 10; }
+      .nav-wrap .nav-item:hover .item-title {
+        position: relative;
+        color: #999999;
+        z-index: 10; }
+      .nav-wrap .nav-item:hover .nav-children {
+        display: block; }
+        .nav-wrap .nav-item:hover .nav-children a {
+          color: #001938; }
+          .nav-wrap .nav-item:hover .nav-children a:hover {
+            background-color: #ecf8ff; }
+      .nav-wrap .nav-item:hover .down {
+        display: none; }
+      .nav-wrap .nav-item:hover .up {
+        display: inline-block; }
+  .nav-wrap .logo p {
+    text-transform: uppercase;
+    font-size: 22px; }
+
+@media screen and (max-width: 1000px) {
+  .nav-wrap .name .info {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    opacity: 0.8; } }

@@ -1,0 +1,616 @@
+// @import 'variables';
+/*.................................................................................*/
+//---------------------------------------------------------------MEDIA QUERIES---------------------------------------------------------------------
+$break-phone: 767px;
+$break-phone-landscape: 767px;
+$break-tablet: 1022px;
+$break-tablet-landscape: 1024px;
+$break-laptop-small: 1280px;
+$break-laptop-medium: 1440px;
+$break-laptop-large: 1920px;
+$break-desktop: 50000px;
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+
+@mixin respond-to($media) {
+/*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/
+  @if $media == desktop {
+    @media only screen and (min-width: $break-laptop-large + 1) and (max-width: $break-desktop) { @content; }
+  }
+  @else if $media == laptop-large {
+    @media only screen and (min-width: $break-laptop-medium + 1) and (max-width: $break-laptop-large) { @content; }
+  }
+  @else if $media == laptop-medium {
+    @media only screen and (min-width: $break-laptop-small + 1) and (max-width: $break-laptop-medium) { @content; }
+  }
+  @else if $media == laptop-small {
+    @media only screen and (min-width: $break-tablet + 1) and (max-width: $break-laptop-small) { @content; }
+  }
+
+  ////////////|||||||||||..just changed the tablet media query below because it was not reading the landscape view: 1024px is the tablet landscape width..||||||||||||||\\\\\\\\\\
+
+  @else if $media == tablet-landscape {
+    @media only screen and (min-width: $break-phone + 1) and (max-width: $break-tablet-landscape) and (orientation: landscape) { @content; }
+  }
+  @else if $media == tablet-portrait {
+    @media only screen and (min-width: $break-phone + 1) and (max-width: $break-tablet) and (orientation: portrait) { @content; }
+  }
+  @else if $media == phone {
+    @media only screen and (min-width: 0px) and (max-width: $break-phone) { @content; }
+  }
+
+  //These are only for the real device
+  @else if $media == tablet-landscape-device {
+    @media only screen and (min-device-width: $break-phone + 1) and (max-device-width: $break-tablet) and (orientation: landscape) { @content; }
+  }
+  @else if $media == tablet-portrait-device {
+    @media only screen and (min-device-width: $break-phone + 1) and (max-device-width: $break-tablet) and (orientation: portrait) { @content; }
+  }
+  @else if $media == phone-device {
+    @media only screen and (min-width: 0px) and (max-device-width: $break-phone) { @content; }
+  }
+  @else if $media == phone-landscape-device {
+        @media only screen and (min-width: 0px) and (max-width: $break-phone) and (orientation: landscape) { @content; }
+      }
+}
+
+
+
+
+
+
+
+
+
+@mixin hover-effect-fill($color, $hover, $type){
+
+
+  @if $type == 'fill' {
+
+    svg, g, path, rect, line{
+      fill: $color;
+      transition:         fill $transition-medium ease;
+      -webkit-transition: fill $transition-medium ease;
+      -moz-transition:    fill $transition-medium ease;
+      -ms-transition:     fill $transition-medium ease;
+      -o-transition:      fill $transition-medium ease;
+
+    }
+
+    &:hover {
+        svg, g, path, rect, line{
+          fill: $hover;
+          @include respond-to(phone-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-portrait-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-landscape-device) {
+              fill: $color !important;
+          }
+        }
+    }
+
+  } @else if $type == 'stroke' {
+      svg, g, path, rect, line{
+        stroke: $color;
+        transition:         stroke $transition-medium ease;
+        -webkit-transition: stroke $transition-medium ease;
+        -moz-transition:    stroke $transition-medium ease;
+        -ms-transition:     stroke $transition-medium ease;
+        -o-transition:      stroke $transition-medium ease;
+      }
+
+      &:hover {
+          svg, g, path, rect, line{
+            stroke: $hover;
+            @include respond-to(phone-device) {
+                stroke: $color !important;
+            }
+            @include respond-to(tablet-portrait-device) {
+                stroke: $color !important;
+            }
+            @include respond-to(tablet-landscape-device) {
+                stroke: $color !important;
+            }
+          }
+      }
+  }
+  @else if $type == 'g' {
+
+    svg{
+      g{
+        g{
+          path{
+            fill: $color;
+            transition:         fill $transition-medium ease;
+            -webkit-transition: fill $transition-medium ease;
+            -moz-transition:    fill $transition-medium ease;
+            -ms-transition:     fill $transition-medium ease;
+            -o-transition:      fill $transition-medium ease;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      svg{
+        g{
+          g{
+            path{
+              fill: $hover !important;
+              @include respond-to(phone-device) {
+                  fill: $color !important;
+              }
+              @include respond-to(tablet-portrait-device) {
+                  fill: $color !important;
+              }
+              @include respond-to(tablet-landscape-device) {
+                  fill: $color !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @else if $type == 'facebook' {
+
+    svg{
+      #Blue_1_{
+        fill: $color;
+        transition:         fill $transition-medium ease;
+        -webkit-transition: fill $transition-medium ease;
+        -moz-transition:    fill $transition-medium ease;
+        -ms-transition:     fill $transition-medium ease;
+        -o-transition:      fill $transition-medium ease;
+      }
+    }
+
+
+    &:hover {
+      svg{
+        #Blue_1_{
+          fill: $hover;
+          @include respond-to(phone-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-portrait-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-landscape-device) {
+              fill: $color !important;
+          }
+        }
+      }
+    }
+  }
+  @else if $type == 'itunes' {
+
+    svg{
+      #background{
+        fill: $color;
+        transition:         fill $transition-medium ease;
+        -webkit-transition: fill $transition-medium ease;
+        -moz-transition:    fill $transition-medium ease;
+        -ms-transition:     fill $transition-medium ease;
+        -o-transition:      fill $transition-medium ease;
+      }
+    }
+
+    &:hover {
+        svg{
+          #background{
+            fill: $hover !important;
+            @include respond-to(phone-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-portrait-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-landscape-device) {
+                fill: $color !important;
+            }
+          }
+        }
+    }
+  }
+  @else if $type == 'twitter' {
+
+    svg{
+      path{
+        fill: $color;
+        transition:         fill $transition-medium ease;
+        -webkit-transition: fill $transition-medium ease;
+        -moz-transition:    fill $transition-medium ease;
+        -ms-transition:     fill $transition-medium ease;
+        -o-transition:      fill $transition-medium ease;
+      }
+    }
+
+
+    &:hover {
+      svg{
+        path{
+          fill: $hover !important;
+          @include respond-to(phone-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-portrait-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-landscape-device) {
+              fill: $color !important;
+          }
+        }
+      }
+    }
+  }
+  @else if $type == 'youtube' {
+
+    svg{
+      #The_Sharpness{
+        fill: $color;
+        transition:         fill $transition-medium ease;
+        -webkit-transition: fill $transition-medium ease;
+        -moz-transition:    fill $transition-medium ease;
+        -ms-transition:     fill $transition-medium ease;
+        -o-transition:      fill $transition-medium ease;
+      }
+    }
+
+
+    &:hover {
+      svg{
+        #The_Sharpness{
+          fill: $hover !important;
+          @include respond-to(phone-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-portrait-device) {
+              fill: $color !important;
+          }
+          @include respond-to(tablet-landscape-device) {
+              fill: $color !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+$transition-slow: 1s;
+
+/*....................................SCSS MIXINS..................................*/
+
+
+@mixin hover-effect-opacity($opacity: 1, $hover: .2){
+  opacity: $opacity;
+  transition:         all $transition-medium ease;
+  -webkit-transition: all $transition-medium ease;
+  -moz-transition:    all $transition-medium ease;
+  -ms-transition:     all $transition-medium ease;
+  -o-transition:      all $transition-medium ease;
+
+
+  &:hover {
+    opacity: $hover;
+
+    @include respond-to(phone-device) {
+        opacity: $opacity !important;
+    }
+    @include respond-to(tablet-portrait-device) {
+        opacity: $opacity !important;
+    }
+    @include respond-to(tablet-landscape-device) {
+        opacity: $opacity !important;
+    }
+  }
+}
+
+@mixin hover-effect-fade($px){
+
+  filter: blur(0px);
+  -webkit-filter:blur(0px);
+  -o-filter: blur(0px);
+  -moz-filter: blur(0px);
+  transition:         all $transition-slow ease;
+  -webkit-transition: all $transition-slow ease;
+  -moz-transition:    all $transition-slow ease;
+  -ms-transition:     all $transition-slow ease;
+  -o-transition:      all $transition-slow ease;
+
+
+  &:hover {
+    filter: blur($px);
+    -webkit-filter: blur($px);
+    -o-filter: blur($px);
+    -moz-filter: blur($px);
+
+    @include respond-to(phone-device) {
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      -o-filter: blur(0);
+      -moz-filter: blur(0);
+    }
+    @include respond-to(tablet-portrait-device) {
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      -o-filter: blur(0);
+      -moz-filter: blur(0);
+    }
+    @include respond-to(tablet-landscape-device) {
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      -o-filter: blur(0);
+      -moz-filter: blur(0);
+    }
+  }
+}
+
+
+
+@mixin hover-effect-saturation($initial, $final){
+
+  filter:grayscale($initial);
+  -webkit-filter:grayscale($initial);
+  -o-filter: grayscale($initial);
+  -moz-filter: grayscale($initial);
+  transition:         all $transition-medium ease;
+  -webkit-transition: all $transition-medium ease;
+  -moz-transition:    all $transition-medium ease;
+  -ms-transition:     all $transition-medium ease;
+  -o-transition:      all $transition-medium ease;
+
+
+  &:hover {
+    filter: grayscale($final);
+    -webkit-filter: grayscale($final);
+    -o-filter: grayscale($final);
+    -moz-filter: grayscale($final);
+
+    @include respond-to(phone-device) {
+      filter: grayscale($initial);
+      -webkit-filter: grayscale($initial);
+      -o-filter: grayscale($initial);
+      -moz-filter: grayscale($initial);
+    }
+    @include respond-to(tablet-portrait-device) {
+      filter: grayscale($initial);
+      -webkit-filter: grayscale($initial);
+      -o-filter: grayscale($initial);
+      -moz-filter: grayscale($initial);
+    }
+    @include respond-to(tablet-landscape-device) {
+      filter: grayscale($initial);
+      -webkit-filter: grayscale($initial);
+      -o-filter: grayscale($initial);
+      -moz-filter: grayscale($initial);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@mixin hover-effect-background-color($color, $hover){
+  background-color: $color;
+  transition:         background-color $transition-medium ease;
+  -webkit-transition: background-color $transition-medium ease;
+  -moz-transition:    background-color $transition-medium ease;
+  -ms-transition:     background-color $transition-medium ease;
+  -o-transition:      background-color $transition-medium ease;
+
+  &:hover {
+    background-color: $hover;
+    @include respond-to(phone-device) {
+        background-color: $color !important;
+    }
+    @include respond-to(tablet-portrait-device) {
+        background-color: $color !important;
+    }
+    @include respond-to(tablet-landscape-device) {
+        background-color: $color !important;
+    }
+  }
+}
+
+
+@mixin hover-effect-color($color, $hover){
+  color: $color;
+  transition:         color $transition-medium ease;
+  -webkit-transition: color $transition-medium ease;
+  -moz-transition:    color $transition-medium ease;
+  -ms-transition:     color $transition-medium ease;
+  -o-transition:      color $transition-medium ease;
+  // opacity: $hover;
+
+  &:hover {
+    color: $hover;
+    @include respond-to(phone-device) {
+        color: $color !important;
+    }
+    @include respond-to(tablet-portrait-device) {
+        color: $color !important;
+    }
+    @include respond-to(tablet-landscape-device) {
+        color: $color !important;
+    }
+  }
+}
+
+@mixin transform-transition($duration: $transition-slow){
+  transition:         transform $duration ease-in-out;
+  -webkit-transition: -webkit-transform $duration ease-in-out;
+  -moz-transition:    -moz-transform $duration ease-in-out;
+  -ms-transition:     -ms-transform $duration ease-in-out;
+  -o-transition:      -o-transform $duration ease-in-out;
+}
+
+@mixin transform-element($coordinate){
+  transform: $coordinate;
+  -ms-transform: $coordinate; /* IE 9 */
+ 	-webkit-transform: $coordinate; /* Safari */
+  transform-origin: 0 0;
+}
+
+
+@mixin transform-position($position: -100%){
+  transform: translateX($position);
+  -webkit-transform:  translateX($position);
+  -moz-transform:     translateX($position);
+  -ms-transform:      translateX($position);
+  -o-transform:       translateX($position);
+}
+
+
+@mixin center-transform($left, $top){
+  transform: translate3d($left,$top, 0);
+  -webkit-transform:  translate3d($left,$top, 0);
+  -moz-transform:     translate3d($left,$top, 0);
+  -ms-transform:      translate3d($left,$top, 0);
+  -o-transform:       translate3d($left,$top, 0);
+}
+
+
+@mixin transform-origin($coordinates){
+  transform-origin: $coordinates;
+  -webkit-transform-origin:  $coordinates;
+  -moz-transform-origin:     $coordinates;
+  -ms-transform-origin:      $coordinates;
+  -o-transform-origin:       $coordinates;
+}
+
+
+
+
+
+@mixin h1(){
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+  font-family: $font-family-h1;
+  letter-spacing: $letter-spacing-h1;
+  @include respond-to(phone){
+    font-size: $font-size-h1-mobile;
+  }
+}
+@mixin h2(){
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+  font-family: $font-family-h2;
+  letter-spacing: $letter-spacing-h2;
+  @include respond-to(phone){
+    font-size: $font-size-h2-mobile;
+    line-height: $line-height-h2-mobile;
+  }
+}
+
+@mixin h3(){
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+  font-family: $font-family-h3;
+  letter-spacing: $letter-spacing-h3;
+  @include respond-to(phone){
+    font-size: $font-size-h3-mobile;
+    line-height: $line-height-h3-mobile;
+  }
+}
+
+@mixin p(){
+  font-size: $font-size-p;
+  line-height: $line-height-p;
+  font-family: $font-family-p;
+  letter-spacing: $letter-spacing-paragraph;
+  @include respond-to(phone){
+    font-size: $font-size-p-mobile;
+    line-height: $line-height-p-mobile;
+  }
+}
+
+@mixin raised($opacity, $horizontal-initial: 2px, $vertical-initial:2px,$horizontal-final: 6px, $vertical-final:6px, $thickness-initial:10px, $thickness-final:10px){
+
+  box-shadow: $horizontal-initial $vertical-initial $thickness-initial 0 rgba(0, 0, 0, $opacity);
+  transition:         all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition:    all 0.4s ease-in-out;
+  -ms-transition:     all 0.4s ease-in-out;
+  -o-transition:      all 0.4s ease-in-out;
+  &:hover {
+    box-shadow: $horizontal-final $vertical-final $thickness-final 0 rgba(0, 0, 0, $opacity);
+  }
+}
+
+@mixin raised-grey($horizontal-shift, $vertical-shift, $thickness, $opacity){
+  box-shadow: $horizontal-shift $vertical-shift $thickness 0 rgba(255, 255, 255, $opacity);
+  transition:         all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition:    all 0.4s ease-in-out;
+  -ms-transition:     all 0.4s ease-in-out;
+  -o-transition:      all 0.4s ease-in-out;
+}
+
+@mixin transform-keyframe($name, $initial, $final){
+
+  // -webkit-transform: $final;
+  // transform: $final;
+  // -ms-transform: $final;
+  // -moz-transform: $final;
+  // -o-transform: $final;
+  transform-origin: center 100% !important;
+
+  @keyframes $name{
+    from{
+      -webkit-transform: $initial;
+      transform: $initial;
+    }
+    to{
+      -webkit-transform: $final;
+      transform: $final;
+    }
+  }
+  @-webkit-keyframes $name{
+    from{
+      -webkit-transform: $initial;
+      transform: $initial;
+    }
+    to{
+      -webkit-transform: $final;
+      transform: $final;
+    }
+  }
+  @-ms-keyframes $name{
+    from{
+      -ms-transform: $initial;
+    }
+    to{
+      -ms-transform: $final;
+    }
+  }
+  @-moz-keyframes $name{
+    from{
+      -moz-transform: $initial;
+    }
+    to{
+      -moz-transform: $final;
+    }
+  }
+  @-o-keyframes $name{
+    from{
+      -o-transform: $initial;
+    }
+    to{
+      -o-transform: $final;
+    }
+  }
+}

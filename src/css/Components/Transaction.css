@@ -1,0 +1,38 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.trans-item {
+  position: relative;
+  border-bottom: 1px solid #999999; }
+  .trans-item .trans-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .trans-item .trans-title h3 {
+      font-family: sectra, sans-serif;
+      line-height: 90px; }
+  .trans-item .trans-desc.panel {
+    background-color: #faf8f3;
+    width: 100vw;
+    margin-left: -50px;
+    padding: 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out; }
+    .trans-item .trans-desc.panel p {
+      font-family: sectra, sans-serif;
+      margin-bottom: 10px;
+      margin: 50px; }

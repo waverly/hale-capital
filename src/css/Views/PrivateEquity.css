@@ -1,0 +1,43 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+.view-investments {
+  margin-top: 50px; }
+  .view-investments h3 {
+    background-color: #ecf8ff;
+    padding: 10px;
+    display: inline; }
+
+.private-equity .list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  margin-left: 50px; }
+  .private-equity .list-wrap .list-item {
+    margin-top: 50px; }
+
+.private-equity .transaction-wrap {
+  width: calc(100% - 50px);
+  margin-left: 50px;
+  margin-bottom: 150px; }
+  .private-equity .transaction-wrap .section-title {
+    margin-bottom: 20px; }

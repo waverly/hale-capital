@@ -1,0 +1,43 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.testimonial {
+  width: 60%;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center; }
+  .testimonial .inner-wrap {
+    display: flex;
+    z-index: 3;
+    position: relative; }
+    .testimonial .inner-wrap .quote-icon {
+      height: 100%;
+      width: 100px;
+      font-size: 140px;
+      font-family: sectra, sans-serif;
+      transform: rotate(180deg);
+      transform-origin: top;
+      padding-left: 25px;
+      display: flex;
+      justify-content: center; }
+    .testimonial .inner-wrap .text-wrap {
+      margin-top: -40px; }
+      .testimonial .inner-wrap .text-wrap .author {
+        margin-left: 0.5em;
+        display: inline;
+        font-family: sectra-italic, serif; }

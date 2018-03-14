@@ -1,0 +1,45 @@
+@import "../variables";
+
+.news-wrap {
+  padding-left: $margin-sides;
+  margin-bottom: 100px;
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    .text-left {
+      display: inline-block;
+      .index {
+        font-size: $font-size-small;
+      }
+    }
+    .text-right {
+      display: inline-block;
+      .year-wrap {
+        display: inline;
+
+        h3 {
+          display: inline;
+        }
+
+        p {
+          display: inline;
+          font-family: $serif;
+        }
+      }
+      .active {
+        color: $lightgrey;
+      }
+      h3 {
+        line-height: $line-height-h1;
+        display: inline-block;
+        margin: 0.5em;
+        font-family: $serif;
+      }
+    }
+  }
+  .year-wrap {
+    margin: 100px 0;
+  }
+}

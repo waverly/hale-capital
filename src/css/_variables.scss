@@ -1,0 +1,117 @@
+/*....................................SCSS VARIABLES..................................*/
+
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf);
+  // font-weight:400;
+}
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400;
+}
+
+// ........................................................ELEMENTS
+$nav-height: 150px;
+
+// ........................................................FONT WEIGHTS
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-heavy: 900;
+
+// ........................................................FONT SIZES
+$font-size-h1: 72px;
+$font-size-h2: 60px;
+$font-size-h3: 36px;
+$font-size-p: 21px;
+$font-size-nav: 18px;
+$font-size-xl: 88px;
+$font-size-small: 14px;
+
+$font-size-h1-mobile: 45px;
+$font-size-h2-mobile: 38px;
+$font-size-h3-mobile: 25px;
+$font-size-p-mobile: 12px;
+
+// ........................................................FONT FAMILIES
+$font-family-h1: sectra, sans-serif;
+$font-family-h2: sectra, sans-serif;
+$font-family-h3: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
+  sans-serif;
+$font-family-p: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+  Arial, "Lucida Grande", sans-serif;
+$font-family-italic: sectra, sans-serif;
+$sans-serif: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
+  sans-serif;
+$serif: sectra, sans-serif;
+$serif-italic: sectra-italic, serif;
+
+// ........................................................FONT LINEHEIGHTS
+$line-height-h1: 100px;
+$line-height-h2: 70px;
+$line-height-h3: 60px;
+$line-height-p: 26px;
+
+$line-height-h1-mobile: 55px;
+$line-height-h2-mobile: 42px;
+$line-height-h3-mobile: 30px;
+$line-height-p-mobile: 17px;
+
+$letter-spacing: 1px;
+$letter-spacing-h1: 2px;
+$letter-spacing-h2: 0px;
+$letter-spacing-h3: 1px;
+$letter-spacing-paragraph: 1px;
+
+// ........................................................COLORS
+$black: #000000;
+$white: #ffffff;
+$offwhite: #faf8f3;
+$gold: #ff9e23;
+$cream: #fffade;
+$lightblue: #ecf8ff;
+$midblue: #c2edff;
+$darkblue: #001938;
+$lightgrey: #999999;
+$midgrey: #444444;
+$darkgrey: #001938;
+
+// ........................................................MARGINS
+$margin-sides: 50px;
+$margin-bottom: 35px;
+$margin-top: 150px;
+$margin-sides-mobile: 10px;
+$margin-left-paragraph: 5px;
+$margin-top-li: 100px;
+$margin-top-p: 20px;
+
+// ........................................................TRANSITION TIMINGS
+$transition-extreme-slow: 1.4s;
+$transition-slow: 0.6s;
+$transition-medium: 0.4s;
+$transition-fast: 0.2s;
+
+// ........................................................Z-INDEXES
+$z-loader: 15;
+$z-pop: 14;
+$z-nav: 13;
+$z-share: 13;
+
+$z-clickOut: 12;
+$z-nav: 10;
+$z-credits: 8;
+$z-feed: 7;
+
+$z-detail-li: 4;
+$z-detail-cover: 3;
+
+$z-logo: 0;
+
+/*....................................................................................*/

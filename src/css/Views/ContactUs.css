@@ -1,0 +1,41 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.contact-wrap {
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-bottom: 100px; }
+  .contact-wrap .flex-wrap {
+    display: flex;
+    justify-content: space-between;
+    position: relative; }
+  .contact-wrap .left-col {
+    width: 50%;
+    position: relative;
+    padding-right: 3em; }
+    .contact-wrap .left-col .tagline {
+      font-family: sectra, sans-serif;
+      line-height: 50px; }
+    .contact-wrap .left-col .address {
+      margin: 50px 0; }
+  .contact-wrap .right-col {
+    width: 50%;
+    position: relative; }
+  .contact-wrap .map {
+    margin-top: 100px;
+    width: 100%;
+    position: relative;
+    min-height: 300px; }

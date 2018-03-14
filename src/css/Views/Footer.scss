@@ -1,0 +1,40 @@
+@import '../variables';
+
+.footer-wrap {
+	font: 16px / 1 Arial;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 40vh;
+	background-color: $darkblue;
+	padding: $margin-sides;
+	padding-top: 50px;
+
+	.left{
+		align-self: flex-start;
+		display: inline-flex;
+		width: 35vw;
+		justify-content: space-between;
+
+		.sub-left{
+			width: 200px;
+			a{
+				display: block;
+			}
+		}
+	}
+
+	.right{
+		align-self: start;
+		display: inline-flex;
+	}
+
+
+	a, p{
+		color: $white;
+		font-size: $font-size-small;
+	}
+
+}

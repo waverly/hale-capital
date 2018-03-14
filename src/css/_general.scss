@@ -1,0 +1,313 @@
+@import "variables";
+@import "mixins";
+
+/*....................................General settings..................................*/
+
+/*.....................TEXT MARK STYLES......................*/
+
+::-moz-selection {
+  background: transparent;
+  text-shadow: none;
+}
+
+::selection {
+  background: transparent;
+  text-shadow: none;
+}
+
+/*.....................ACTIVE CLASSES......................*/
+
+.active {
+  opacity: 1;
+}
+
+a:active {
+}
+
+.blacked_text {
+  color: $white;
+}
+
+.blacked_path {
+  fill: $white;
+}
+.blacked_background {
+  background-color: $black;
+}
+
+/*....................HIDING SCROLLBAR.....................*/
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  outline: 0;
+}
+
+/*.....................GENERAL STYLES......................*/
+
+.display-none {
+  display: none !important;
+}
+
+.display-block {
+  display: block;
+}
+
+html {
+  font-family: helvetica;
+  width: 100%;
+  margin: 0, 0;
+  padding: 0, 0;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: block;
+  position: relative;
+  background: $white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+}
+
+p,
+a,
+li {
+  font-size: $font-size-p;
+  list-style-type: none;
+  letter-spacing: $letter-spacing;
+  color: $midgrey;
+}
+
+h1,
+h2,
+h3 {
+  color: $midgrey;
+}
+
+input,
+textarea,
+select,
+a,
+li {
+  text-decoration: none;
+}
+
+a {
+  &:active {
+    color: $lightgrey;
+  }
+  &:hover {
+    color: $lightgrey;
+  }
+  cursor: pointer;
+  @include p();
+}
+
+.a-hover {
+  @include hover-effect-color($black, $lightgrey);
+}
+
+p {
+  @include p();
+}
+
+h1 {
+  @include h1();
+}
+
+h2 {
+  @include h2();
+}
+
+h3 {
+  @include h3();
+}
+
+.sans-serif {
+  font-family: $sans-serif !important;
+}
+
+.serif {
+  font-family: $serif !important;
+
+  p {
+    font-family: $serif !important;
+  }
+}
+
+.serif-italic {
+  font-family: $serif-italic;
+}
+
+span.highlight {
+  background-color: $cream;
+  color: $midgrey !important;
+}
+
+highlight {
+  display: inline;
+  background-color: $cream;
+  color: $midgrey !important;
+}
+
+.pop {
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: $z-pop;
+  border-top: 1px solid black;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+// re-usable page wrap and headings
+
+.col-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-left {
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  padding: $margin-sides;
+}
+
+.paragraph {
+  p {
+    margin-top: 20px;
+  }
+}
+
+.col-right {
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  top: -150px;
+
+  img {
+    max-width: 100%;
+  }
+
+  .inner-wrap {
+    width: 100%;
+    top: 0px;
+
+    img {
+      max-width: 100%;
+    }
+    .caption {
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      line-height: $line-height-h3;
+    }
+  }
+}
+
+.list-wrap {
+  position: relative;
+  display: flex;
+  margin-top: $margin-sides;
+}
+
+ul.list {
+  position: relative;
+  z-index: 3;
+  li {
+    font-size: $font-size-h3;
+    line-height: $line-height-h3;
+    font-family: $serif;
+  }
+}
+
+.section-wrap {
+  font: 16px / 1 Arial;
+  position: relative;
+  min-height: 100vh;
+  margin-top: $nav-height;
+  width: calc(100vw - 50px);
+}
+
+// plus minus icon
+// .icon {
+//   position: absolute;
+//   right: 10px;
+//   top: calc(50% - 10px);
+//   height: 20px;
+//   width: 20px;
+//
+//   .plus {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 100%;
+//
+//     .vertical {
+//       height: 100%;
+//       width: 2px;
+//       background-color: $darkblue;
+//       position: absolute;
+//       left: calc(50% - 1px);
+//     }
+//     .horizontal {
+//       width: 100%;
+//       height: 2px;
+//       background-color: $darkblue;
+//     }
+//   }
+//
+//   .minus {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 100%;
+//     display: none;
+//
+//     .horizontal {
+//       width: 100%;
+//       height: 2px;
+//       background-color: $darkblue;
+//     }
+//   }
+// }
+
+// .expanded {
+//   .icon {
+//     .plus {
+//       display: none;
+//     }
+//     .minus {
+//       display: flex;
+//     }
+//   }
+// }
+/*.........................MAIN............................*/
+
+table {
+  width: 100vw;
+  height: 100vh;
+  tr {
+    td {
+      vertical-align: middle;
+    }
+  }
+}

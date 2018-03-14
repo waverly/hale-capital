@@ -1,0 +1,46 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+.news-wrap {
+  padding-left: 50px;
+  margin-bottom: 100px; }
+  .news-wrap .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative; }
+    .news-wrap .news-header .text-left {
+      display: inline-block; }
+      .news-wrap .news-header .text-left .index {
+        font-size: 14px; }
+    .news-wrap .news-header .text-right {
+      display: inline-block; }
+      .news-wrap .news-header .text-right .year-wrap {
+        display: inline; }
+        .news-wrap .news-header .text-right .year-wrap h3 {
+          display: inline; }
+        .news-wrap .news-header .text-right .year-wrap p {
+          display: inline;
+          font-family: sectra, sans-serif; }
+      .news-wrap .news-header .text-right .active {
+        color: #999999; }
+      .news-wrap .news-header .text-right h3 {
+        line-height: 100px;
+        display: inline-block;
+        margin: 0.5em;
+        font-family: sectra, sans-serif; }
+  .news-wrap .year-wrap {
+    margin: 100px 0; }
