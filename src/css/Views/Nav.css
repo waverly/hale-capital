@@ -354,6 +354,14 @@ table {
   .nav-wrap.home a,
   .nav-wrap.home p {
     color: white; }
+  .nav-wrap.home svg .background {
+    fill: white; }
+  .nav-wrap.home svg .sidebar-left {
+    fill: #001938; }
+  .nav-wrap.home svg .sidebar-right {
+    fill: #001938; }
+  .nav-wrap.home svg .center {
+    fill: #001938; }
 
 .nav-wrap {
   position: fixed;

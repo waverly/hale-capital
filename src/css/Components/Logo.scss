@@ -1,0 +1,39 @@
+@import "../variables";
+
+svg {
+  .background {
+    fill: $darkblue;
+  }
+
+  .sidebar-left {
+    transform: translateY(-100px);
+    transition: all 2s;
+  }
+
+  .sidebar-right {
+    transform: translateY(100px);
+    transition: all 2s;
+  }
+
+  .center {
+    transform: translateX(-100px);
+    transition: all 2s;
+  }
+}
+
+svg.animate {
+  .sidebar-left {
+    transform: translateY(0px);
+    transition: all 2s;
+  }
+  .sidebar-right {
+    transform: translateY(0px);
+    transition: all 2s;
+  }
+
+  .center {
+    transform: translateX(0px);
+    // width: 100%;
+    transition: all 2s;
+  }
+}

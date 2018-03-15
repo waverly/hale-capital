@@ -10,6 +10,22 @@
   p {
     color: white;
   }
+  svg {
+    .background {
+      fill: white;
+    }
+    .sidebar-left {
+      fill: $darkblue;
+    }
+
+    .sidebar-right {
+      fill: $darkblue;
+    }
+
+    .center {
+      fill: $darkblue;
+    }
+  }
 }
 
 .nav-wrap {

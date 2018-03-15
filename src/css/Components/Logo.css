@@ -1,0 +1,42 @@
+/*....................................SCSS VARIABLES..................................*/
+@font-face {
+  font-family: fabrique;
+  src: url(./../../assets/fonts/lafabrique-heavy.ttf); }
+
+@font-face {
+  font-family: sectra;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: sectra-italic;
+  src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+  font-weight: 400; }
+
+/*....................................................................................*/
+svg .background {
+  fill: #001938; }
+
+svg .sidebar-left {
+  transform: translateY(-100px);
+  transition: all 2s; }
+
+svg .sidebar-right {
+  transform: translateY(100px);
+  transition: all 2s; }
+
+svg .center {
+  transform: translateX(-100px);
+  transition: all 2s; }
+
+svg.animate .sidebar-left {
+  transform: translateY(0px);
+  transition: all 2s; }
+
+svg.animate .sidebar-right {
+  transform: translateY(0px);
+  transition: all 2s; }
+
+svg.animate .center {
+  transform: translateX(0px);
+  transition: all 2s; }

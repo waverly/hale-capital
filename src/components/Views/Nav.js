@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../Components/Arrow";
+import Logo from "../Components/Logo";
 
 import "./../../css/Views/Nav.css";
 
@@ -12,7 +13,8 @@ class Nav extends React.Component {
 
     this.state = {
       active: false,
-      arrowdown: true
+      arrowdown: true,
+      logoClass: "test"
     };
   }
 
@@ -24,6 +26,10 @@ class Nav extends React.Component {
     this.setState({ arrowdown: !this.state.arrowdown });
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setState({ logoClass: "animate" }), 800);
+  }
+
   render() {
     const path = this.props.location.pathname;
 
@@ -31,7 +37,8 @@ class Nav extends React.Component {
       <div className={path === "/" ? "nav-wrap home" : "nav-wrap"}>
         <div className="logo">
           <div className="logomark">
-            <img src="./../assets/imgs/logo.png" alt="" />
+            <Logo class={this.state.logoClass} />
+            {/* <img src="./../assets/imgs/logo.png" alt="" /> */}
           </div>
           <Link className="textmark" to="/">
             <p className="name-p">Hale Capital Partners</p>
