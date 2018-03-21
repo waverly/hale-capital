@@ -23,11 +23,15 @@ class App extends Component {
   constructor() {
     super();
 
+    this.previous = this.previous.bind(this);
+    this.next = this.next.bind(this);
+    this.processSlides = this.processSlides.bind(this);
     this.handleData = this.handleData.bind(this);
     this.handleHighlight = this.handleHighlight.bind(this);
-    this.renderPortfolioState = this.renderPortfolioState.bind(this);
 
-    this.state = {};
+    this.state = {
+      activeSlide: 0
+    };
   }
 
   componentDidMount() {
@@ -63,8 +67,6 @@ class App extends Component {
     return { __html: phrase };
   }
 
-  renderPortfolioState() {}
-
   handleData(data) {
     let news = [];
     let companies = [];
@@ -81,6 +83,40 @@ class App extends Component {
       } else {
         this.setState({ [type]: d });
       }
+    });
+    this.processSlides(this.state.home);
+  }
+
+  processSlides(data) {
+    console.log("in process slides");
+    // get to the body (slice zone) of data
+    const rawSlides = data.data.body;
+    let slides = [];
+    if (rawSlides) {
+      // rawSlides.map((s, i) => slides.push(s.items.primary.url));
+      rawSlides.map((s, i) => slides.push(s.primary.image.url));
+    }
+    console.log(slides);
+    this.setState({ slides });
+  }
+
+  next() {
+    const activeSlide =
+      this.state.activeSlide === this.state.slides.length - 1
+        ? 0
+        : this.state.activeSlide + 1;
+    this.setState({
+      activeSlide
+    });
+  }
+
+  previous() {
+    const activeSlide =
+      this.state.activeSlide === 0
+        ? this.state.slides.length - 1
+        : this.state.activeSlide - 1;
+    this.setState({
+      activeSlide
     });
   }
 
@@ -102,7 +138,15 @@ class App extends Component {
                   <Route
                     exact
                     path="/"
-                    render={props => <Home data={this.state.home} />}
+                    render={props => (
+                      <Home
+                        data={this.state.home}
+                        next={this.next}
+                        previous={this.previous}
+                        activeSlide={this.state.activeSlide}
+                        slides={this.state.slides}
+                      />
+                    )}
                   />
                   <Route
                     exact
