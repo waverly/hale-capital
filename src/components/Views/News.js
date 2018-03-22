@@ -48,7 +48,9 @@ class News extends React.Component {
             {/* loop throuh data and display all dates */}
             {years.map((y, i) => (
               <div className="year-wrap" key={i}>
-                <h3 className="year-item">{y}</h3>
+                <a href={"#" + y}>
+                  <h3 className="year-item">{y}</h3>
+                </a>
                 <p
                   className={
                     years.indexOf(y) === years.length - 1
@@ -56,8 +58,7 @@ class News extends React.Component {
                       : "display-block"
                   }
                 >
-                  {" "}
-                  /{" "}
+                  /
                 </p>
               </div>
             ))}
@@ -66,20 +67,16 @@ class News extends React.Component {
         {/* start news entries */}
         <div className="entries">
           {years.map((y, i) => {
-            // let markup =
-            //
-            // this.props.data.map((d, i)=> {
-            //   if d
-            // })
-
             return (
-              <div className="year-wrap" key={i}>
+              <div id={y} className="year-wrap" key={i}>
                 <h3>{y}</h3>
-                {this.props.data.map((n, i) => {
-                  if (parseInt(n.data.date.slice(0, 4)) === y) {
-                    return <NewsItem key={i} item={n} />;
-                  }
-                })}
+                <div className="news-items">
+                  {this.props.data.map((n, i) => {
+                    if (parseInt(n.data.date.slice(0, 4)) === y) {
+                      return <NewsItem key={i} item={n} />;
+                    }
+                  })}
+                </div>
               </div>
             );
           })}

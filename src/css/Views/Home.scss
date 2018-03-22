@@ -1,10 +1,7 @@
 @import "../variables";
 
 .wrapper {
-  // background: #ddd;
   display: inline-block;
-  // padding: 10px;
-  // height: 20px;
   width: auto;
 }
 
@@ -28,16 +25,8 @@
 .contents .inner {
   background: $cream;
   overflow: hidden;
-  // -webkit-transition: width 1s ease-in-out;
-  // -moz-transition: width 1s ease-in-out;
-  // -o-transition: width 1s ease-in-out;
-  // transition: width 1s ease-in-out;
   animation: 1.8s ease-out 0s 1 widthAnim;
 }
-
-// .wrapper:hover .contents .inner {
-//   width: 100%;
-// }
 
 @keyframes widthAnim {
   0% {
@@ -100,6 +89,38 @@
       width: 100%;
       height: 100%;
       position: absolute;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .home-wrap {
+    padding: $margin-sides-mobile;
+    padding-top: $nav-height;
+    align-items: flex-start;
+
+    .tagline {
+      width: 100%;
+      h1 {
+        font-size: 80px;
+        line-height: 105px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .home-wrap {
+    padding: $margin-sides-mobile;
+    padding-top: $nav-height;
+    align-items: flex-start;
+
+    .tagline {
+      width: 100%;
+      h1 {
+        font-size: 55px;
+        line-height: 75px;
+      }
     }
   }
 }

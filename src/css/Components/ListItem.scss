@@ -1,7 +1,19 @@
 @import "../variables";
 
 .list-item {
-  width: 45%;
+  width: 50%;
   margin-top: $margin-sides;
   z-index: 3;
+}
+
+@media screen and (max-width: 1000px) {
+  .list-wrap {
+    width: 100%;
+    margin: 0;
+    padding: $margin-sides-mobile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

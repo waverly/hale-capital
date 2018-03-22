@@ -1,7 +1,7 @@
 @import "../variables";
 
 .news-wrap {
-  padding-left: $margin-sides;
+  padding: 0 $margin-sides;
   margin-bottom: 100px;
   .news-header {
     display: flex;
@@ -41,5 +41,20 @@
   }
   .year-wrap {
     margin: 100px 0;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .news-wrap {
+    width: 100vw !important;
+    padding: 0 $margin-sides-mobile;
+
+    .news-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .year-wrap {
+      margin-top: $margin-sides;
+    }
   }
 }

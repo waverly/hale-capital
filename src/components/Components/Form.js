@@ -56,7 +56,12 @@ class Form extends React.Component {
 
           <button type="submit">Submit now</button>
         </form>
-        <BlueBox left="0" top="0" width="100%" height="100%" />
+        <BlueBox
+          left="0"
+          top="0"
+          width={this.props.width < 1000 ? "98%" : "120%"}
+          height="100%"
+        />
       </div>
     );
   }

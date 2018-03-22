@@ -21,3 +21,18 @@
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .page-header {
+    padding-left: $margin-sides-mobile;
+    height: 150px;
+
+    .header-info {
+      .title {
+        h1 {
+          line-height: 65px;
+        }
+      }
+    }
+  }
+}

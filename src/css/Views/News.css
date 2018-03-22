@@ -15,7 +15,7 @@
 
 /*....................................................................................*/
 .news-wrap {
-  padding-left: 50px;
+  padding: 0 50px;
   margin-bottom: 100px; }
   .news-wrap .news-header {
     display: flex;
@@ -44,3 +44,13 @@
         font-family: sectra, sans-serif; }
   .news-wrap .year-wrap {
     margin: 100px 0; }
+
+@media screen and (max-width: 675px) {
+  .news-wrap {
+    width: 100vw !important;
+    padding: 0 25px; }
+    .news-wrap .news-header {
+      align-items: flex-start;
+      flex-direction: column; }
+    .news-wrap .year-wrap {
+      margin-top: 50px; } }

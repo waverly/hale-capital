@@ -32,7 +32,7 @@ class Testimonial extends React.Component {
     return (
       <div className="testimonial">
         <div className="inner-wrap">
-          <div className="quote-icon" />
+          <div className="quote-icon">"</div>
           <div className="text-wrap">
             <p className="serif">{root.quote["0"].text}</p>
             &#8212;
@@ -42,7 +42,12 @@ class Testimonial extends React.Component {
             />
           </div>
         </div>
-        <BlueBox width="250px" height="250px" left="-50px" top="-75px" />
+        <BlueBox
+          left={this.props.width < 1000 ? "0%" : "-50px%"}
+          top={this.props.width < 1000 ? "0%" : "-75px%"}
+          width={this.props.width < 1000 ? "250px" : "250px"}
+          height={this.props.width < 1000 ? "250px" : "250px"}
+        />
       </div>
     );
   }

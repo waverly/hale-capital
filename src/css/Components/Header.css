@@ -28,3 +28,10 @@
       font-size: 14px; }
     .page-header .header-info .title h1 {
       color: white; }
+
+@media screen and (max-width: 1000px) {
+  .page-header {
+    padding-left: 25px;
+    height: 150px; }
+    .page-header .header-info .title h1 {
+      line-height: 65px; } }

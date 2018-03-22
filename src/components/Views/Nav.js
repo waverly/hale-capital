@@ -10,20 +10,32 @@ class Nav extends React.Component {
     super(props);
 
     this.arrowToggle = this.arrowToggle.bind(this);
+    this.clickToggle = this.clickToggle.bind(this);
+    this.mobileMenuToggle = this.mobileMenuToggle.bind(this);
 
     this.state = {
       active: false,
       arrowdown: true,
-      logoClass: "test"
+      logoClass: "test",
+      mobileMenuExpanded: false,
+      width: 0,
+      height: 0
     };
   }
 
   clickToggle() {
     this.setState({ active: !this.state.active });
+    this.setState({ arrowdown: !this.state.arrowdown });
   }
 
   arrowToggle() {
-    this.setState({ arrowdown: !this.state.arrowdown });
+    if (this.state.width > 999) {
+      this.setState({ arrowdown: !this.state.arrowdown });
+    }
+  }
+
+  mobileMenuToggle() {
+    this.setState({ mobileMenuExpanded: !this.state.mobileMenuExpanded });
   }
 
   componentDidMount() {
@@ -34,9 +46,19 @@ class Nav extends React.Component {
     const path = this.props.location.pathname;
 
     return (
-      <div className={path === "/" ? "nav-wrap home" : "nav-wrap"}>
+      <div
+        className={
+          path === "/"
+            ? this.state.mobileMenuExpanded
+              ? "nav-wrap home mobile-expanded"
+              : "nav-wrap home"
+            : this.state.mobileMenuExpanded
+              ? "nav-wrap mobile-expanded"
+              : "nav-wrap"
+        }
+      >
         <div className="logo">
-          <div className="logomark">
+          <div className="logomark" onClick={this.mobileMenuToggle}>
             <Logo class={this.state.logoClass} />
             {/* <img src="./../assets/imgs/logo.png" alt="" /> */}
           </div>
@@ -57,12 +79,13 @@ class Nav extends React.Component {
           </Link>
 
           <div
-            className={"nav-item " + (this.state.active ? "expanded" : "")}
+            className={"nav-item" + (this.state.active ? " expanded" : "")}
             onMouseEnter={this.arrowToggle}
             onMouseLeave={this.arrowToggle}
+            onClick={this.clickToggle}
           >
-            <div className="index sans-serif">02</div>
-            <div className="item-title">
+            <div className="index sans-serif expandable">02</div>
+            <div className="item-title expandable">
               Investment Strategies
               <Arrow
                 direction={this.state.arrowdown ? "down" : "up"}

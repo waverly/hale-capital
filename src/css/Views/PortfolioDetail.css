@@ -43,3 +43,19 @@
       width: 50%; }
       .portfolio-detail-wrap .inner-wrap .right img {
         max-width: 100%; }
+
+@media screen and (max-width: 1100px) {
+  .portfolio-detail-wrap {
+    padding: 25px; }
+    .portfolio-detail-wrap .inner-wrap {
+      width: 100%;
+      flex-direction: column; }
+      .portfolio-detail-wrap .inner-wrap .left {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 50px; }
+        .portfolio-detail-wrap .inner-wrap .left img {
+          margin: auto;
+          display: block; }
+      .portfolio-detail-wrap .inner-wrap .right {
+        width: 100%; } }

@@ -26,7 +26,7 @@ class ContactUs extends React.Component {
             </div>
           </div>
           <div className="right-col">
-            <Form />
+            <Form width={this.props.width} height={this.props.height} />
           </div>
         </div>
 

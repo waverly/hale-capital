@@ -28,8 +28,10 @@
   .footer-wrap .left {
     align-self: flex-start;
     display: inline-flex;
-    width: 35vw;
-    justify-content: space-between; }
+    width: 50vw;
+    justify-content: flex-start; }
+    .footer-wrap .left .address {
+      margin-right: 50px; }
     .footer-wrap .left .sub-left {
       width: 200px; }
       .footer-wrap .left .sub-left a {
@@ -37,6 +39,16 @@
   .footer-wrap .right {
     align-self: start;
     display: inline-flex; }
-  .footer-wrap a, .footer-wrap p {
+  .footer-wrap a,
+  .footer-wrap p {
     color: #ffffff;
     font-size: 14px; }
+
+@media screen and (max-width: 675px) {
+  .footer-wrap {
+    padding: 25px;
+    flex-direction: column; }
+    .footer-wrap .left {
+      flex-direction: column; }
+      .footer-wrap .left .sub-left {
+        margin: 25px 0; } }

@@ -23,7 +23,7 @@ class SpanLetter extends React.Component {
       <span
         style={{
           opacity: this.state.opacity,
-          transition: "all 2s"
+          transition: "opacity 2s"
         }}
       >
         {this.props.letter}

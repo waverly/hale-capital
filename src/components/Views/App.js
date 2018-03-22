@@ -28,13 +28,23 @@ class App extends Component {
     this.processSlides = this.processSlides.bind(this);
     this.handleData = this.handleData.bind(this);
     this.handleHighlight = this.handleHighlight.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 
     this.state = {
-      activeSlide: 0
+      activeSlide: 0,
+      width: 0,
+      height: 0
     };
   }
 
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+
     Prismic.api(apiEndpoint).then(api => {
       console.log("inside of prismic api");
       api
@@ -49,6 +59,10 @@ class App extends Component {
     // end of api
   }
   // end of didmount
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
 
   handleHighlight(text) {
     let phrase = text.text;
@@ -133,7 +147,11 @@ class App extends Component {
               transitionLeaveTimeout={1000}
             >
               <div key={location.pathname}>
-                <Nav location={location} />
+                <Nav
+                  location={location}
+                  width={this.state.width}
+                  height={this.state.height}
+                />
                 <Switch location={location}>
                   <Route
                     exact
@@ -155,6 +173,8 @@ class App extends Component {
                       <WhatWeDo
                         data={this.state.whatwedo}
                         handleHighlight={text => this.handleHighlight(text)}
+                        width={this.state.width}
+                        height={this.state.height}
                       />
                     )}
                   />
@@ -162,14 +182,22 @@ class App extends Component {
                     exact
                     path="/direct-lending"
                     render={props => (
-                      <DirectLending data={this.state.directlending} />
+                      <DirectLending
+                        data={this.state.directlending}
+                        width={this.state.width}
+                        height={this.state.height}
+                      />
                     )}
                   />
                   <Route
                     exact
                     path="/private-equity"
                     render={props => (
-                      <PrivateEquity data={this.state.privateequity} />
+                      <PrivateEquity
+                        data={this.state.privateequity}
+                        width={this.state.width}
+                        height={this.state.height}
+                      />
                     )}
                   />
                   <Route
@@ -179,6 +207,8 @@ class App extends Component {
                       <Portfolio
                         data={this.state.portfolio}
                         companies={this.state.companies}
+                        width={this.state.width}
+                        height={this.state.height}
                       />
                     )}
                   />
@@ -199,12 +229,7 @@ class App extends Component {
                   <Route
                     exact
                     path="/news"
-                    render={props => (
-                      <News
-                        data={this.state.news}
-                        // handleIndexClick={this.handleIndexClick}
-                      />
-                    )}
+                    render={props => <News data={this.state.news} />}
                   />
                   <Route
                     exact
@@ -222,7 +247,8 @@ class App extends Component {
                     render={props => (
                       <ContactUs
                         data={this.state.contactus}
-                        // handleIndexClick={this.handleIndexClick}
+                        width={this.state.width}
+                        height={this.state.height}
                       />
                     )}
                   />

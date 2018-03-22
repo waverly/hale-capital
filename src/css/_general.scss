@@ -191,6 +191,7 @@ highlight {
 }
 
 .paragraph {
+  margin: 2em 0;
   p {
     margin-top: 20px;
   }
@@ -224,6 +225,7 @@ highlight {
 .list-wrap {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   margin-top: $margin-sides;
 }
 
@@ -242,64 +244,10 @@ ul.list {
   position: relative;
   min-height: 100vh;
   margin-top: $nav-height;
+  margin-bottom: $nav-height;
   width: calc(100vw - 50px);
 }
 
-// plus minus icon
-// .icon {
-//   position: absolute;
-//   right: 10px;
-//   top: calc(50% - 10px);
-//   height: 20px;
-//   width: 20px;
-//
-//   .plus {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     width: 100%;
-//     height: 100%;
-//
-//     .vertical {
-//       height: 100%;
-//       width: 2px;
-//       background-color: $darkblue;
-//       position: absolute;
-//       left: calc(50% - 1px);
-//     }
-//     .horizontal {
-//       width: 100%;
-//       height: 2px;
-//       background-color: $darkblue;
-//     }
-//   }
-//
-//   .minus {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     width: 100%;
-//     height: 100%;
-//     display: none;
-//
-//     .horizontal {
-//       width: 100%;
-//       height: 2px;
-//       background-color: $darkblue;
-//     }
-//   }
-// }
-
-// .expanded {
-//   .icon {
-//     .plus {
-//       display: none;
-//     }
-//     .minus {
-//       display: flex;
-//     }
-//   }
-// }
 /*.........................MAIN............................*/
 
 table {
@@ -308,6 +256,66 @@ table {
   tr {
     td {
       vertical-align: middle;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: $font-size-h1-mobile;
+    line-height: 60px;
+  }
+
+  .section-wrap {
+    margin-top: $nav-height-mobile;
+    margin-bottom: 50px;
+    width: 100vw;
+  }
+
+  .col-wrap {
+    margin-top: $margin-sides-mobile;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .col-left {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: $margin-sides-mobile;
+
+    .paragraph {
+      margin: 0;
+
+      p {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .col-right {
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0px;
+    padding: $margin-sides-mobile;
+
+    img {
+      max-width: 100%;
+    }
+
+    .inner-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .view-investments {
+        h3 {
+          font-size: 22px;
+        }
+      }
     }
   }
 }

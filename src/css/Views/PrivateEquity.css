@@ -41,3 +41,12 @@
   margin-bottom: 150px; }
   .private-equity .transaction-wrap .section-title {
     margin-bottom: 20px; }
+
+@media screen and (max-width: 1000px) {
+  .private-equity .list-wrap {
+    margin-left: 0; }
+  .private-equity .transaction-wrap {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0px;
+    padding: 25px; } }

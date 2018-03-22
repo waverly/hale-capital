@@ -55,3 +55,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+
+@media screen and (max-width: 1100px) {
+  .portfolio-wrap {
+    padding: 25px; }
+    .portfolio-wrap .portfolio-header {
+      flex-direction: column;
+      align-items: flex-start; }
+      .portfolio-wrap .portfolio-header .text-left h1,
+      .portfolio-wrap .portfolio-header .text-right h1 {
+        line-height: 70px; }
+      .portfolio-wrap .portfolio-header .text-left h3,
+      .portfolio-wrap .portfolio-header .text-right h3 {
+        line-height: 70px; }
+    .portfolio-wrap .testimonial-wrap {
+      margin-top: 50px; }
+      .portfolio-wrap .testimonial-wrap h3 {
+        margin-top: 25px;
+        text-align: center; }
+      .portfolio-wrap .testimonial-wrap .testimonial {
+        width: 100%; } }

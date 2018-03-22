@@ -46,7 +46,12 @@ class DirectLending extends React.Component {
           {/* start list section */}
           <div className="list-wrap">
             {dl.body.map((item, index) => <ListItem key={index} item={item} />)}
-            <BlueBox left="15%" top="-5%" width="60%" height="95%" />
+            <BlueBox
+              left={this.props.width < 1000 ? "15%" : "20vw"}
+              top={this.props.width < 1000 ? "15%" : "-5%"}
+              width={this.props.width < 1000 ? "70%" : "20vw"}
+              height={this.props.width < 1000 ? "85%" : "20vw"}
+            />
           </div>
           <div className="transaction-wrap">
             <h3 className="section-title">Transaction Types</h3>

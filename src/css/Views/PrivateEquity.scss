@@ -32,3 +32,17 @@
     margin-bottom: 150px;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .private-equity {
+    .list-wrap {
+      margin-left: 0;
+    }
+    .transaction-wrap {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 0px;
+      padding: $margin-sides-mobile;
+    }
+  }
+}

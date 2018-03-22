@@ -44,7 +44,12 @@ class WhatWeDo extends React.Component {
                 <div className="list-wrap">
                   <ListItem item={wwd.body["0"]} />
 
-                  <BlueBox left="10%" top="20%" width="20vw" height="20vw" />
+                  <BlueBox
+                    left="10%"
+                    top={this.props.width < 1000 ? "18%" : "20%"}
+                    width={this.props.width < 1000 ? "80%" : "20vw"}
+                    height={this.props.width < 1000 ? "85%" : "20vw"}
+                  />
                 </div>
               </div>{" "}
               {/*  end inner wrap */}

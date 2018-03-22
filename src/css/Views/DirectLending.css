@@ -41,3 +41,15 @@
   margin-bottom: 150px; }
   .transaction-wrap .section-title {
     margin-bottom: 20px; }
+
+@media screen and (max-width: 1000px) {
+  .direct-lending .list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    margin-left: 0; }
+    .direct-lending .list-wrap .list-item {
+      width: 100%; }
+  .direct-lending .transaction-wrap {
+    margin-left: 25px; } }

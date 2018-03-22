@@ -27,27 +27,36 @@ class AboutUs extends React.Component {
           <Header index="01" title="About Us" />
 
           {/*  start column */}
+          <div className="col-wrap">
+            <div className="col-left">
+              <h3
+                className="serif description"
+                dangerouslySetInnerHTML={this.props.handleHighlight(
+                  about.tagline["0"]
+                )}
+              />
+              <div className="paragraph serif">
+                {about.description.map((p, index) => (
+                  <p
+                    key={index}
+                    dangerouslySetInnerHTML={this.props.handleHighlight(
+                      about.description[index]
+                    )}
+                  />
+                ))}
+              </div>
+            </div>
 
-          <div className="col-1">
-            <h3
-              className="serif description"
-              dangerouslySetInnerHTML={this.props.handleHighlight(
-                about.tagline["0"]
-              )}
-            />
-            <div className="col-2">
-              <img src={about.image.url} alt="" />
-              <p className="caption serif">image caption</p>
+            <div className="col-right">
+              <div className="inner-wrap">
+                <img src={about.image.url} alt="" />
+                <p className="caption serif">image caption</p>
+              </div>{" "}
+              {/*  end inner wrap */}
             </div>
-            <div className="paragraph serif">
-              {about.description.map((p, index) => (
-                <p key={index}> {p.text} </p>
-              ))}
-            </div>
+
+            {/*  end column */}
           </div>
-
-          {/*  end column */}
-
           <div className="our-team">
             <div className="inner-wrap">
               <h3>Our Team</h3>

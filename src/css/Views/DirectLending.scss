@@ -33,3 +33,22 @@
   margin-left: $margin-sides;
   margin-bottom: 150px;
 }
+
+@media screen and (max-width: 1000px) {
+  .direct-lending {
+    .list-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 50px;
+      margin-left: 0;
+
+      .list-item {
+        width: 100%;
+      }
+    }
+    .transaction-wrap {
+      margin-left: $margin-sides-mobile;
+    }
+  }
+}

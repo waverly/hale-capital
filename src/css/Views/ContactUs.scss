@@ -38,3 +38,28 @@
     min-height: 300px;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .contact-wrap {
+    padding-left: $margin-sides-mobile;
+    padding-right: $margin-sides-mobile;
+    padding-top: $margin-sides-mobile;
+    padding-bottom: $margin-sides;
+    width: 100vw;
+
+    .flex-wrap {
+      flex-direction: column;
+      width: 100%;
+      .left-col {
+        width: 100%;
+      }
+      .right-col {
+        width: 100%;
+        margin-top: $margin-sides;
+      }
+    }
+    .map {
+      margin-top: $margin-sides;
+    }
+  }
+}

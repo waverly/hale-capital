@@ -41,3 +41,12 @@
         margin-left: 0.5em;
         display: inline;
         font-family: sectra-italic, serif; }
+
+@media screen and (max-width: 675px) {
+  .testimonial {
+    margin-top: 75px; }
+    .testimonial .inner-wrap .quote-icon {
+      font-size: 80px;
+      height: 40px; }
+    .testimonial .inner-wrap .text-wrap {
+      margin-top: -20px; } }

@@ -20,6 +20,7 @@
 
 // ........................................................ELEMENTS
 $nav-height: 150px;
+$nav-height-mobile: 125px;
 
 // ........................................................FONT WEIGHTS
 $font-weight-light: 300;
@@ -46,7 +47,7 @@ $font-size-small: 14px;
 $font-size-h1-mobile: 45px;
 $font-size-h2-mobile: 38px;
 $font-size-h3-mobile: 25px;
-$font-size-p-mobile: 12px;
+$font-size-p-mobile: 18px;
 
 // ........................................................FONT FAMILIES
 $font-family-h1: sectra, sans-serif;
@@ -64,7 +65,7 @@ $serif-italic: sectra-italic, serif;
 // ........................................................FONT LINEHEIGHTS
 $line-height-h1: 100px;
 $line-height-h2: 70px;
-$line-height-h3: 60px;
+$line-height-h3: 50px;
 $line-height-p: 26px;
 //
 // $line-height-h1: 90px;
@@ -75,7 +76,7 @@ $line-height-p: 26px;
 $line-height-h1-mobile: 55px;
 $line-height-h2-mobile: 42px;
 $line-height-h3-mobile: 30px;
-$line-height-p-mobile: 17px;
+$line-height-p-mobile: 24px;
 
 $letter-spacing: 1px;
 $letter-spacing-h1: 2px;
@@ -104,6 +105,8 @@ $margin-sides-mobile: 10px;
 $margin-left-paragraph: 5px;
 $margin-top-li: 100px;
 $margin-top-p: 20px;
+
+$margin-sides-mobile: 25px;
 
 // ........................................................TRANSITION TIMINGS
 $transition-extreme-slow: 1.4s;

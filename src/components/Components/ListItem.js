@@ -5,7 +5,6 @@ const ListItem = props => {
   const root = props.item;
   const title = root.primary.listtitle["0"].text;
   const lis = root.items;
-  console.log(lis);
   return (
     <div className="list-item">
       <h3 className="title">{title}</h3>

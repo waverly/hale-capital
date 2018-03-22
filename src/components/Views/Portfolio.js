@@ -75,7 +75,12 @@ class Portfolio extends React.Component {
             <h3>Testimonials</h3>
             <h3 className="serif">Words from a selection of our partners</h3>
             {d.testimonial.map((c, index) => (
-              <Testimonial key={index} data={c} />
+              <Testimonial
+                width={this.props.width}
+                height={this.props.height}
+                key={index}
+                data={c}
+              />
             ))}
           </div>
         </div>
