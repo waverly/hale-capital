@@ -1,13 +1,9 @@
 @import "../variables";
 
-.nav-wrap {
-  // background-color: white;
-  // transition: background-color 2s;
-}
-
 .contact-wrap {
   padding-left: $margin-sides;
   padding-top: $margin-sides;
+  overflow: hidden;
   padding-bottom: 100px;
   .flex-wrap {
     display: flex;

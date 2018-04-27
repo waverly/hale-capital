@@ -15,7 +15,8 @@
 
 /*....................................................................................*/
 .portfolio-wrap {
-  padding: 50px; }
+  padding: 50px;
+  overflow: hidden; }
   .portfolio-wrap bold {
     font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
   .portfolio-wrap .grey {

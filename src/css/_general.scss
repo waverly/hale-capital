@@ -3,6 +3,15 @@
 
 /*....................................General settings..................................*/
 
+.body-wrap{
+  opacity: 0;
+}
+
+.fadeIn{
+  opacity: 1;
+  transition: .5s all;
+}
+
 /*.....................TEXT MARK STYLES......................*/
 
 ::-moz-selection {
@@ -138,6 +147,10 @@ h3 {
   @include h3();
 }
 
+h4{
+  @include h4();
+}
+
 .sans-serif {
   font-family: $sans-serif !important;
 }
@@ -157,6 +170,7 @@ h3 {
 span.highlight {
   background-color: $cream;
   color: $midgrey !important;
+  padding: 0 10px;
 }
 
 highlight {
@@ -184,7 +198,7 @@ highlight {
 }
 
 .col-left {
-  width: 45%;
+  width: 50%;
   display: inline-block;
   position: relative;
   padding: $margin-sides;
@@ -222,6 +236,12 @@ highlight {
   }
 }
 
+.view-investments {
+  h3 {
+    font-size: 32px;
+  }
+}
+
 .list-wrap {
   position: relative;
   display: flex;
@@ -244,7 +264,7 @@ ul.list {
   position: relative;
   min-height: 100vh;
   margin-top: $nav-height;
-  margin-bottom: $nav-height;
+  margin-bottom: $margin-sides;
   width: calc(100vw - 50px);
 }
 
@@ -264,6 +284,11 @@ table {
   h1 {
     font-size: $font-size-h1-mobile;
     line-height: 60px;
+  }
+
+  h3 {
+    font-size: $font-size-h3-mobile;
+    line-height: 30px;
   }
 
   .section-wrap {
@@ -314,6 +339,18 @@ table {
       .view-investments {
         h3 {
           font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .col-right {
+    .inner-wrap {
+      .view-investments {
+        h3 {
+          font-size: 18px;
         }
       }
     }

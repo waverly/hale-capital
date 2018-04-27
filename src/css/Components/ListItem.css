@@ -14,17 +14,364 @@
   font-weight: 400; }
 
 /*....................................................................................*/
-.list-item {
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+/*....................................General settings..................................*/
+.body-wrap {
+  opacity: 0; }
+
+.fadeIn {
+  opacity: 1;
+  transition: .5s all; }
+
+/*.....................TEXT MARK STYLES......................*/
+::-moz-selection {
+  background: transparent;
+  text-shadow: none; }
+
+::selection {
+  background: transparent;
+  text-shadow: none; }
+
+/*.....................ACTIVE CLASSES......................*/
+.active {
+  opacity: 1; }
+
+.blacked_text {
+  color: #ffffff; }
+
+.blacked_path {
+  fill: #ffffff; }
+
+.blacked_background {
+  background-color: #000000; }
+
+/*....................HIDING SCROLLBAR.....................*/
+::-webkit-scrollbar {
+  display: none; }
+
+* {
+  -webkit-overflow-scrolling: touch; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  outline: 0; }
+
+/*.....................GENERAL STYLES......................*/
+.display-none {
+  display: none !important; }
+
+.display-block {
+  display: block; }
+
+html {
+  font-family: helvetica;
+  width: 100%;
+  margin: 0, 0;
+  padding: 0, 0;
+  box-sizing: border-box;
+  background-color: transparent; }
+
+body {
+  width: 100vw;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: block;
+  position: relative;
+  background: #ffffff;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400; }
+
+p,
+a,
+li {
+  font-size: 16px;
+  list-style-type: none;
+  letter-spacing: 1px;
+  color: #444444; }
+
+h1,
+h2,
+h3 {
+  color: #444444; }
+
+input,
+textarea,
+select,
+a,
+li {
+  text-decoration: none; }
+
+a {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  a:active {
+    color: #999999; }
+  a:hover {
+    color: #999999; }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    a {
+      font-size: 14px;
+      line-height: 24px; } }
+
+.a-hover {
+  color: #000000;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  .a-hover:hover {
+    color: #999999;
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/
+    /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      .a-hover:hover {
+        color: #000000 !important; } }
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    p {
+      font-size: 14px;
+      line-height: 24px; } }
+
+h1 {
+  font-size: 58px;
+  line-height: 100px;
+  font-family: sectra, sans-serif;
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h1 {
+      font-size: 36px; } }
+
+h2 {
+  font-size: 52px;
+  line-height: 46px;
+  font-family: sectra, sans-serif;
+  letter-spacing: 0px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h2 {
+      font-size: 30px;
+      line-height: 42px; } }
+
+h3 {
+  font-size: 30px;
+  line-height: 40px;
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h3 {
+      font-size: 22px;
+      line-height: 30px; } }
+
+h4 {
+  font-size: 22px;
+  line-height: 28px;
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h4 {
+      font-size: 16px;
+      line-height: 22px; } }
+
+.sans-serif {
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
+
+.serif {
+  font-family: sectra, sans-serif !important; }
+  .serif p {
+    font-family: sectra, sans-serif !important; }
+
+.serif-italic {
+  font-family: sectra-italic, serif; }
+
+span.highlight {
+  background-color: #fffade;
+  color: #444444 !important;
+  padding: 0 10px; }
+
+highlight {
+  display: inline;
+  background-color: #fffade;
+  color: #444444 !important; }
+
+.pop {
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  z-index: 14;
+  border-top: 1px solid black;
+  background: rgba(255, 255, 255, 0.2); }
+
+.col-wrap {
+  display: flex;
+  justify-content: space-between; }
+
+.col-left {
   width: 50%;
-  margin-top: 50px;
+  display: inline-block;
+  position: relative;
+  padding: 50px; }
+
+.paragraph {
+  margin: 2em 0; }
+  .paragraph p {
+    margin-top: 20px; }
+
+.col-right {
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  top: -150px; }
+  .col-right img {
+    max-width: 100%; }
+  .col-right .inner-wrap {
+    width: 100%;
+    top: 0px; }
+    .col-right .inner-wrap img {
+      max-width: 100%; }
+    .col-right .inner-wrap .caption {
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 40px; }
+
+.view-investments h3 {
+  font-size: 32px; }
+
+.list-wrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px; }
+
+ul.list {
+  position: relative;
   z-index: 3; }
+  ul.list li {
+    font-size: 30px;
+    line-height: 40px;
+    font-family: sectra, sans-serif; }
+
+.section-wrap {
+  font: 16px / 1 Arial;
+  position: relative;
+  min-height: 100vh;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  width: calc(100vw - 50px); }
+
+/*.........................MAIN............................*/
+table {
+  width: 100vw;
+  height: 100vh; }
+  table tr td {
+    vertical-align: middle; }
 
 @media screen and (max-width: 1000px) {
-  .list-wrap {
+  h1 {
+    font-size: 36px;
+    line-height: 60px; }
+  h3 {
+    font-size: 22px;
+    line-height: 30px; }
+  .section-wrap {
+    margin-top: 125px;
+    margin-bottom: 50px;
+    width: 100vw; }
+  .col-wrap {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; }
+  .col-left {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 25px; }
+    .col-left .paragraph {
+      margin: 0; }
+      .col-left .paragraph p {
+        margin-top: 20px; }
+  .col-right {
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0px;
+    padding: 25px; }
+    .col-right img {
+      max-width: 100%; }
+    .col-right .inner-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .col-right .inner-wrap .view-investments h3 {
+        font-size: 22px; } }
+
+@media screen and (max-width: 675px) {
+  .col-right .inner-wrap .view-investments h3 {
+    font-size: 18px; } }
+
+.list-item {
+  width: 100%;
+  margin-top: 50px;
+  z-index: 3; }
+  .list-item h4 {
+    margin: 15px 0; }
+
+@media screen and (max-width: 1000px) {
+  .list-item {
     width: 100%;
     margin: 0;
     padding: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center; } }
+    align-items: flex-start;
+    justify-content: center; }
+    .list-item h4 {
+      margin: 5px 0; } }

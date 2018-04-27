@@ -19,14 +19,22 @@
 
 .our-team {
   width: 100vw;
-  padding: 10vw;
+  padding: 50px;
   min-height: 50vh;
   position: relative;
   text-align: center;
   display: flex;
   justify-content: center; }
   .our-team .inner-wrap {
-    width: 80%; }
+    width: 100%; }
+    .our-team .inner-wrap .our-team-tagline {
+      max-width: 60%;
+      margin-left: 20%; }
+    .our-team .inner-wrap .active {
+      color: #999999; }
+    .our-team .inner-wrap h3:first-of-type {
+      width: 100%;
+      margin-bottom: 10px; }
     .our-team .inner-wrap .bio-section {
       width: 100%;
       position: relative;
@@ -36,7 +44,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: relative; }
+    position: relative;
+    margin-top: 50px; }
 
 .col-1 {
   column-count: 2;
@@ -54,3 +63,8 @@
   padding: 50px 0 50px 50px; }
   .col-2 img {
     max-width: 100%; }
+
+@media screen and (max-width: 1000px) {
+  .our-team .inner-wrap .our-team-tagline {
+    max-width: 100%;
+    margin-left: 0%; } }

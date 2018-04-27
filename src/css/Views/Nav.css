@@ -66,6 +66,13 @@ table {
 /*$break-infinite: 500000px;*/
 /*....................................SCSS MIXINS..................................*/
 /*....................................General settings..................................*/
+.body-wrap {
+  opacity: 0; }
+
+.fadeIn {
+  opacity: 1;
+  transition: .5s all; }
+
 /*.....................TEXT MARK STYLES......................*/
 ::-moz-selection {
   background: transparent;
@@ -130,7 +137,7 @@ body {
 p,
 a,
 li {
-  font-size: 21px;
+  font-size: 16px;
   list-style-type: none;
   letter-spacing: 1px;
   color: #444444; }
@@ -149,8 +156,8 @@ li {
 
 a {
   cursor: pointer;
-  font-size: 21px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   letter-spacing: 1px;
   /*  @if $media == large-desktop {
@@ -162,7 +169,7 @@ a {
     color: #999999; }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     a {
-      font-size: 18px;
+      font-size: 14px;
       line-height: 24px; } }
 
 .a-hover {
@@ -194,8 +201,8 @@ a {
         color: #000000 !important; } }
 
 p {
-  font-size: 21px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   letter-spacing: 1px;
   /*  @if $media == large-desktop {
@@ -203,11 +210,11 @@ p {
   }*/ }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     p {
-      font-size: 18px;
+      font-size: 14px;
       line-height: 24px; } }
 
 h1 {
-  font-size: 72px;
+  font-size: 58px;
   line-height: 100px;
   font-family: sectra, sans-serif;
   letter-spacing: 2px;
@@ -216,11 +223,11 @@ h1 {
   }*/ }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     h1 {
-      font-size: 45px; } }
+      font-size: 36px; } }
 
 h2 {
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 52px;
+  line-height: 46px;
   font-family: sectra, sans-serif;
   letter-spacing: 0px;
   /*  @if $media == large-desktop {
@@ -228,12 +235,12 @@ h2 {
   }*/ }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     h2 {
-      font-size: 38px;
+      font-size: 30px;
       line-height: 42px; } }
 
 h3 {
-  font-size: 36px;
-  line-height: 50px;
+  font-size: 30px;
+  line-height: 40px;
   font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   letter-spacing: 1px;
   /*  @if $media == large-desktop {
@@ -241,8 +248,21 @@ h3 {
   }*/ }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     h3 {
-      font-size: 25px;
+      font-size: 22px;
       line-height: 30px; } }
+
+h4 {
+  font-size: 22px;
+  line-height: 28px;
+  font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  /*  @if $media == large-desktop {
+    @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+  }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h4 {
+      font-size: 16px;
+      line-height: 22px; } }
 
 .sans-serif {
   font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
@@ -257,7 +277,8 @@ h3 {
 
 span.highlight {
   background-color: #fffade;
-  color: #444444 !important; }
+  color: #444444 !important;
+  padding: 0 10px; }
 
 highlight {
   display: inline;
@@ -279,7 +300,7 @@ highlight {
   justify-content: space-between; }
 
 .col-left {
-  width: 45%;
+  width: 50%;
   display: inline-block;
   position: relative;
   padding: 50px; }
@@ -304,7 +325,10 @@ highlight {
     .col-right .inner-wrap .caption {
       text-transform: uppercase;
       font-size: 14px;
-      line-height: 50px; }
+      line-height: 40px; }
+
+.view-investments h3 {
+  font-size: 32px; }
 
 .list-wrap {
   position: relative;
@@ -316,8 +340,8 @@ ul.list {
   position: relative;
   z-index: 3; }
   ul.list li {
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 40px;
     font-family: sectra, sans-serif; }
 
 .section-wrap {
@@ -325,7 +349,7 @@ ul.list {
   position: relative;
   min-height: 100vh;
   margin-top: 150px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   width: calc(100vw - 50px); }
 
 /*.........................MAIN............................*/
@@ -337,8 +361,11 @@ table {
 
 @media screen and (max-width: 1000px) {
   h1 {
-    font-size: 45px;
+    font-size: 36px;
     line-height: 60px; }
+  h3 {
+    font-size: 22px;
+    line-height: 30px; }
   .section-wrap {
     margin-top: 125px;
     margin-bottom: 50px;
@@ -373,6 +400,10 @@ table {
       .col-right .inner-wrap .view-investments h3 {
         font-size: 22px; } }
 
+@media screen and (max-width: 675px) {
+  .col-right .inner-wrap .view-investments h3 {
+    font-size: 18px; } }
+
 /*....................................SCSS VARIABLES..................................*/
 @font-face {
   font-family: fabrique;
@@ -389,22 +420,6 @@ table {
   font-weight: 400; }
 
 /*....................................................................................*/
-.nav-wrap.home {
-  background-color: transparent;
-  transition: background-color 2s;
-  color: white; }
-  .nav-wrap.home a,
-  .nav-wrap.home p {
-    color: white; }
-  .nav-wrap.home svg .background {
-    fill: white; }
-  .nav-wrap.home svg .sidebar-left {
-    fill: #001938; }
-  .nav-wrap.home svg .sidebar-right {
-    fill: #001938; }
-  .nav-wrap.home svg .center {
-    fill: #001938; }
-
 .nav-wrap {
   position: fixed;
   top: 0;
@@ -435,7 +450,9 @@ table {
     .nav-wrap .logo .textmark {
       display: inline-block; }
     .nav-wrap .logo .textmark {
-      margin-left: 2em; }
+      margin-left: 1em; }
+      .nav-wrap .logo .textmark p {
+        color: #001938; }
   .nav-wrap .text-wrap {
     display: flex;
     width: 70vw;
@@ -448,7 +465,10 @@ table {
     position: relative;
     line-height: 26px;
     font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    color: #001938; }
+    .nav-wrap .nav-item:active, .nav-wrap .nav-item:hover, .nav-wrap .nav-item:focus, .nav-wrap .nav-item:focus-within {
+      background-color: transparent; }
     .nav-wrap .nav-item.contact {
       width: auto; }
     .nav-wrap .nav-item .index {
@@ -499,41 +519,75 @@ table {
     text-transform: uppercase;
     font-size: 22px; }
 
+.nav-wrap.home {
+  background-color: transparent;
+  transition: background-color 2s;
+  color: white; }
+  .nav-wrap.home a,
+  .nav-wrap.home p {
+    color: white !important; }
+  .nav-wrap.home .nav-item {
+    color: white !important; }
+    .nav-wrap.home .nav-item .index {
+      color: #ff9e23; }
+    .nav-wrap.home .nav-item:hover a {
+      color: #001938 !important; }
+  .nav-wrap.home .textmark {
+    opacity: 0;
+    transform: translate(0px, 5px); }
+  .nav-wrap.home .text-wrap {
+    opacity: 0;
+    transform: translate(0px, 5px); }
+  .nav-wrap.home .navAnimate {
+    opacity: 1 !important;
+    transform: translate(0px, 0px);
+    transition-property: transform,opacity;
+    transition-duration: .4s;
+    transition-timing-function: ease-in; }
+  .nav-wrap.home svg .background {
+    fill: white; }
+  .nav-wrap.home svg .sidebar-left {
+    fill: #001938; }
+  .nav-wrap.home svg .sidebar-right {
+    fill: #001938; }
+  .nav-wrap.home svg .center {
+    fill: #001938; }
+
 @media screen and (max-width: 1250px) {
-  .nav-wrap.home {
-    color: white; }
-    .nav-wrap.home a,
-    .nav-wrap.home p,
-    .nav-wrap.home .index,
-    .nav-wrap.home .item-title {
-      color: #001938; }
   .nav-wrap {
     flex-direction: column;
     align-items: flex-start;
     padding: 25px;
+    padding-bottom: 100px;
     height: 125px;
     background-color: transparent;
-    transition: background-color 1s; }
+    transition: background-color 0.5s;
+    overflow-y: scroll; }
     .nav-wrap .logo {
       position: fixed;
       width: 100%;
       height: 75px; }
+      .nav-wrap .logo a,
       .nav-wrap .logo p {
         font-size: 18px; }
       .nav-wrap .logo .textmark {
         display: none; }
+        .nav-wrap .logo .textmark p {
+          color: #001938 !important; }
     .nav-wrap .text-wrap {
       position: relative;
       height: 100%;
       flex-direction: column;
       justify-content: flex-start;
       margin-top: 100px;
-      padding-top: 2em;
+      padding-top: 1em;
       display: none; }
     .nav-wrap .nav-item.expanded .nav-children {
       display: block !important; }
     .nav-wrap .nav-item {
       padding-left: 25px; }
+      .nav-wrap .nav-item .item-title {
+        font-size: 18px; }
       .nav-wrap .nav-item:hover .expandable {
         color: #001938; }
       .nav-wrap .nav-item:hover .nav-children a:hover {
@@ -556,11 +610,22 @@ table {
         display: inline-block; }
       .nav-wrap .nav-item:hover .up {
         display: none; }
+  .nav-wrap.home {
+    color: white; }
+    .nav-wrap.home a,
+    .nav-wrap.home p,
+    .nav-wrap.home .index,
+    .nav-wrap.home .item-title {
+      color: #001938; }
+    .nav-wrap.home .nav-item .index {
+      color: #001938; }
   .nav-wrap.mobile-expanded {
     height: 100vh;
     background-color: white;
-    transition: background-color 1s; }
+    transition: background-color 0.5s; }
     .nav-wrap.mobile-expanded .logo .textmark {
       display: block !important; }
     .nav-wrap.mobile-expanded .text-wrap {
-      display: block; } }
+      display: block;
+      width: 100%;
+      margin-bottom: 150px; } }

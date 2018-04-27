@@ -29,7 +29,8 @@
     .news-wrap .news-header .text-right {
       display: inline-block; }
       .news-wrap .news-header .text-right .year-wrap {
-        display: inline; }
+        display: inline;
+        margin: 50px 0; }
         .news-wrap .news-header .text-right .year-wrap h3 {
           display: inline; }
         .news-wrap .news-header .text-right .year-wrap p {
@@ -43,7 +44,7 @@
         margin: 0.5em;
         font-family: sectra, sans-serif; }
   .news-wrap .year-wrap {
-    margin: 100px 0; }
+    margin: 50px 0; }
 
 @media screen and (max-width: 675px) {
   .news-wrap {

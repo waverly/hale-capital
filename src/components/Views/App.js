@@ -43,6 +43,7 @@ class App extends Component {
 
   componentDidMount() {
     this.updateWindowDimensions();
+    setTimeout(() => this.setState({ navClass: "fadeIn" }), 1800);
     window.addEventListener("resize", this.updateWindowDimensions);
 
     Prismic.api(apiEndpoint).then(api => {
@@ -72,10 +73,10 @@ class App extends Component {
         let arr = phrase.split("");
         let first = i.start + counter;
         let last = i.end + 1 + counter;
-        arr.splice(first, 0, "<highlight>");
+        arr.splice(first, 0, " <highlight>");
         arr.splice(last, 1, "</highlight> ");
         phrase = arr.join("");
-        counter += 23;
+        counter += 24;
       });
     }
     return { __html: phrase };
@@ -102,15 +103,17 @@ class App extends Component {
   }
 
   processSlides(data) {
-    console.log("in process slides");
-    // get to the body (slice zone) of data
+    // retrieve the body of home post and parse it to add all media files (img and video) to state
     const rawSlides = data.data.body;
     let slides = [];
     if (rawSlides) {
-      // rawSlides.map((s, i) => slides.push(s.items.primary.url));
-      rawSlides.map((s, i) => slides.push(s.primary.image.url));
+      rawSlides.map(
+        (s, i) =>
+          s.primary.image
+            ? slides.push(s.primary.image.url)
+            : slides.push(s.primary.video.url)
+      );
     }
-    console.log(slides);
     this.setState({ slides });
   }
 
@@ -134,11 +137,13 @@ class App extends Component {
     });
   }
 
+
+
   render() {
     if (!this.state.news) return " ";
 
     return (
-      <div className="router-ex">
+      <div className={"router-ex body-wrap " + this.state.navClass}>
         <Route
           render={({ location }) => (
             <ReactCSSTransitionReplace
@@ -215,7 +220,7 @@ class App extends Component {
                   <Route
                     path="/portfolio/:name"
                     render={({ match }) => {
-                      const portfolioSlug = match.params.name;
+                      // const portfolioSlug = match.params.name;
                       let found;
                       if (Array.isArray(this.state.companies)) {
                         // console.log(this.state.companies);
@@ -253,7 +258,6 @@ class App extends Component {
                     )}
                   />
                 </Switch>
-                <Route path="/" component={Footer} />
               </div>
             </ReactCSSTransitionReplace>
           )}

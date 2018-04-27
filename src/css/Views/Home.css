@@ -34,7 +34,12 @@
 .contents .inner {
   background: #fffade;
   overflow: hidden;
-  animation: 1.8s ease-out 0s 1 widthAnim; }
+  opacity: 0; }
+
+.innerAnimate {
+  animation: 1.8s ease-out 0s 1 widthAnim;
+  opacity: 1 !important;
+  transition: opacity 1s; }
 
 @keyframes widthAnim {
   0% {
@@ -56,8 +61,13 @@
     position: relative;
     z-index: 3; }
     .home-wrap .tagline h1 {
-      font-size: 88px;
+      font-size: 72px;
       color: white; }
+  .home-wrap .taglineText {
+    opacity: 0; }
+  .home-wrap .taglineAnimate {
+    opacity: 1;
+    transition: 1s all; }
   .home-wrap .bg-fade {
     background-color: #444444;
     opacity: 0.5;
@@ -102,9 +112,10 @@
   .home-wrap {
     padding: 25px;
     padding-top: 150px;
-    align-items: flex-start; }
+    align-items: flex-start;
+    overflow: hidden; }
     .home-wrap .tagline {
       width: 100%; }
       .home-wrap .tagline h1 {
-        font-size: 55px;
-        line-height: 75px; } }
+        font-size: 45px;
+        line-height: 65px; } }

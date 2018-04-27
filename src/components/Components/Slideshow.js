@@ -4,21 +4,16 @@ import Slide from "./Slide";
 class Slideshow extends React.Component {
   constructor() {
     super();
-    this.test = this.test.bind(this);
   }
   componentDidMount() {
     this.interval = setInterval(() => {
       this.props.next();
-    }, 8000);
+    }, 7000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-
-  test = function() {
-    alert("test");
-  };
 
   render() {
     if (!this.props.slides) return " ";
@@ -39,7 +34,7 @@ class Slideshow extends React.Component {
             return (
               <Slide
                 key={s}
-                image={currentSlide}
+                media={currentSlide}
                 index={index}
                 active={index === this.props.activeSlide}
               />

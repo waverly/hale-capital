@@ -16,7 +16,9 @@ class Nav extends React.Component {
     this.state = {
       active: false,
       arrowdown: true,
-      logoClass: "test",
+      logoClass: "",
+      reinventClass: "",
+      navClass: "",
       mobileMenuExpanded: false,
       width: 0,
       height: 0
@@ -40,6 +42,7 @@ class Nav extends React.Component {
 
   componentDidMount() {
     setTimeout(() => this.setState({ logoClass: "animate" }), 800);
+    setTimeout(() => this.setState({ navClass: "navAnimate" }), 4700);
   }
 
   render() {
@@ -60,14 +63,13 @@ class Nav extends React.Component {
         <div className="logo">
           <div className="logomark" onClick={this.mobileMenuToggle}>
             <Logo class={this.state.logoClass} />
-            {/* <img src="./../assets/imgs/logo.png" alt="" /> */}
           </div>
-          <Link className="textmark" to="/">
+          <Link className={"textmark " + this.state.navClass} to="/">
             <p className="name-p">Hale Capital Partners</p>
           </Link>
         </div>
 
-        <div className="text-wrap">
+        <div className={"text-wrap " + this.state.navClass}>
           <Link
             to={`/what-we-do`}
             className={

@@ -8,7 +8,7 @@ export default props => (
     width="59.378px"
     height="70.55px"
     viewBox="0 0 59.378 70.55"
-    className={props.class}
+    className={"no-flick " + props.class}
   >
     <rect
       x="0.847"
@@ -16,7 +16,7 @@ export default props => (
       fill="#FF7CFF"
       width="58"
       height="69"
-      className="background"
+      className="no-flick background"
     />
     <rect
       x="14.749"
@@ -24,7 +24,7 @@ export default props => (
       fill="#FFFFFF"
       width="8.933"
       height="55.903"
-      className="sidebar-left"
+      className="no-flick sidebar-left"
     />
     <rect
       x="36.023"
@@ -32,15 +32,15 @@ export default props => (
       fill="#FFFFFF"
       width="8.933"
       height="56.004"
-      className="sidebar-right"
+      className="no-flick sidebar-right"
     />
     <rect
       x="23.613"
       y="31.743"
       fill="#FFFFFF"
-      width="12.585"
+      width="19.585"
       height="8.028"
-      className="center"
+      className="no-flick center"
     />
   </svg>
 );

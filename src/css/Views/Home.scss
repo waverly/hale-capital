@@ -25,7 +25,13 @@
 .contents .inner {
   background: $cream;
   overflow: hidden;
+  opacity: 0;
+}
+
+.innerAnimate{
   animation: 1.8s ease-out 0s 1 widthAnim;
+  opacity: 1!important;
+  transition: opacity 1s;
 }
 
 @keyframes widthAnim {
@@ -52,10 +58,28 @@
     position: relative;
     z-index: 3;
     h1 {
-      font-size: $font-size-xl;
+      font-size: 72px;
       color: white;
     }
   }
+
+  .taglineText {
+    opacity: 0;
+  }
+
+  .taglineAnimate {
+    opacity: 1;
+    transition: 1s all;
+  }
+
+  // .reinventClass {
+  //   opacity: 0;
+  // }
+  //
+  // .reinventAnimate {
+  //   opacity: 1;
+  //   transition: 1s all;
+  // }
 
   .bg-fade {
     background-color: $midgrey;
@@ -114,12 +138,13 @@
     padding: $margin-sides-mobile;
     padding-top: $nav-height;
     align-items: flex-start;
+    overflow: hidden;
 
     .tagline {
       width: 100%;
       h1 {
-        font-size: 55px;
-        line-height: 75px;
+        font-size: 45px;
+        line-height: 65px;
       }
     }
   }

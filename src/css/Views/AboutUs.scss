@@ -6,7 +6,7 @@
 
 .our-team {
   width: 100vw;
-  padding: 10vw;
+  padding: $margin-sides;
   min-height: 50vh;
   position: relative;
   text-align: center;
@@ -14,7 +14,20 @@
   justify-content: center;
 
   .inner-wrap {
-    width: 80%;
+    width: 100%;
+    .our-team-tagline {
+      max-width: 60%;
+      margin-left: 20%;
+    }
+    .active {
+      color: #999999;
+    }
+    h3 {
+      &:first-of-type {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
     .bio-section {
       width: 100%;
       position: relative;
@@ -28,6 +41,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
+    margin-top: $margin-sides;
   }
 }
 
@@ -51,5 +65,16 @@
   padding: 50px 0 50px 50px;
   img {
     max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .our-team {
+    .inner-wrap {
+      .our-team-tagline {
+        max-width: 100%;
+        margin-left: 0%;
+      }
+    }
   }
 }

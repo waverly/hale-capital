@@ -18,6 +18,7 @@
       display: inline-block;
       .year-wrap {
         display: inline;
+        margin: $margin-sides 0;
 
         h3 {
           display: inline;
@@ -40,7 +41,7 @@
     }
   }
   .year-wrap {
-    margin: 100px 0;
+    margin: $margin-sides 0;
   }
 }
 

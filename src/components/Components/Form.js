@@ -27,14 +27,13 @@ class Form extends React.Component {
   }
 
   render() {
-    const root = this.props.data;
     return (
       <div className="form-wrap">
         <h3>Send us a message</h3>
         <form
           onSubmit={this.handleSubmit}
           method="POST"
-          action="https://formspree.io/waverly.rose.mandel@gmail.com"
+          action="https://formspree.io/christopher@tocagency.com"
         >
           <div className="input-wrap">
             <input

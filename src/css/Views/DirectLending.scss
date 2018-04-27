@@ -17,10 +17,12 @@
     justify-content: space-between;
     padding-bottom: 50px;
     margin-bottom: 100px;
-    margin-left: $margin-sides;
+    margin-left: 100px;
+    margin-right: 100px;
 
     .list-item {
-      margin-top: $margin-sides;
+      margin-top: 0;
+      width: 45%;
     }
   }
 }
@@ -42,6 +44,7 @@
       justify-content: space-between;
       padding-bottom: 50px;
       margin-left: 0;
+      margin-right: 0;
 
       .list-item {
         width: 100%;
@@ -49,6 +52,19 @@
     }
     .transaction-wrap {
       margin-left: $margin-sides-mobile;
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .direct-lending {
+    .list-wrap {
+      margin-bottom: 50px;
+      margin-top: 0;
+      .list-item {
+        max-width: 100%;
+        margin-top: 0;
+      }
     }
   }
 }

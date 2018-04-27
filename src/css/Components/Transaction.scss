@@ -11,6 +11,7 @@
     h3 {
       font-family: $serif;
       line-height: 90px;
+      max-width: 90%
     }
   }
 
@@ -35,6 +36,12 @@
   .trans-item {
     .trans-desc.panel {
       margin-left: -$margin-sides-mobile;
+    }
+    .trans-title{
+      h3{
+        line-height: $line-height-h2-mobile;
+        margin: 10px 0;
+      }
     }
   }
 }

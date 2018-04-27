@@ -29,11 +29,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   padding-bottom: 50px;
   margin-bottom: 100px;
-  margin-left: 50px; }
+  margin-left: 100px;
+  margin-right: 100px; }
   .private-equity .list-wrap .list-item {
-    margin-top: 50px; }
+    margin-top: 0;
+    max-width: 45%; }
 
 .private-equity .transaction-wrap {
   width: calc(100% - 50px);
@@ -44,9 +47,23 @@
 
 @media screen and (max-width: 1000px) {
   .private-equity .list-wrap {
-    margin-left: 0; }
+    margin-left: 0;
+    margin-right: 0; }
+    .private-equity .list-wrap .list-item {
+      max-width: 45%;
+      margin-top: 50px; }
   .private-equity .transaction-wrap {
     width: 100%;
     margin-left: 0;
     margin-bottom: 0px;
     padding: 25px; } }
+
+@media screen and (max-width: 775px) {
+  .private-equity .list-wrap {
+    margin-bottom: 50px;
+    margin-top: 0; }
+    .private-equity .list-wrap h3 {
+      line-height: 30px; }
+    .private-equity .list-wrap .list-item {
+      max-width: 100%;
+      margin-top: 0; } }

@@ -1,18 +1,20 @@
 import React from "react";
 import NewsItem from "../Components/NewsItem";
+import Footer from "./Footer";
 import "./../../css/Views/News.css";
 
 class News extends React.Component {
-  componentDidMount() {}
-
   constructor() {
     super();
-
     this.extractYear = this.extractYear.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   extractYear(d) {
-    return parseInt(d.slice(0, 4));
+    return parseInt(d.slice(0, 4), 10);
   }
 
   render() {
@@ -34,53 +36,57 @@ class News extends React.Component {
     }
 
     return (
-      <div className="section-wrap news-wrap">
-        {/*  news header  */}
-        {/* start header */}
-        <div className="news-header">
-          <div className="text-left">
-            <div className="index">
-              <p className="index sans-serif">04</p>
+      <div>
+        <div className="section-wrap news-wrap">
+          {/*  news header  */}
+          {/* start header */}
+          <div className="news-header">
+            <div className="text-left">
+              <div className="index">
+                <p className="index sans-serif">04</p>
+              </div>
+              <h1>News</h1>
             </div>
-            <h1>News</h1>
-          </div>
-          <div className="text-right">
-            {/* loop throuh data and display all dates */}
-            {years.map((y, i) => (
-              <div className="year-wrap" key={i}>
-                <a href={"#" + y}>
-                  <h3 className="year-item">{y}</h3>
-                </a>
-                <p
-                  className={
-                    years.indexOf(y) === years.length - 1
-                      ? "display-none"
-                      : "display-block"
-                  }
-                >
-                  /
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* start news entries */}
-        <div className="entries">
-          {years.map((y, i) => {
-            return (
-              <div id={y} className="year-wrap" key={i}>
-                <h3>{y}</h3>
-                <div className="news-items">
-                  {this.props.data.map((n, i) => {
-                    if (parseInt(n.data.date.slice(0, 4)) === y) {
-                      return <NewsItem key={i} item={n} />;
+            <div className="text-right">
+              {/* loop throuh data and display all dates */}
+              {years.map((y, i) => (
+                <div className="year-wrap" key={i}>
+                  <a href={"#" + y}>
+                    <h3 className="year-item">{y}</h3>
+                  </a>
+                  <p
+                    className={
+                      years.indexOf(y) === years.length - 1
+                        ? "display-none"
+                        : "display-block"
                     }
-                  })}
+                  >
+                    /
+                  </p>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
+          {/* start news entries */}
+          <div className="entries">
+            {years.map((y, i) => {
+              return (
+                <div id={y} className="year-wrap" key={i}>
+                  <h3>{y}</h3>
+                  <div className="news-items">
+                    {this.props.data.map((n, i) => {
+                      if (parseInt(n.data.date.slice(0, 4), 10) === y) {
+                        return <NewsItem key={i} item={n} />;
+                      }
+                      return null;
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
+        <Footer/>
       </div>
     );
   }

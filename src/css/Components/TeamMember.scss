@@ -1,73 +1,41 @@
 @import "../variables";
 
 .team-member {
-  width: 30%;
-  display: inline-block;
-  margin-top: $margin-sides;
-  // position: relative;
+  width: 100%;
+  margin: $margin-sides 0;
 
   .member-inner-wrap {
-    // width: 30%;
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    min-height: 300px;
+    // &:hover {
+    //   background-color: $cream;
+    // }
   }
 
-  // .text-wrap . active
-  &.expanded {
-    .carrot {
-      display: block;
-    }
-    img {
-      border: 2px solid red;
-    }
-    .bio {
-      display: block;
-    }
-    .text-wrap {
-      background-color: $cream;
-
-      .carrot {
-        display: block;
-      }
-
-      .icon {
-        .plus {
-          display: none;
-        }
-        .minus {
-          display: flex;
-        }
-      }
-    }
-  }
 
   img {
     max-width: 100%;
-    border: 2px solid blue;
+    display: inline-block;
   }
 
   .bio {
-    display: none;
+    display: inline-block;
     position: relative;
-    margin-top: $margin-sides;
+    margin-top: 25px;
     left: 0;
-    p {
-      // position: absolute;
-    }
   }
 
   .text-wrap {
-    background-color: $offwhite;
-    height: 75px;
-    padding: 10px;
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     position: relative;
-
-    &:hover {
-      background-color: $cream;
-    }
+    max-width: 60%;
+    padding: $margin-sides;
+    padding-top: 0;
 
     .info-wrap {
       text-align: left;
@@ -142,4 +110,19 @@
     }
   }
   // end text wrap
+}
+
+@media screen and (max-width: 1000px) {
+  .team-member{
+    margin-top: 75px;
+    
+    .member-inner-wrap {
+      flex-direction: column;
+    }
+    .text-wrap{
+      max-width: 100%;
+      padding: 0;
+      margin-top: $margin-sides;
+    }
+  }
 }

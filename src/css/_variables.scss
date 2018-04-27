@@ -28,10 +28,11 @@ $font-weight-regular: 400;
 $font-weight-heavy: 900;
 
 // ........................................................FONT SIZES
-$font-size-h1: 72px;
-$font-size-h2: 60px;
-$font-size-h3: 36px;
-$font-size-p: 21px;
+$font-size-h1: 58px;
+$font-size-h2: 52px;
+$font-size-h3: 30px;
+$font-size-h4: 22px;
+$font-size-p: 16px;
 $font-size-nav: 18px;
 $font-size-xl: 88px;
 $font-size-small: 14px;
@@ -44,10 +45,12 @@ $font-size-small: 14px;
 // $font-size-xl: 82px;
 // $font-size-small: 14px;
 
-$font-size-h1-mobile: 45px;
-$font-size-h2-mobile: 38px;
-$font-size-h3-mobile: 25px;
-$font-size-p-mobile: 18px;
+$font-size-h1-mobile: 36px;
+$font-size-h2-mobile: 30px;
+$font-size-h3-mobile: 22px;
+$font-size-h4-mobile: 16px;
+$font-size-nav-mobile: 20px;
+$font-size-p-mobile: 14px;
 
 // ........................................................FONT FAMILIES
 $font-family-h1: sectra, sans-serif;
@@ -64,9 +67,10 @@ $serif-italic: sectra-italic, serif;
 
 // ........................................................FONT LINEHEIGHTS
 $line-height-h1: 100px;
-$line-height-h2: 70px;
-$line-height-h3: 50px;
-$line-height-p: 26px;
+$line-height-h2: 46px;
+$line-height-h3: 40px;
+$line-height-h4: 28px;
+$line-height-p: 24px;
 //
 // $line-height-h1: 90px;
 // $line-height-h2: 60px;
@@ -76,6 +80,7 @@ $line-height-p: 26px;
 $line-height-h1-mobile: 55px;
 $line-height-h2-mobile: 42px;
 $line-height-h3-mobile: 30px;
+$line-height-h4-mobile: 22px;
 $line-height-p-mobile: 24px;
 
 $letter-spacing: 1px;

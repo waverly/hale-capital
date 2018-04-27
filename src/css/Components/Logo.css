@@ -14,29 +14,70 @@
   font-weight: 400; }
 
 /*....................................................................................*/
-svg .background {
-  fill: #001938; }
+.no-flick {
+  -webkit-transform: translate3d(0, 0, 0); }
 
-svg .sidebar-left {
-  transform: translateY(-100px);
-  transition: all 2s; }
-
-svg .sidebar-right {
-  transform: translateY(100px);
-  transition: all 2s; }
-
-svg .center {
-  transform: translateX(-100px);
-  transition: all 2s; }
+svg {
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden; }
+  svg .background {
+    fill: #001938; }
+  svg .sidebar-left {
+    transform: translateY(-100px);
+    -moz-transform: translateY(-100);
+    -ms-transform: translateY(-100);
+    -o-transform: translateY(-100);
+    -webkit-transform: translateY(-100);
+    transform: translateY(-100);
+    -moz-transition: transform 2s transform ease-out;
+    -o-transition: transform 2s transform ease-out;
+    -webkit-transition: transform 2s transform ease-out;
+    transition: transform 2s transform ease-out;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d; }
+  svg .sidebar-right {
+    transform: translateY(100px);
+    -moz-transform: translateY(100);
+    -ms-transform: translateY(100);
+    -o-transform: translateY(100);
+    -webkit-transform: translateY(100);
+    transform: translateY(100);
+    -moz-transition: transform 2s transform ease-out;
+    -o-transition: transform 2s transform ease-out;
+    -webkit-transition: transform 2s transform ease-out;
+    transition: transform 2s transform ease-out;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d; }
+  svg .center {
+    transform: translateX(-100px);
+    -moz-transform: translateX(-100);
+    -ms-transform: translateX(-100);
+    -o-transform: translateX(-100);
+    -webkit-transform: translateX(-100);
+    transform: translateX(-100);
+    -moz-transition: transform 2s transform ease-out;
+    -o-transition: transform 2s transform ease-out;
+    -webkit-transition: transform 2s transform ease-out;
+    transition: transform 2s transform ease-out;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d; }
 
 svg.animate .sidebar-left {
-  transform: translateY(0px);
+  transform: translateY(0.3px);
   transition: all 2s; }
 
 svg.animate .sidebar-right {
-  transform: translateY(0px);
+  transform: translateY(-0.3px);
   transition: all 2s; }
 
 svg.animate .center {
-  transform: translateX(0px);
+  transform: translateX(-1px);
   transition: all 2s; }
+
+@media screen and (max-width: 675px) {
+  svg {
+    margin-left: -10px;
+    max-width: 45px; } }

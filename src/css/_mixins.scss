@@ -527,6 +527,17 @@ $transition-slow: 1s;
   }
 }
 
+@mixin h4(){
+  font-size: $font-size-h4;
+  line-height: $line-height-h4;
+  font-family: $font-family-h3;
+  letter-spacing: $letter-spacing-h3;
+  @include respond-to(phone){
+    font-size: $font-size-h4-mobile;
+    line-height: $line-height-h4-mobile;
+  }
+}
+
 @mixin p(){
   font-size: $font-size-p;
   line-height: $line-height-p;

@@ -17,6 +17,7 @@
 .contact-wrap {
   padding-left: 50px;
   padding-top: 50px;
+  overflow: hidden;
   padding-bottom: 100px; }
   .contact-wrap .flex-wrap {
     display: flex;

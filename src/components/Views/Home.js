@@ -10,21 +10,21 @@ class Home extends React.Component {
     super();
     this.state = {
       selectedIndex: 0,
-      animationDirection: "previous"
+      animationDirection: "previous",
+      taglineClass: "",
+      reinventClass: "",
+      innerClass: ""
     };
   }
 
-  // span tagline transitions
-  // get list of all spans within
+  componentDidMount() {
+    setTimeout(() => this.setState({ taglineClass: "taglineAnimate" }), 3800);
+    setTimeout(() => this.setState({ innerClass: "innerAnimate" }), 2400);
+  }
 
   render() {
     if (!this.props.data) return " Hmm ";
 
-    const spanStyle = {
-      opacity: "0"
-    };
-
-    const data = this.props.data.data;
     return (
       <ReactCSSTransitionGroup
         transitionName="load"
@@ -38,24 +38,24 @@ class Home extends React.Component {
             <h1>
               <div className="wrapper">
                 <div className="contents">
-                  <div className="inner highlight">
-                    <span className="highlight">
-                      <SpanLetter letter="R" delay={300} />
-                      <SpanLetter letter="e" delay={500} />
-                      <SpanLetter letter="i" delay={700} />
-                      <SpanLetter letter="n" delay={900} />
-                      <SpanLetter letter="v" delay={1100} />
-                      <SpanLetter letter="e" delay={1300} />
-                      <SpanLetter letter="n" delay={1500} />
-                      <SpanLetter letter="t" delay={1700} />
-                      <SpanLetter letter="i" delay={1900} />
-                      <SpanLetter letter="n" delay={2100} />
-                      <SpanLetter letter="g" delay={2300} />
+                  <div className={"inner highlight " + this.state.innerClass}>
+                    <span className={"highlight reinvent"}>
+                      <SpanLetter letter="R" delay={1500} />
+                    <SpanLetter letter="e" delay={1700} />
+                  <SpanLetter letter="i" delay={1900} />
+                <SpanLetter letter="n" delay={2100} />
+              <SpanLetter letter="v" delay={2300} />
+            <SpanLetter letter="e" delay={2500} />
+          <SpanLetter letter="n" delay={2700} />
+        <SpanLetter letter="t" delay={2900} />
+      <SpanLetter letter="i" delay={3100} />
+    <SpanLetter letter="n" delay={3300} />
+  <SpanLetter letter="g" delay={3500} />
                     </span>
                   </div>
                 </div>
-              </div>
-              <span> </span>Technology Companies Since 2007
+              </div><span> </span>
+            <span className={'taglineText ' + this.state.taglineClass}>Technology Companies Since 2007</span>
             </h1>
           </div>
           <div className="bg-fade" />

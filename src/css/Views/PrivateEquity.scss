@@ -15,12 +15,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
     padding-bottom: 50px;
     margin-bottom: 100px;
-    margin-left: $margin-sides;
+    margin-left: 100px;
+    margin-right: 100px;
 
     .list-item {
-      margin-top: $margin-sides;
+      margin-top: 0;
+      max-width: 45%;
     }
   }
   .transaction-wrap {
@@ -37,12 +40,34 @@
   .private-equity {
     .list-wrap {
       margin-left: 0;
+      margin-right: 0;
+      .list-item {
+        max-width: 45%;
+        margin-top: $margin-sides;
+      }
     }
     .transaction-wrap {
       width: 100%;
       margin-left: 0;
       margin-bottom: 0px;
       padding: $margin-sides-mobile;
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .private-equity {
+    .list-wrap {
+      margin-bottom: 50px;
+      margin-top: 0;
+
+      h3{
+        line-height: $line-height-h3-mobile;
+      }
+      .list-item {
+        max-width: 100%;
+        margin-top: 0;
+      }
     }
   }
 }

@@ -43,8 +43,8 @@ class Testimonial extends React.Component {
           </div>
         </div>
         <BlueBox
-          left={this.props.width < 1000 ? "0%" : "-50px%"}
-          top={this.props.width < 1000 ? "0%" : "-75px%"}
+          left={this.props.width < 1000 ? "0%" : "-50px"}
+          top={this.props.width < 1000 ? "0%" : "-75px"}
           width={this.props.width < 1000 ? "250px" : "250px"}
           height={this.props.width < 1000 ? "250px" : "250px"}
         />

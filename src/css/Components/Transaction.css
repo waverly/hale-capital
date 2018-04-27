@@ -23,7 +23,8 @@
     align-items: center; }
     .trans-item .trans-title h3 {
       font-family: sectra, sans-serif;
-      line-height: 90px; }
+      line-height: 90px;
+      max-width: 90%; }
   .trans-item .trans-desc.panel {
     background-color: #faf8f3;
     width: 100vw;
@@ -39,4 +40,7 @@
 
 @media screen and (max-width: 1000px) {
   .trans-item .trans-desc.panel {
-    margin-left: -25px; } }
+    margin-left: -25px; }
+  .trans-item .trans-title h3 {
+    line-height: 42px;
+    margin: 10px 0; } }

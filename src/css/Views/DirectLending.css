@@ -31,9 +31,11 @@
   justify-content: space-between;
   padding-bottom: 50px;
   margin-bottom: 100px;
-  margin-left: 50px; }
+  margin-left: 100px;
+  margin-right: 100px; }
   .direct-lending .list-wrap .list-item {
-    margin-top: 50px; }
+    margin-top: 0;
+    width: 45%; }
 
 .transaction-wrap {
   width: calc(100% - 50px);
@@ -48,8 +50,17 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 50px;
-    margin-left: 0; }
+    margin-left: 0;
+    margin-right: 0; }
     .direct-lending .list-wrap .list-item {
       width: 100%; }
   .direct-lending .transaction-wrap {
     margin-left: 25px; } }
+
+@media screen and (max-width: 775px) {
+  .direct-lending .list-wrap {
+    margin-bottom: 50px;
+    margin-top: 0; }
+    .direct-lending .list-wrap .list-item {
+      max-width: 100%;
+      margin-top: 0; } }
