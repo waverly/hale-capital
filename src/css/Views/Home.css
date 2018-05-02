@@ -22,6 +22,14 @@
   display: inline-block;
   width: 1em; }
 
+.homepage-caption {
+  position: fixed;
+  z-index: 8;
+  bottom: 50px;
+  right: 50px; }
+  .homepage-caption p {
+    color: white; }
+
 .contents,
 .contents .inner {
   display: inline-flex; }

@@ -10,6 +10,16 @@
   width: 1em;
 }
 
+.homepage-caption {
+  position: fixed;
+  z-index: 8;
+  bottom: $margin-sides;
+  right: $margin-sides;
+  p {
+    color: white;
+  }
+}
+
 .contents,
 .contents .inner {
   display: inline-flex;
@@ -28,9 +38,9 @@
   opacity: 0;
 }
 
-.innerAnimate{
+.innerAnimate {
   animation: 1.8s ease-out 0s 1 widthAnim;
-  opacity: 1!important;
+  opacity: 1 !important;
   transition: opacity 1s;
 }
 

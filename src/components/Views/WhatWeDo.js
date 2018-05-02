@@ -8,8 +8,6 @@ import "./../../css/Views/WhatWeDo.css";
 
 class WhatWeDo extends React.Component {
   componentDidMount() {
-    console.log("props will be below");
-    console.log(this.props);
     window.scrollTo(0, 0);
   }
 
