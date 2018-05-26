@@ -23,18 +23,14 @@ class Home extends React.Component {
   }
 
   render() {
-    const caption = this.props.data.data.body[this.props.activeSlide].primary
-      .caption;
-    if (!this.props.data) return " Hmm ";
+    if (!this.props.data) return " ";
 
-    if (caption.length > 0) {
-      console.log(
-        this.props.data.data.body[this.props.activeSlide].primary.caption[0]
-          .text
-      );
-    }
+    let caption;
+    this.props.data
+      ? (caption = this.props.data.data.body[this.props.activeSlide].primary
+          .caption)
+      : console.log(" no data");
 
-    console.log(this.props.activeSlide);
     return (
       <ReactCSSTransitionGroup
         transitionName="load"

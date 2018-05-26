@@ -3,15 +3,8 @@ import BlueBox from "./BlueBox";
 import "./../../css/Components/Testimonial.css";
 
 class Testimonial extends React.Component {
-  constructor() {
-    super();
-
-    // this.handleBold = this.handleBold.bind(this);
-  }
-
   handleBold(item) {
     let phrase = item.text;
-    console.log(phrase);
     if (item.spans.length > 0) {
       let counter = 0;
       item.spans.forEach(i => {

@@ -1,22 +1,40 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import PortfolioItem from "../Components/PortfolioItem";
-import Footer from './Footer';
+import Footer from "./Footer";
 import Testimonial from "../Components/Testimonial";
 import "./../../css/Views/Portfolio.css";
 
-class Portfolio extends React.Component {
+const R = require("ramda");
 
+class Portfolio extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      current: true
+      current: true,
+      filter: "directlending"
     };
 
     this.handleCurrent = this.handleCurrent.bind(this);
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
+    const { location } = this.props;
+    const deserializeQueryString = R.pipe(
+      R.replace(/^\?/, ""),
+      R.split("&"),
+      R.map(R.split("=")),
+      R.fromPairs
+    );
+
+    let filterParam = deserializeQueryString(location.search).filter;
+
+    if (!filterParam) {
+      filterParam = "directlending";
+    }
+    this.setState({ filter: filterParam });
   }
 
   handleCurrent(x) {
@@ -42,36 +60,91 @@ class Portfolio extends React.Component {
                 <h1>Select Portfolio Companies</h1>
               </div>
               <div className="text-right">
-                <h3 className="serif">
-                  <span
-                    className={this.state.current ? "active" : ""}
-                    onClick={() => this.handleCurrent(true)}
-                  >
-                    Current
-                  </span>{" "}
-                  /{" "}
-                  <span
-                    className={this.state.current ? "" : "active"}
-                    onClick={() => this.handleCurrent(false)}
-                  >
-                    Past
-                  </span>
-                </h3>
+                <div>
+                  <h3 className="serif">
+                    <span
+                      className={this.state.current ? "active" : ""}
+                      onClick={() => this.handleCurrent(true)}
+                    >
+                      Current
+                    </span>
+                    /
+                    <span
+                      className={this.state.current ? "" : "active"}
+                      onClick={() => this.handleCurrent(false)}
+                    >
+                      Past
+                    </span>
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="serif">
+                    <span
+                      className={
+                        this.state.filter === "directlending" ? "active" : ""
+                      }
+                      onClick={() => this.setState({ filter: "directlending" })}
+                    >
+                      Direct Lending
+                    </span>
+                    /
+                    <span
+                      className={
+                        this.state.filter === "privateequity" ? "active" : ""
+                      }
+                      onClick={() => this.setState({ filter: "privateequity" })}
+                    >
+                      Private Equity
+                    </span>
+                  </h3>
+                </div>
               </div>
             </div>
             {/* start portfolio grid */}
             <div className="portfolio-grid" style={{ backgroundImage: bgImg }}>
               {companies.map((c, index) => {
                 if (this.state.current) {
-                  if (c.data.current === "current") {
-                    return <PortfolioItem key={index} data={c} />;
+                  if (this.state.filter === "directlending") {
+                    if (
+                      c.data.current === "current" &&
+                      c.data.type === "directlending"
+                    ) {
+                      return <PortfolioItem key={index} data={c} />;
+                    }
+                  } else {
+                    if (
+                      c.data.current === "current" &&
+                      c.data.type === "privateequity"
+                    ) {
+                      return <PortfolioItem key={index} data={c} />;
+                    }
                   }
                 }
+
                 if (!this.state.current) {
-                  if (c.data.current === "past") {
-                    return <PortfolioItem key={index} data={c} />;
+                  if (this.state.filter === "directlending") {
+                    if (
+                      c.data.current === "past" &&
+                      c.data.type === "directlending"
+                    ) {
+                      return <PortfolioItem key={index} data={c} />;
+                    }
+                  } else {
+                    if (
+                      c.data.current === "past" &&
+                      c.data.type === "privateequity"
+                    ) {
+                      return <PortfolioItem key={index} data={c} />;
+                    }
                   }
                 }
+
+                // if state.current is true
+                // if state.filter is directLending
+                // if c.data.current==="current" && c.data.type==="directlending"
+                // render
+                // else (if CURRENT but not direct lending...)
+                // render c.data.current==="current" && c.data.type==="private equity"
               })}
             </div>
 
@@ -89,9 +162,8 @@ class Portfolio extends React.Component {
               ))}
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </div>
-
       );
     } else {
       return "Loading...";
@@ -99,4 +171,4 @@ class Portfolio extends React.Component {
   }
 }
 
-export default Portfolio;
+export default withRouter(Portfolio);

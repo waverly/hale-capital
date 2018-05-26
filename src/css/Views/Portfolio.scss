@@ -13,8 +13,9 @@
   }
   .portfolio-header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     position: relative;
     .text-left {
       display: inline-block;
@@ -27,8 +28,11 @@
       .active {
         color: $lightgrey;
       }
+      span {
+        cursor: pointer;
+      }
       h3 {
-        line-height: $line-height-h1;
+        line-height: 50px;
       }
     }
   }
@@ -68,7 +72,7 @@
           line-height: 70px;
         }
         h3 {
-          line-height: 70px;
+          line-height: 40px;
         }
       }
     }

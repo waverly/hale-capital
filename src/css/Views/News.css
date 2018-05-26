@@ -27,12 +27,15 @@
       .news-wrap .news-header .text-left .index {
         font-size: 14px; }
     .news-wrap .news-header .text-right {
-      display: inline-block; }
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 60%; }
       .news-wrap .news-header .text-right .year-wrap {
         display: inline;
-        margin: 50px 0; }
+        margin: 0; }
         .news-wrap .news-header .text-right .year-wrap h3 {
-          display: inline; }
+          display: inline;
+          line-height: 40px; }
         .news-wrap .news-header .text-right .year-wrap p {
           display: inline;
           font-family: sectra, sans-serif; }
@@ -43,7 +46,7 @@
         display: inline-block;
         margin: 0.5em;
         font-family: sectra, sans-serif; }
-  .news-wrap .year-wrap {
+  .news-wrap .item-wrap {
     margin: 50px 0; }
 
 @media screen and (max-width: 675px) {

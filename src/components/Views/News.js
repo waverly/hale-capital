@@ -10,7 +10,7 @@ class News extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   extractYear(d) {
@@ -71,7 +71,7 @@ class News extends React.Component {
           <div className="entries">
             {years.map((y, i) => {
               return (
-                <div id={y} className="year-wrap" key={i}>
+                <div id={y} className="item-wrap" key={i}>
                   <h3>{y}</h3>
                   <div className="news-items">
                     {this.props.data.map((n, i) => {
@@ -86,7 +86,7 @@ class News extends React.Component {
             })}
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

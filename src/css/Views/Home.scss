@@ -15,8 +15,11 @@
   z-index: 8;
   bottom: $margin-sides;
   right: $margin-sides;
+
   p {
-    color: white;
+    color: lightgray;
+    font-family: $serif-italic;
+    font-size: $font-size-small;
   }
 }
 

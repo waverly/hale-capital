@@ -538,11 +538,16 @@ table {
   .nav-wrap.home .text-wrap {
     opacity: 0;
     transform: translate(0px, 5px); }
+  .nav-wrap.home .animate {
+    opacity: 1 !important;
+    transform: translate(0px, 0px);
+    transition-property: transform, opacity;
+    transition-duration: 0.4s; }
   .nav-wrap.home .navAnimate {
     opacity: 1 !important;
     transform: translate(0px, 0px);
-    transition-property: transform,opacity;
-    transition-duration: .4s;
+    transition-property: transform, opacity;
+    transition-duration: 0.4s;
     transition-timing-function: ease-in; }
   .nav-wrap.home svg .background {
     fill: white; }

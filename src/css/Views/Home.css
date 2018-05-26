@@ -28,7 +28,9 @@
   bottom: 50px;
   right: 50px; }
   .homepage-caption p {
-    color: white; }
+    color: lightgray;
+    font-family: sectra-italic, serif;
+    font-size: 14px; }
 
 .contents,
 .contents .inner {

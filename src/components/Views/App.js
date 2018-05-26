@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Prismic from "prismic-javascript";
 import Nav from "./Nav";
-import Footer from "./Footer";
 import Home from "./Home";
 import WhatWeDo from "./WhatWeDo";
 import DirectLending from "./DirectLending";

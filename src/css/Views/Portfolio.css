@@ -23,8 +23,9 @@
     color: #999999; }
   .portfolio-wrap .portfolio-header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     position: relative; }
     .portfolio-wrap .portfolio-header .text-left {
       display: inline-block; }
@@ -34,8 +35,10 @@
       display: inline-block; }
       .portfolio-wrap .portfolio-header .text-right .active {
         color: #999999; }
+      .portfolio-wrap .portfolio-header .text-right span {
+        cursor: pointer; }
       .portfolio-wrap .portfolio-header .text-right h3 {
-        line-height: 100px; }
+        line-height: 50px; }
   .portfolio-wrap .portfolio-grid {
     position: relative;
     display: grid;
@@ -68,7 +71,7 @@
         line-height: 70px; }
       .portfolio-wrap .portfolio-header .text-left h3,
       .portfolio-wrap .portfolio-header .text-right h3 {
-        line-height: 70px; }
+        line-height: 40px; }
     .portfolio-wrap .testimonial-wrap {
       margin-top: 50px; }
       .portfolio-wrap .testimonial-wrap h3 {

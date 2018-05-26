@@ -1,6 +1,5 @@
 import React from "react";
-import BlueBox from "../Components/BlueBox";
-import Footer from './Footer';
+import Footer from "./Footer";
 import MyMap from "../Components/GoogleMap";
 import Form from "../Components/Form";
 
@@ -8,9 +7,9 @@ import "./../../css/Views/ContactUs.css";
 
 class ContactUs extends React.Component {
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
-  
+
   render() {
     if (!this.props.data) return "Loading..";
     const root = this.props.data.data;
@@ -45,9 +44,8 @@ class ContactUs extends React.Component {
             />
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
-
     );
   }
 }

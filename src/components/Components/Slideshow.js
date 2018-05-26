@@ -2,13 +2,10 @@ import React from "react";
 import Slide from "./Slide";
 
 class Slideshow extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
     this.interval = setInterval(() => {
       this.props.next();
-    }, 7000);
+    }, 6000);
   }
 
   componentWillUnmount() {

@@ -14,6 +14,9 @@
   font-weight: 400; }
 
 /*....................................................................................*/
+.dl-trans-wrap .icon {
+  display: none; }
+
 .icon {
   position: relative;
   height: 20px;

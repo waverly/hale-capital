@@ -12,6 +12,9 @@ class Transaction extends React.Component {
   }
 
   handleExpand() {
+    if (this.props.noexpand) {
+      return null;
+    }
     const newExpand = !this.state.expanded;
     this.setState({ expanded: newExpand });
     if (this.panel.style.maxHeight) {
@@ -47,31 +50,4 @@ class Transaction extends React.Component {
     );
   }
 }
-
-// const Transaction = t => {
-//   return (
-//     <div className="trans-item">
-//       <h3 className="trans-title">{t.data.transactiontitle["0"].text}</h3>
-//       {t.data.transactiondesc.map((p, index) => (
-//         <div
-//           className="trans-desc"
-//           onClick={this.classList.toggle("expand")}
-//           key={index}
-//         >
-//           <p>{p.text}</p>
-//           <div className="icon">
-//             <div className="plus">
-//               <span className="vertical" />
-//               <span className="horizontal" />
-//             </div>
-//             <div className="minus">
-//               <span className="horizontal" />
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
 export default Transaction;

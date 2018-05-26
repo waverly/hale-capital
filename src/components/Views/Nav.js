@@ -42,7 +42,7 @@ class Nav extends React.Component {
 
   componentDidMount() {
     setTimeout(() => this.setState({ logoClass: "animate" }), 800);
-    setTimeout(() => this.setState({ navClass: "navAnimate" }), 4700);
+    setTimeout(() => this.setState({ navClass: "navAnimate" }), 3500);
   }
 
   render() {
@@ -59,12 +59,13 @@ class Nav extends React.Component {
               ? "nav-wrap mobile-expanded"
               : "nav-wrap"
         }
+        onClick={this.mobileMenuToggle}
       >
         <div className="logo">
-          <div className="logomark" onClick={this.mobileMenuToggle}>
+          <div className="logomark">
             <Logo class={this.state.logoClass} />
           </div>
-          <Link className={"textmark " + this.state.navClass} to="/">
+          <Link className={"textmark " + this.state.logoClass} to="/">
             <p className="name-p">Hale Capital Partners</p>
           </Link>
         </div>

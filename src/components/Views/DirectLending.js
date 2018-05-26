@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/Header";
 import ListItem from "../Components/ListItem";
 import Arrow from "../Components/Arrow";
-import Footer from './Footer';
+import Footer from "./Footer";
 import BlueBox from "../Components/BlueBox";
 import Transaction from "../Components/Transaction";
 import { Link } from "react-router-dom";
@@ -10,9 +10,8 @@ import { Link } from "react-router-dom";
 import "./../../css/Views/DirectLending.css";
 
 class DirectLending extends React.Component {
-
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -39,7 +38,7 @@ class DirectLending extends React.Component {
                   <img src={dl.image.url} alt="" />
                   <p className="caption serif">{dl.caption["0"].text}</p>
                   <div className="view-investments">
-                    <Link to={`/portfolio`}>
+                    <Link to={`/portfolio?filter=directlending`}>
                       <h3 className="serif">
                         View Select Investments
                         <Arrow direction="right" />
@@ -52,7 +51,9 @@ class DirectLending extends React.Component {
             {/*  end columns */}
             {/* start list section */}
             <div className="list-wrap">
-              {dl.body.map((item, index) => <ListItem key={index} item={item} />)}
+              {dl.body.map((item, index) => (
+                <ListItem key={index} item={item} />
+              ))}
               <BlueBox
                 left={this.props.width < 1000 ? "15%" : "10%"}
                 top={this.props.width < 1000 ? "2%" : "0%"}
@@ -60,16 +61,15 @@ class DirectLending extends React.Component {
                 height={this.props.width < 1000 ? "85%" : "100%"}
               />
             </div>
-            <div className="transaction-wrap">
+            <div className="transaction-wrap dl-trans-wrap">
               <h3 className="section-title">Transaction Types</h3>
               {dl.transactions.map((t, index) => (
-                <Transaction key={index} data={t} />
+                <Transaction noexpand key={index} data={t} />
               ))}
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </div>
-
       );
     } else return " ";
   }

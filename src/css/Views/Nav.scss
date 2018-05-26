@@ -46,7 +46,7 @@
     }
     .textmark {
       margin-left: 1em;
-      p{
+      p {
         color: $darkblue;
       }
     }
@@ -157,45 +157,51 @@
   color: white;
   a,
   p {
-    color: white!important;
+    color: white !important;
   }
 
-  .logo{
-    .textmark{
-      p{
+  .logo {
+    .textmark {
+      p {
         // color: $gold!important;
       }
     }
   }
 
-
   .nav-item {
-    color: white!important;
-    .index{
+    color: white !important;
+    .index {
       color: $gold;
     }
-    &:hover{
-      a{
-        color: $darkblue!important;
+    &:hover {
+      a {
+        color: $darkblue !important;
       }
     }
   }
 
-  .textmark{
+  .textmark {
     opacity: 0;
     transform: translate(0px, 5px);
   }
 
-  .text-wrap{
+  .text-wrap {
     opacity: 0;
     transform: translate(0px, 5px);
   }
 
-  .navAnimate{
-    opacity: 1!important;
+  .animate {
+    opacity: 1 !important;
     transform: translate(0px, 0px);
-    transition-property: transform,opacity;
-    transition-duration: .4s;
+    transition-property: transform, opacity;
+    transition-duration: 0.4s;
+  }
+
+  .navAnimate {
+    opacity: 1 !important;
+    transform: translate(0px, 0px);
+    transition-property: transform, opacity;
+    transition-duration: 0.4s;
     transition-timing-function: ease-in;
   }
 
@@ -238,8 +244,8 @@
       }
       .textmark {
         display: none;
-        p{
-          color: $darkblue!important
+        p {
+          color: $darkblue !important;
         }
       }
     }
@@ -325,8 +331,8 @@
 
     svg {
     }
-    .nav-item{
-      .index{
+    .nav-item {
+      .index {
         color: $darkblue;
       }
     }

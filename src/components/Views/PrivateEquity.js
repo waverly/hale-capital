@@ -4,15 +4,14 @@ import ListItem from "../Components/ListItem";
 import Arrow from "../Components/Arrow";
 import BlueBox from "../Components/BlueBox";
 import Transaction from "../Components/Transaction";
-import Footer from './Footer';
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 import "./../../css/Views/PrivateEquity.css";
 
 class PrivateEquity extends React.Component {
-
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -39,7 +38,7 @@ class PrivateEquity extends React.Component {
                   <img src={root.image.url} alt="" />
                   <p className="caption serif">{root.caption["0"].text}</p>
                   <div className="view-investments">
-                    <Link to={`/portfolio`}>
+                    <Link to={`/portfolio?filter=privateequity`}>
                       <h3 className="serif">
                         View Select Investments
                         <Arrow direction="right" />
@@ -69,9 +68,8 @@ class PrivateEquity extends React.Component {
               ))}
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </div>
-
       );
     } else return "Loading...";
   }
