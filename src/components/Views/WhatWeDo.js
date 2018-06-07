@@ -41,7 +41,7 @@ class WhatWeDo extends React.Component {
               <div className="col-right">
                 <div className="inner-wrap">
                   <img src={wwd.image.url} alt="" />
-                  <p className="caption serif">{wwd.caption[0].text}</p>
+                  <p className="caption">{wwd.caption[0].text}</p>
                   <div className="list-wrap">
                     <ListItem item={wwd.body["0"]} />
 

@@ -34,11 +34,15 @@
     .portfolio-wrap .portfolio-header .text-right {
       display: inline-block; }
       .portfolio-wrap .portfolio-header .text-right .active {
-        color: #999999; }
+        color: #444444; }
       .portfolio-wrap .portfolio-header .text-right span {
         cursor: pointer; }
       .portfolio-wrap .portfolio-header .text-right h3 {
-        line-height: 50px; }
+        line-height: 50px;
+        color: #999999; }
+        .portfolio-wrap .portfolio-header .text-right h3:hover {
+          color: #444444;
+          transition: 0.25s all; }
   .portfolio-wrap .portfolio-grid {
     position: relative;
     display: grid;

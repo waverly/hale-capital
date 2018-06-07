@@ -24,7 +24,7 @@
 
 .fadeIn {
   opacity: 1;
-  transition: .5s all; }
+  transition: 0.5s all; }
 
 /*.....................TEXT MARK STYLES......................*/
 ::-moz-selection {
@@ -47,6 +47,16 @@
 
 .blacked_background {
   background-color: #000000; }
+
+.lightgrey {
+  color: #999999; }
+
+.lightgrey h3 {
+  color: #999999; }
+
+.lightgrey:hover h3 {
+  color: #444444;
+  transition: 0.25s all; }
 
 /*....................HIDING SCROLLBAR.....................*/
 ::-webkit-scrollbar {
@@ -276,7 +286,8 @@ highlight {
     .col-right .inner-wrap img {
       max-width: 100%; }
     .col-right .inner-wrap .caption {
-      text-transform: uppercase;
+      color: lightgray;
+      font-family: sectra-italic, serif;
       font-size: 14px;
       line-height: 40px; }
 
@@ -287,7 +298,7 @@ highlight {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px; }
+  margin-top: 0; }
 
 ul.list {
   position: relative;
@@ -332,7 +343,8 @@ table {
     width: 100%;
     display: block;
     position: relative;
-    padding: 25px; }
+    padding: 25px;
+    padding-bottom: 0; }
     .col-left .paragraph {
       margin: 0; }
       .col-left .paragraph p {

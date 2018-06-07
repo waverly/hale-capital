@@ -26,13 +26,18 @@
     .text-right {
       display: inline-block;
       .active {
-        color: $lightgrey;
+        color: $midgrey;
       }
       span {
         cursor: pointer;
       }
       h3 {
         line-height: 50px;
+        color: $lightgrey;
+        &:hover {
+          color: $midgrey;
+          transition: 0.25s all;
+        }
       }
     }
   }

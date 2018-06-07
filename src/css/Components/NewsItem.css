@@ -19,17 +19,8 @@
   margin-top: 50px;
   z-index: 3;
   display: flex; }
-  .news-item .image-wrap {
-    width: 40%;
-    margin-right: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .news-item .image-wrap img {
-      max-width: 100%;
-      max-height: 300px; }
   .news-item .text-wrap {
-    width: 50%; }
+    width: 100%; }
     .news-item .text-wrap .date {
       font-size: 12px;
       color: #999999; }

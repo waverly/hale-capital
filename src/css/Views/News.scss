@@ -17,6 +17,7 @@
     .text-right {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
       max-width: 60%;
       .year-wrap {
         display: inline;
@@ -46,6 +47,19 @@
   .item-wrap {
     margin: $margin-sides 0;
   }
+  .entries {
+    width: 60%;
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .news-wrap {
+    .entries {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 675px) {
@@ -56,6 +70,17 @@
     .news-header {
       align-items: flex-start;
       flex-direction: column;
+      .text-right {
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        .year-wrap {
+          margin-right: 0.5em;
+        }
+        h3 {
+          margin-left: 0;
+        }
+      }
     }
     .year-wrap {
       margin-top: $margin-sides;

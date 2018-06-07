@@ -36,7 +36,7 @@ class DirectLending extends React.Component {
               <div className="col-right">
                 <div className="inner-wrap">
                   <img src={dl.image.url} alt="" />
-                  <p className="caption serif">{dl.caption["0"].text}</p>
+                  <p className="caption">{dl.caption["0"].text}</p>
                   <div className="view-investments">
                     <Link to={`/portfolio?filter=directlending`}>
                       <h3 className="serif">

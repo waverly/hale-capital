@@ -13,7 +13,7 @@ const Header = ({ index, title }) => (
     <div className="col-right">
       <div className="inner-wrap">
         <img src={wwd.image.url} alt="" />
-        <p className="caption serif">image caption</p>
+        <p className="caption">image caption</p>
         <div className="list-wrap">
           <ul className="list">
             <li className="list-title sans-serif">Industries</li>

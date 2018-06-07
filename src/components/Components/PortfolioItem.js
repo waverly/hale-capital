@@ -6,16 +6,24 @@ const PortfolioItem = props => {
   const { data } = props;
 
   if (!data) return " ";
-  const logo = data.data.logo.url;
+  let logo;
+  if (data.data.logo) {
+    logo = data.data.logo.url;
+  }
+
   const uid = data.uid;
 
-  return (
-    <div className="portfolio-item">
-      <Link to={`/portfolio/${uid}`}>
-        <img src={logo} alt="" />
-      </Link>
-    </div>
-  );
+  if (logo) {
+    return (
+      <div className="portfolio-item">
+        <Link to={`/portfolio/${uid}`}>
+          <img src={logo} alt="" />
+        </Link>
+      </div>
+    );
+  } else {
+    return "";
+  }
 };
 
 export default PortfolioItem;

@@ -55,7 +55,7 @@ class AboutUs extends React.Component {
               <div className="col-right">
                 <div className="inner-wrap">
                   <img src={about.image.url} alt="" />
-                  <p className="caption serif">image caption</p>
+                  <p className="caption">image caption</p>
                 </div>{" "}
                 {/*  end inner wrap */}
               </div>

@@ -3,13 +3,13 @@
 
 /*....................................General settings..................................*/
 
-.body-wrap{
+.body-wrap {
   opacity: 0;
 }
 
-.fadeIn{
+.fadeIn {
   opacity: 1;
-  transition: .5s all;
+  transition: 0.5s all;
 }
 
 /*.....................TEXT MARK STYLES......................*/
@@ -42,6 +42,22 @@ a:active {
 }
 .blacked_background {
   background-color: $black;
+}
+
+.lightgrey {
+  color: $lightgrey;
+}
+
+.lightgrey {
+  h3 {
+    color: $lightgrey;
+  }
+  &:hover {
+    h3 {
+      color: $midgrey;
+      transition: 0.25s all;
+    }
+  }
 }
 
 /*....................HIDING SCROLLBAR.....................*/
@@ -147,7 +163,7 @@ h3 {
   @include h3();
 }
 
-h4{
+h4 {
   @include h4();
 }
 
@@ -229,7 +245,8 @@ highlight {
       max-width: 100%;
     }
     .caption {
-      text-transform: uppercase;
+      color: lightgray;
+      font-family: $serif-italic;
       font-size: $font-size-small;
       line-height: $line-height-h3;
     }
@@ -246,7 +263,7 @@ highlight {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-top: $margin-sides;
+  margin-top: 0;
 }
 
 ul.list {
@@ -309,6 +326,7 @@ table {
     display: block;
     position: relative;
     padding: $margin-sides-mobile;
+    padding-bottom: 0;
 
     .paragraph {
       margin: 0;

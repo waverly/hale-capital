@@ -36,7 +36,7 @@ class PrivateEquity extends React.Component {
               <div className="col-right">
                 <div className="inner-wrap">
                   <img src={root.image.url} alt="" />
-                  <p className="caption serif">{root.caption["0"].text}</p>
+                  <p className="caption">{root.caption["0"].text}</p>
                   <div className="view-investments">
                     <Link to={`/portfolio?filter=privateequity`}>
                       <h3 className="serif">

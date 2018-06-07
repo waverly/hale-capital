@@ -5,9 +5,9 @@ const NewsItem = props => {
   const root = props.item.data;
   return (
     <div className="news-item">
-      <div className="image-wrap">
+      {/* <div className="image-wrap">
         <img src={root.image.url ? root.image.url : ""} alt="" />
-      </div>
+      </div> */}
       <div className="text-wrap">
         <p className="date">{root.date}</p>
         <h3 className="title">{root.title["0"].text}</h3>

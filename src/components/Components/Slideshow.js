@@ -5,7 +5,7 @@ class Slideshow extends React.Component {
   componentDidMount() {
     this.interval = setInterval(() => {
       this.props.next();
-    }, 6000);
+    }, 5000);
   }
 
   componentWillUnmount() {

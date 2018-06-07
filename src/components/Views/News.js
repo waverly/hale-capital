@@ -1,23 +1,22 @@
 import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import NewsItem from "../Components/NewsItem";
 import Footer from "./Footer";
 import "./../../css/Views/News.css";
 
 class News extends React.Component {
-  constructor() {
-    super();
-    this.extractYear = this.extractYear.bind(this);
-  }
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  extractYear(d) {
+  extractYear = d => {
     return parseInt(d.slice(0, 4), 10);
-  }
+  };
+
+  currentYear = new Date().getFullYear();
 
   render() {
+    console.log(this.currentYear);
     if (!this.props.data) return "  ";
 
     // parse all news entries and create an array of unique year values
@@ -51,9 +50,13 @@ class News extends React.Component {
               {/* loop throuh data and display all dates */}
               {years.map((y, i) => (
                 <div className="year-wrap" key={i}>
-                  <a href={"#" + y}>
+                  <Link
+                    smooth
+                    to={`/news#${y}`}
+                    className={y === this.currentYear ? "" : "lightgrey"}
+                  >
                     <h3 className="year-item">{y}</h3>
-                  </a>
+                  </Link>
                   <p
                     className={
                       years.indexOf(y) === years.length - 1
