@@ -12,8 +12,8 @@ const PortfolioDetail = props => {
   if (props.data.data.name) {
     name = props.data.data.name["0"].text;
   }
-  if (props.data.data.logo) {
-    logo = props.data.data.logo.url;
+  if (props.data.data.blacklogo) {
+    logo = props.data.data.blacklogo.url;
   }
   if (props.data.data.image) {
     img = props.data.data.image.url;
@@ -28,11 +28,9 @@ const PortfolioDetail = props => {
 
       <div className="inner-wrap">
         <div className="left">
-          {logo ? <img src={logo} alt="" /> : null}
-
           <p className="description">{description}</p>
         </div>
-        <div className="right">{img ? <img src={img} alt="" /> : null}</div>
+        <div className="right">{logo ? <img src={logo} alt="" /> : null}</div>
       </div>
     </div>
   );

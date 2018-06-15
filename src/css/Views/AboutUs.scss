@@ -19,8 +19,12 @@
       max-width: 60%;
       margin-left: 20%;
     }
+
+    .team-members h3{
+      color: lightgrey;
+    }
     .active {
-      color: #999999;
+      color: $midgrey;
     }
     h3 {
       &:first-of-type {

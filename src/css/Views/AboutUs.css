@@ -30,8 +30,10 @@
     .our-team .inner-wrap .our-team-tagline {
       max-width: 60%;
       margin-left: 20%; }
+    .our-team .inner-wrap .team-members h3 {
+      color: lightgrey; }
     .our-team .inner-wrap .active {
-      color: #999999; }
+      color: #444444; }
     .our-team .inner-wrap h3:first-of-type {
       width: 100%;
       margin-bottom: 10px; }

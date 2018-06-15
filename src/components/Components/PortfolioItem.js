@@ -5,7 +5,7 @@ import "./../../css/Components/PortfolioItem.css";
 const PortfolioItem = props => {
   const { data } = props;
 
-  if (!data) return " ";
+  if (!data) return null;
   let logo;
   if (data.data.logo) {
     logo = data.data.logo.url;
@@ -15,14 +15,14 @@ const PortfolioItem = props => {
 
   if (logo) {
     return (
-      <div className="portfolio-item">
+      <div onMouseOver={props.onMouseOver} className="portfolio-item">
         <Link to={`/portfolio/${uid}`}>
           <img src={logo} alt="" />
         </Link>
       </div>
     );
   } else {
-    return "";
+    return null;
   }
 };
 

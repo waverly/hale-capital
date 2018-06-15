@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import './../../css/Views/Footer.css';
+import "./../../css/Views/Footer.css";
 
 class Footer extends React.Component {
+  componentDidMount() {}
 
-  componentDidMount(){
-  }
-
-  render(){
-
-    return(
+  render() {
+    return (
       <div className="footer-wrap">
         <div className="left">
           <div className="address sub-left">
@@ -20,16 +17,22 @@ class Footer extends React.Component {
           </div>
 
           <div className="social sub-left">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
+            <a href={this.props.socials.data.facebook.url} target="_blank">
+              Facebook
+            </a>
+            <a href={this.props.socials.data.twitter.url} target="_blank">
+              Twitter
+            </a>
+            <a href={this.props.socials.data.linkedin.url} target="_blank">
+              LinkedIn
+            </a>
           </div>
         </div>
         <div className="right">
           <p>Hale Capital Partners 2018</p>
         </div>
       </div>
-    )
+    );
   }
 }
 

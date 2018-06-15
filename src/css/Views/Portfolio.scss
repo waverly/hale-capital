@@ -34,9 +34,11 @@
       h3 {
         line-height: 50px;
         color: $lightgrey;
-        &:hover {
-          color: $midgrey;
-          transition: 0.25s all;
+        span{
+          &:hover {
+            color: $midgrey;
+            transition: 0.25s all;
+          }
         }
       }
     }

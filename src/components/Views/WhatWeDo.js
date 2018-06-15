@@ -57,11 +57,11 @@ class WhatWeDo extends React.Component {
               </div>
             </div>
           </div>
-          <Footer />
+          <Footer socials={this.props.socials} />
         </div>
       );
     } else {
-      return " ";
+      return null;
     }
   }
 }

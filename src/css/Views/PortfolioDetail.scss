@@ -26,6 +26,10 @@
     .left {
       width: 49%;
       padding-right: $margin-sides;
+      img{
+        max-height: 250px;
+        margin-bottom: 2em;
+      }
       .description {
         font-family: $serif;
       }

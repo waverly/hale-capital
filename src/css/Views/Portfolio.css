@@ -40,7 +40,7 @@
       .portfolio-wrap .portfolio-header .text-right h3 {
         line-height: 50px;
         color: #999999; }
-        .portfolio-wrap .portfolio-header .text-right h3:hover {
+        .portfolio-wrap .portfolio-header .text-right h3 span:hover {
           color: #444444;
           transition: 0.25s all; }
   .portfolio-wrap .portfolio-grid {

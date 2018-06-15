@@ -37,6 +37,9 @@
     .portfolio-detail-wrap .inner-wrap .left {
       width: 49%;
       padding-right: 50px; }
+      .portfolio-detail-wrap .inner-wrap .left img {
+        max-height: 250px;
+        margin-bottom: 2em; }
       .portfolio-detail-wrap .inner-wrap .left .description {
         font-family: sectra, sans-serif; }
     .portfolio-detail-wrap .inner-wrap .right {

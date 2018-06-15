@@ -52,7 +52,6 @@ class App extends Component {
           pageSize: 100
         })
         .then(response => {
-          // console.log(response);
           this.handleData(response.results);
         });
     });
@@ -175,6 +174,7 @@ class App extends Component {
                       render={props => (
                         <WhatWeDo
                           data={this.state.whatwedo}
+                          socials={this.state.socials}
                           handleHighlight={text => this.handleHighlight(text)}
                           width={this.state.width}
                           height={this.state.height}
@@ -187,6 +187,7 @@ class App extends Component {
                       render={props => (
                         <DirectLending
                           data={this.state.directlending}
+                          socials={this.state.socials}
                           width={this.state.width}
                           height={this.state.height}
                         />
@@ -198,6 +199,7 @@ class App extends Component {
                       render={props => (
                         <PrivateEquity
                           data={this.state.privateequity}
+                          socials={this.state.socials}
                           width={this.state.width}
                           height={this.state.height}
                         />
@@ -209,6 +211,7 @@ class App extends Component {
                       render={props => (
                         <Portfolio
                           data={this.state.portfolio}
+                          socials={this.state.socials}
                           companies={this.state.companies}
                           width={this.state.width}
                           height={this.state.height}
@@ -226,13 +229,23 @@ class App extends Component {
                             p => p.uid === match.params.name
                           );
                         }
-                        return <PortfolioDetail data={found} />;
+                        return (
+                          <PortfolioDetail
+                            data={found}
+                            socials={this.state.socials}
+                          />
+                        );
                       }}
                     />
                     <Route
                       exact
                       path="/news"
-                      render={props => <News data={this.state.news} />}
+                      render={props => (
+                        <News
+                          data={this.state.news}
+                          socials={this.state.socials}
+                        />
+                      )}
                     />
                     <Route
                       exact
@@ -240,6 +253,7 @@ class App extends Component {
                       render={props => (
                         <AboutUs
                           data={this.state.about}
+                          socials={this.state.socials}
                           handleHighlight={text => this.handleHighlight(text)}
                         />
                       )}
@@ -250,6 +264,7 @@ class App extends Component {
                       render={props => (
                         <ContactUs
                           data={this.state.contactus}
+                          socials={this.state.socials}
                           width={this.state.width}
                           height={this.state.height}
                         />
