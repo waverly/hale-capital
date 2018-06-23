@@ -122,7 +122,7 @@ class AboutUs extends React.Component {
               </div>
             </div>
           </div>
-          <Footer />
+          <Footer socials={this.props.socials} />
         </div>
       );
     } else {

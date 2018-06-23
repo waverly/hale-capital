@@ -33,7 +33,19 @@ class Portfolio extends React.Component {
   }
 
   handleCurrent = x => {
+    if (this.state.current === x) {
+      this.setState({ current: null });
+      return;
+    }
     this.setState({ current: x });
+  };
+
+  handleFilter = x => {
+    if (this.state.filter === x) {
+      this.setState({ filter: null });
+      return;
+    }
+    this.setState({ filter: x });
   };
 
   handleLogoHover = c => {
@@ -91,7 +103,7 @@ class Portfolio extends React.Component {
                       className={
                         this.state.filter === "directlending" ? "active" : ""
                       }
-                      onClick={() => this.setState({ filter: "directlending" })}
+                      onClick={() => this.handleFilter("directlending")}
                     >
                       Direct Lending
                     </span>
@@ -100,7 +112,7 @@ class Portfolio extends React.Component {
                       className={
                         this.state.filter === "privateequity" ? "active" : ""
                       }
-                      onClick={() => this.setState({ filter: "privateequity" })}
+                      onClick={() => this.handleFilter("privateequity")}
                     >
                       Private Equity
                     </span>
@@ -181,7 +193,8 @@ class Portfolio extends React.Component {
                     if (this.state.filter === "directlending") {
                       if (
                         c.data.current === "past" &&
-                        c.data.type === "directlending"
+                        (c.data.type === "directlending" ||
+                          c.data.type === "both")
                       ) {
                         return (
                           <PortfolioItem
@@ -194,7 +207,8 @@ class Portfolio extends React.Component {
                     } else {
                       if (
                         c.data.current === "past" &&
-                        c.data.type === "privateequity"
+                        (c.data.type === "privateequity" ||
+                          c.data.type === "both")
                       ) {
                         return (
                           <PortfolioItem
@@ -261,7 +275,7 @@ class Portfolio extends React.Component {
               ))}
             </div>
           </div>
-          <Footer />
+          <Footer socials={this.props.socials} />
         </div>
       );
     } else {

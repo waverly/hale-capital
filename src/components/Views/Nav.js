@@ -38,6 +38,8 @@ class Nav extends React.Component {
 
   mobileMenuToggle() {
     this.setState({ mobileMenuExpanded: !this.state.mobileMenuExpanded });
+    console.log("toggling menu");
+    console.log(this.state.mobileMenuExpanded);
   }
 
   componentDidMount() {
@@ -62,6 +64,14 @@ class Nav extends React.Component {
         onClick={this.mobileMenuToggle}
       >
         <div className="logo">
+          <div
+            className={
+              this.mobileMenuExpanded ? "hamburger active" : "hamburger"
+            }
+          >
+            <span id="one" />
+            <span id="two" />
+          </div>
           <div className="logomark">
             <Logo class={this.state.logoClass} />
           </div>
@@ -71,6 +81,9 @@ class Nav extends React.Component {
         </div>
 
         <div className={"text-wrap " + this.state.navClass}>
+          <Link className={"textmark-mobile " + this.state.logoClass} to="/">
+            <p className="name-p">Hale Capital Partners</p>
+          </Link>
           <Link
             to={`/what-we-do`}
             className={

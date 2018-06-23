@@ -35,125 +35,186 @@
     color: $lightgrey;
   }
 
-  .logo {
-    width: 30vw;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    .logomark,
-    .textmark {
-      display: inline-block;
+  .hamburger {
+    position: RELATIVE;
+    z-index: 10;
+    top: 0;
+    left: 25px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    display: none;
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: white;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+      color: $darkblue;
     }
-    .textmark {
-      margin-left: 1em;
-      p {
+
+    span:nth-child(1) {
+      top: 0px;
+      transform: rotate(0deg);
+    }
+  }
+
+  span:nth-child(2) {
+    top: 18px;
+    transform: rotate(0deg);
+  }
+}
+
+.mobile-expanded {
+  .hamburger {
+    span:nth-child(1) {
+      top: 9px !important;
+      transform: rotate(135deg);
+      background: $darkblue;
+    }
+    span:nth-child(2) {
+      top: 9px;
+      transform: rotate(-135deg);
+      background: $darkblue;
+    }
+  }
+}
+
+.textmark-mobile {
+  display: none;
+}
+
+.logo {
+  width: 30vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .logomark,
+  .textmark {
+    display: inline-block;
+  }
+  .textmark {
+    margin-left: 1em;
+    p {
+      color: $darkblue !important;
+    }
+  }
+}
+
+.text-wrap {
+  display: flex;
+  width: 70vw;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+// start nav item
+.nav-item {
+  min-width: 120px;
+  width: auto;
+  padding: 15px;
+  position: relative;
+  line-height: 26px;
+  font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  color: $darkblue;
+
+  &:active,
+  &:hover,
+  &:focus,
+  &:focus-within {
+    background-color: transparent;
+  }
+
+  &.contact {
+    width: auto;
+  }
+  .index {
+    font-size: $font-size-small;
+  }
+  .item-title {
+    font-family: $serif-italic;
+    font-size: $font-size-small;
+  }
+
+  .nav-children {
+    font-family: $serif-italic;
+    display: none;
+    position: absolute;
+    margin-top: 0.7em;
+    background-color: white;
+    width: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    padding: 60px 0px 0px 0px;
+    border: 1px solid $lightgrey;
+
+    .nav-child {
+      font-family: $serif-italic;
+      height: 30px !important;
+      padding: 0 14px;
+      a {
         color: $darkblue;
+        line-height: 30px !important;
       }
     }
   }
-
-  .text-wrap {
-    display: flex;
-    width: 70vw;
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
-
-  .nav-item {
-    min-width: 120px;
-    width: auto;
-    padding: 15px;
-    position: relative;
-    line-height: 26px;
-    font-family: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
-      Arial, "Lucida Grande", sans-serif;
-    letter-spacing: 1px;
-    color: $darkblue;
-
-    &:active,
-    &:hover,
-    &:focus,
-    &:focus-within {
-      background-color: transparent;
-    }
-
-    &.contact {
-      width: auto;
+  // end nav item
+  // nav item on hover
+  &:hover {
+    z-index: 3;
+    .expandable {
+      color: $lightgrey !important;
     }
     .index {
-      font-size: $font-size-small;
+      position: relative;
+      z-index: $z-nav;
     }
     .item-title {
-      font-family: $serif-italic;
-      font-size: $font-size-small;
+      position: relative;
+      z-index: $z-nav;
     }
-
     .nav-children {
-      font-family: $serif-italic;
-      display: none;
-      position: absolute;
-      margin-top: 0.7em;
-      background-color: white;
-      width: 100%;
-      background-color: white;
-      top: 0;
-      left: 0;
-      padding: 60px 0px 0px 0px;
-      border: 1px solid $lightgrey;
-
-      .nav-child {
-        font-family: $serif-italic;
-        height: 30px !important;
-        padding: 0 14px;
-        a {
-          color: $darkblue;
-          line-height: 30px !important;
+      display: block;
+      a {
+        color: $darkblue;
+        &:hover {
+          background-color: $lightblue;
         }
       }
     }
-    // nav item on hover
-    &:hover {
-      z-index: 3;
-      .expandable {
-        color: $lightgrey !important;
-      }
-      .index {
-        position: relative;
-        z-index: $z-nav;
-      }
-      .item-title {
-        position: relative;
-        z-index: $z-nav;
-      }
-      .nav-children {
-        display: block;
-        a {
-          color: $darkblue;
-          &:hover {
-            background-color: $lightblue;
-          }
-        }
-      }
-      .down {
-        display: none;
-      }
-      .up {
-        display: inline-block;
-      }
+    .down {
+      display: none;
+    }
+    .up {
+      display: inline-block;
     }
   }
+  // end nav item on hover
+}
 
-  .logo {
-    p {
-      text-transform: uppercase;
-      font-size: 22px;
-    }
+.logo {
+  p {
+    text-transform: uppercase;
+    font-size: 22px;
   }
 }
 
 .nav-wrap.home {
   background-color: transparent;
-  transition: background-color 2s;
+  transition: none;
   color: white;
   a,
   p {
@@ -228,16 +289,27 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 25px;
-    padding-bottom: 100px;
+    padding-bottom: 0;
     height: 125px;
     background-color: transparent;
-    transition: background-color 0.5s;
+    transition: none;
     overflow-y: scroll;
 
     .logo {
       position: fixed;
       width: 100%;
       height: 75px;
+      left: 0;
+      top: 0;
+
+      .hamburger {
+        display: block;
+      }
+
+      .logomark {
+        display: none;
+      }
+
       a,
       p {
         font-size: $font-size-nav;
@@ -254,7 +326,7 @@
       height: 100%;
       flex-direction: column;
       justify-content: flex-start;
-      margin-top: 100px;
+      margin-top: 50px;
       padding-top: 1em;
       display: none;
     }
@@ -341,17 +413,27 @@
   .nav-wrap.mobile-expanded {
     height: 100vh;
     background-color: white;
-    transition: background-color 0.5s;
+    transition: 0.5s background-color;
+
+    .textmark {
+      display: none;
+    }
+
+    .textmark-mobile {
+      display: block;
+      color: $darkblue !important;
+      padding-left: 25px;
+      p {
+        color: $darkblue !important;
+      }
+    }
 
     .logo {
-      .textmark {
-        display: block !important;
-      }
     }
     .text-wrap {
       display: block;
       width: 100%;
-      margin-bottom: 150px;
+      margin-bottom: 50px;
     }
   }
 }

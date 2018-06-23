@@ -19,6 +19,7 @@ const PortfolioItem = props => {
         <Link to={`/portfolio/${uid}`}>
           <img src={logo} alt="" />
         </Link>
+        <div className="darken" />
       </div>
     );
   } else {

@@ -68,7 +68,7 @@ class PrivateEquity extends React.Component {
               ))}
             </div>
           </div>
-          <Footer />
+          <Footer socials={this.props.socials} />
         </div>
       );
     } else return "Loading...";

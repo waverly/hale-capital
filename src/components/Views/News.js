@@ -16,21 +16,26 @@ class News extends React.Component {
   currentYear = new Date().getFullYear();
 
   render() {
-    console.log(this.currentYear);
     if (!this.props.data) return "  ";
 
     // parse all news entries and create an array of unique year values
     let years = [];
+    let articles = this.props.data;
     if (this.props.data.length > 0) {
       this.props.data.map((n, index) => {
         const date = n.data.date;
         let year = this.extractYear(date);
-
         // see if this year is already in the array
         if (years.indexOf(year) < 0) {
           years.push(year);
           years = years.sort((a, b) => b - a);
         }
+      });
+
+      articles.sort(function(a, b) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.data.date) - new Date(a.data.date);
       });
     }
 
@@ -77,7 +82,7 @@ class News extends React.Component {
                 <div id={y} className="item-wrap" key={i}>
                   <h3>{y}</h3>
                   <div className="news-items">
-                    {this.props.data.map((n, i) => {
+                    {articles.map((n, i) => {
                       if (parseInt(n.data.date.slice(0, 4), 10) === y) {
                         return <NewsItem key={i} item={n} />;
                       }
@@ -89,7 +94,7 @@ class News extends React.Component {
             })}
           </div>
         </div>
-        <Footer />
+        <Footer socials={this.props.socials} />
       </div>
     );
   }

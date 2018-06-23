@@ -17,15 +17,13 @@ class Footer extends React.Component {
           </div>
 
           <div className="social sub-left">
-            <a href={this.props.socials.data.facebook.url} target="_blank">
-              Facebook
-            </a>
-            <a href={this.props.socials.data.twitter.url} target="_blank">
-              Twitter
-            </a>
-            <a href={this.props.socials.data.linkedin.url} target="_blank">
-              LinkedIn
-            </a>
+            {this.props.socials ? (
+              <div>
+                <a href={this.props.socials.data.linkedin.url} target="_blank">
+                  LinkedIn
+                </a>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="right">

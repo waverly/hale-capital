@@ -44,7 +44,7 @@ class ContactUs extends React.Component {
             />
           </div>
         </div>
-        <Footer />
+        <Footer socials={this.props.socials} />
       </div>
     );
   }
