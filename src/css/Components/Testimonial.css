@@ -29,14 +29,15 @@
       height: 100%;
       width: 100px;
       font-size: 140px;
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       transform: rotate(180deg);
       transform-origin: top;
       padding-left: 25px;
       display: flex;
       justify-content: center; }
     .testimonial .inner-wrap .text-wrap {
-      margin-top: -40px; }
+      margin-top: -40px;
+      flex-direction: column; }
       .testimonial .inner-wrap .text-wrap .author {
         margin-left: 0.5em;
         display: inline;
@@ -47,6 +48,7 @@
     margin-top: 75px; }
     .testimonial .inner-wrap .quote-icon {
       font-size: 80px;
-      height: 40px; }
+      height: 40px;
+      width: 50px; }
     .testimonial .inner-wrap .text-wrap {
       margin-top: -20px; } }

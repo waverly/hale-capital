@@ -16,6 +16,15 @@
   padding: $margin-sides;
   z-index: $z-nav;
 
+  button {
+    background: transparent;
+    border: none;
+  }
+
+  .textmark-mobile {
+    display: none;
+  }
+
   a,
   p {
     font-size: $font-size-small;
@@ -38,18 +47,18 @@
   .hamburger {
     position: RELATIVE;
     z-index: 10;
-    top: 0;
-    left: 25px;
+    // top: 0;
+    // left: 25px;
     width: 30px;
-    height: 30px;
-    background: transparent;
+    height: 22px;
+    cursor: pointer;
     display: none;
     span {
       display: block;
       position: absolute;
       height: 3px;
       width: 100%;
-      background: white;
+      background: $darkblue;
       opacity: 1;
       left: 0;
       -webkit-transform: rotate(0deg);
@@ -68,31 +77,14 @@
       transform: rotate(0deg);
     }
   }
+  // end hamburger
 
   span:nth-child(2) {
     top: 18px;
     transform: rotate(0deg);
   }
 }
-
-.mobile-expanded {
-  .hamburger {
-    span:nth-child(1) {
-      top: 9px !important;
-      transform: rotate(135deg);
-      background: $darkblue;
-    }
-    span:nth-child(2) {
-      top: 9px;
-      transform: rotate(-135deg);
-      background: $darkblue;
-    }
-  }
-}
-
-.textmark-mobile {
-  display: none;
-}
+// end nav wrap
 
 .logo {
   width: 30vw;
@@ -106,7 +98,7 @@
   .textmark {
     margin-left: 1em;
     p {
-      color: $darkblue !important;
+      color: $darkblue;
     }
   }
 }
@@ -216,6 +208,13 @@
   background-color: transparent;
   transition: none;
   color: white;
+
+  .hamburger {
+    span {
+      background: white;
+    }
+  }
+
   a,
   p {
     color: white !important;
@@ -252,14 +251,14 @@
   }
 
   .animate {
-    opacity: 1 !important;
+    opacity: 1;
     transform: translate(0px, 0px);
     transition-property: transform, opacity;
     transition-duration: 0.4s;
   }
 
   .navAnimate {
-    opacity: 1 !important;
+    opacity: 1;
     transform: translate(0px, 0px);
     transition-property: transform, opacity;
     transition-duration: 0.4s;
@@ -284,30 +283,188 @@
   }
 }
 
+.mobile-expanded {
+  .hamburger {
+    cursor: pointer;
+    display: none;
+    span:nth-child(1) {
+      top: 9px !important;
+      transform: rotate(135deg);
+      background: $darkblue;
+    }
+    span:nth-child(2) {
+      top: 9px;
+      transform: rotate(-135deg);
+      background: $darkblue;
+    }
+  }
+}
+// end mobile-expanded
+
+// .mobile-expanded {
+//   .nav-item {
+//     .nav-children {
+//       display: block !important;
+//     }
+//
+//     padding-left: 25px;
+//     .item-title {
+//       font-size: $font-size-nav;
+//     }
+//     &:hover {
+//       .expandable {
+//         color: $darkblue;
+//       }
+//       .nav-children {
+//         a {
+//           &:hover {
+//             background-color: transparent;
+//           }
+//         }
+//       }
+//     }
+//     .nav-children {
+//       position: relative;
+//       background: transparent;
+//       padding: 0;
+//       border: none;
+//       display: none;
+//       a {
+//         &:hover {
+//           background: transparent;
+//         }
+//       }
+//       .nav-child {
+//         padding: 0;
+//       }
+//     }
+//   }
+// }
+
+// .nav-wrap.mobile-expanded {
+//   flex-direction: column;
+//   align-items: flex-start;
+//   // padding: 50px;
+//   padding: 0;
+//   padding-bottom: 0;
+//   background-color: transparent;
+//   transition: none;
+//   overflow-y: scroll;
+//
+//   .logo {
+//     position: fixed;
+//     height: 150px;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -ms-flex-pack: justify;
+//     justify-content: flex-start;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     padding: 50px;
+//     z-index: 10;
+//     width: 100%;
+//
+//     a,
+//     p {
+//       font-size: $font-size-nav;
+//     }
+//     .textmark {
+//       display: inline-block;
+//       p {
+//         color: $darkblue;
+//       }
+//     }
+//   }
+//   .text-wrap {
+//     position: relative;
+//     height: 100%;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     padding-top: 1em;
+//     display: block;
+//     width: 100%;
+//     padding: 150px 50px 50px 50px;
+//   }
+//
+//   // remove hover styles
+//
+//   &:hover {
+//     .nav-children {
+//       display: none;
+//       .nav-children {
+//         a {
+//           &:hover {
+//             background-color: transparent;
+//           }
+//         }
+//       }
+//     }
+//     .down {
+//       display: inline-block;
+//     }
+//     .up {
+//       display: none;
+//     }
+//   }
+// }
+//
+// .nav-wrap.home {
+//   // .navAnimate {
+//   //   opacity: 0;
+//   // }
+//   color: white;
+//   a,
+//   p,
+//   .index,
+//   .item-title {
+//     color: $darkblue;
+//   }
+//
+//   .logo {
+//     .textmark {
+//       p {
+//         color: white;
+//       }
+//     }
+//   }
+//
+//   svg {
+//   }
+//   .nav-item {
+//     .index {
+//       color: $darkblue;
+//     }
+//   }
+// }
+
+/* --------------------------- BEGIN MEDIA QUERY 1250 --------------------- */
+
 @media screen and (max-width: 1250px) {
   .nav-wrap {
     flex-direction: column;
     align-items: flex-start;
-    padding: 25px;
+    // padding: 50px;
+    padding: 0;
     padding-bottom: 0;
-    height: 125px;
     background-color: transparent;
     transition: none;
     overflow-y: scroll;
 
     .logo {
       position: fixed;
+      height: 150px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+      justify-content: flex-start;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 50px;
+      z-index: 10;
       width: 100%;
-      height: 75px;
-      left: 0;
-      top: 0;
-
-      .hamburger {
-        display: block;
-      }
 
       .logomark {
-        display: none;
+        cursor: pointer;
       }
 
       a,
@@ -315,9 +472,9 @@
         font-size: $font-size-nav;
       }
       .textmark {
-        display: none;
+        display: inline-block;
         p {
-          color: $darkblue !important;
+          color: $darkblue;
         }
       }
     }
@@ -326,26 +483,70 @@
       height: 100%;
       flex-direction: column;
       justify-content: flex-start;
-      margin-top: 50px;
       padding-top: 1em;
+      display: block;
+      width: 100%;
+      padding: 150px 50px 50px 50px;
+      visibility: hidden;
+      margin-bottom: 100px;
+    }
+  }
+
+  .nav-item.expanded {
+    .nav-children {
+      display: block !important;
+    }
+  }
+
+  .nav-item {
+    .arrow {
       display: none;
     }
-
-    .nav-item.expanded {
-      .nav-children {
-        display: block !important;
+    .nav-children {
+      display: block !important;
+      .nav-child {
+        color: $darkblue !important;
       }
     }
+  }
 
-    .nav-item {
-      padding-left: 25px;
-      .item-title {
-        font-size: $font-size-nav;
+  .nav-item {
+    padding-left: 25px;
+    .item-title {
+      font-size: $font-size-nav;
+    }
+    &:hover {
+      .expandable {
+        color: $darkblue !important;
       }
-      &:hover {
-        .expandable {
-          color: $darkblue;
+      .nav-children {
+        a {
+          &:hover {
+            background-color: transparent;
+          }
         }
+      }
+    }
+    .nav-children {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      border: none;
+      display: none;
+      a {
+        &:hover {
+          background: transparent;
+        }
+      }
+      .nav-child {
+        padding: 0;
+      }
+    }
+    // remove hover styles
+
+    &:hover {
+      .nav-children {
+        display: none;
         .nav-children {
           a {
             &:hover {
@@ -354,51 +555,33 @@
           }
         }
       }
-      .nav-children {
-        position: relative;
-        background: transparent;
-        padding: 0;
-        border: none;
-        display: none;
-        a {
-          &:hover {
-            background: transparent;
-          }
-        }
-        .nav-child {
-          padding: 0;
-        }
+      .down {
+        display: inline-block;
       }
-      // remove hover styles
-
-      &:hover {
-        .nav-children {
-          display: none;
-          .nav-children {
-            a {
-              &:hover {
-                background-color: transparent;
-              }
-            }
-          }
-        }
-        .down {
-          display: inline-block;
-        }
-        .up {
-          display: none;
-        }
+      .up {
+        display: none;
       }
     }
   }
 
   .nav-wrap.home {
+    .navAnimate {
+      opacity: 0;
+    }
     color: white;
     a,
     p,
     .index,
     .item-title {
       color: $darkblue;
+    }
+
+    .logo {
+      .textmark {
+        p {
+          color: white;
+        }
+      }
     }
 
     svg {
@@ -409,31 +592,77 @@
       }
     }
   }
-  // expanded mobile menu
-  .nav-wrap.mobile-expanded {
-    height: 100vh;
-    background-color: white;
-    transition: 0.5s background-color;
 
+  // end 1250 media query
+}
+
+// expanded mobile menu
+.nav-wrap.mobile-expanded {
+  height: 100vh;
+  background-color: white;
+  transition: 0.5s background-color;
+  .logo {
     .textmark {
-      display: none;
-    }
-
-    .textmark-mobile {
-      display: block;
-      color: $darkblue !important;
-      padding-left: 25px;
       p {
         color: $darkblue !important;
       }
     }
+  }
+
+  .textmark-mobile {
+    display: block;
+    color: $darkblue !important;
+    padding-left: 25px;
+    p {
+      color: $darkblue !important;
+    }
+  }
+
+  .logo {
+  }
+
+  .text-wrap {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ----------------------------------- BEGIN MEDIA QUERY 768 ------------------------- */
+
+@media all and (max-width: 768px) {
+  .nav-wrap {
+    height: 75px;
 
     .logo {
+      height: 75px;
+      padding: 25px;
+      // background: white;
     }
+
     .text-wrap {
-      display: block;
-      width: 100%;
-      margin-bottom: 50px;
+      padding: 100px 25px 50px;
+    }
+
+    .mobile-expanded {
+      .hamburger {
+        display: block;
+      }
+    }
+
+    .logo {
+      .hamburger {
+        display: block !important;
+      }
+
+      .logomark {
+        display: none;
+      }
+    }
+  }
+
+  .nav-wrap.home {
+    .logo {
+      background: transparent;
     }
   }
 }

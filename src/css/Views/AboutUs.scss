@@ -4,6 +4,12 @@
   background: blue;
 }
 
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .our-team {
   width: 100vw;
   padding: $margin-sides;
@@ -20,7 +26,7 @@
       margin-left: 20%;
     }
 
-    .team-members h3{
+    .team-members h3 {
       color: lightgrey;
     }
     .active {
@@ -74,11 +80,21 @@
 
 @media screen and (max-width: 1000px) {
   .our-team {
+    padding: 25px;
+
     .inner-wrap {
       .our-team-tagline {
         max-width: 100%;
         margin-left: 0%;
       }
+    }
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .our-team {
+    .inner-wrap {
+      text-align: center;
     }
   }
 }

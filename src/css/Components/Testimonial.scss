@@ -26,6 +26,7 @@
     }
     .text-wrap {
       margin-top: -40px;
+      flex-direction: column;
 
       .author {
         margin-left: 0.5em;
@@ -44,6 +45,7 @@
       .quote-icon {
         font-size: 80px;
         height: 40px;
+        width: 50px;
       }
       .text-wrap {
         margin-top: -20px;

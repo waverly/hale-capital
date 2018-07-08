@@ -50,3 +50,21 @@
   }
 }
 // end icon
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+
+  .icon {
+    .plus {
+      .horizontal {
+        position: absolute;
+        top: 18px;
+        left: -4px;
+      }
+      .vertical {
+        position: absolute;
+        left: 5px;
+      }
+    }
+  }
+}

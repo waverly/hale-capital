@@ -25,8 +25,13 @@ class ContactUs extends React.Component {
                 {root.address.map((i, index) => <p key={index}>{i.text}</p>)}
               </div>
               <div className="secondary-contact">
-                <p>{root.phonenumber["0"].text}</p>
-                <p>{root.email["0"].text}</p>
+                <a href={`tel:${root.email["0"].text}`}>
+                  <p>{root.phonenumber["0"].text}</p>
+                </a>
+
+                <a href={`mailto:${root.email["0"].text}`}>
+                  <p>{root.email["0"].text} </p>
+                </a>
               </div>
             </div>
             <div className="right-col">

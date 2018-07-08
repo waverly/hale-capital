@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import Header from "../Components/Header";
 import Footer from "./Footer";
 import TeamMember from "../Components/TeamMember";
@@ -28,8 +29,15 @@ class AboutUs extends React.Component {
       const about = this.props.data.data;
       return (
         <div>
+          <span id="top" />
           <div className="aboutus section-wrap">
             <Header index="05" title="About Us" />
+
+            <div className="backToTop homepage-caption">
+              <Link smooth to={`/about-us#top`}>
+                <p>Back to top</p>
+              </Link>
+            </div>
 
             {/*  start column */}
             <div className="col-wrap">
@@ -60,8 +68,7 @@ class AboutUs extends React.Component {
                   ) : (
                     ""
                   )}
-                </div>{" "}
-                {/*  end inner wrap */}
+                </div>
               </div>
 
               {/*  end column */}
@@ -78,7 +85,7 @@ class AboutUs extends React.Component {
                       className={this.state.team ? "active" : ""}
                       onClick={() => this.handleCurrent(true)}
                     >
-                      Team
+                      Investment Team
                     </span>{" "}
                     /{" "}
                     <span

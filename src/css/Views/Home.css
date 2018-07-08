@@ -65,6 +65,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
   padding: 50px; }
   .home-wrap .tagline {
     width: 75%;
@@ -77,18 +78,18 @@
     opacity: 0; }
   .home-wrap .taglineAnimate {
     opacity: 1;
-    transition: 1s all; }
+    transition: 1s opacity; }
   .home-wrap .bg-fade {
     background-color: #444444;
     opacity: 0.5;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 2; }
   .home-wrap .background-carousel {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -100,7 +101,9 @@
     background-size: cover;
     background-position: center; }
   .home-wrap .slideshow {
-    overflow: hidden; }
+    overflow: hidden;
+    max-height: 100%;
+    height: 100%; }
     .home-wrap .slideshow img {
       object-fit: cover;
       width: 100%;

@@ -26,11 +26,11 @@
       color: #999999; }
     .news-item .text-wrap .title {
       margin-top: 0 5em;
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       font-size: 28px;
       line-height: 33px; }
     .news-item .text-wrap .excerpt {
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       margin: 1em 0; }
     .news-item .text-wrap .read-more {
       margin-top: 1em; }

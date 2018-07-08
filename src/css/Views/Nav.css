@@ -73,6 +73,13 @@ table {
   opacity: 1;
   transition: 0.5s all; }
 
+.fixed {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0; }
+
 /*.....................TEXT MARK STYLES......................*/
 ::-moz-selection {
   background: transparent;
@@ -126,7 +133,7 @@ table {
   display: block; }
 
 html {
-  font-family: helvetica;
+  font-family: serif;
   width: 100%;
   margin: 0, 0;
   padding: 0, 0;
@@ -135,14 +142,20 @@ html {
 
 body {
   width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
   height: auto;
   margin: 0, 0;
   padding: 0, 0;
   display: block;
   position: relative;
   background: #ffffff;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Times New Roman", serif;
   font-weight: 400; }
+
+html,
+body {
+  overflow-x: hidden; }
 
 p,
 a,
@@ -226,7 +239,7 @@ p {
 h1 {
   font-size: 58px;
   line-height: 100px;
-  font-family: sectra, sans-serif;
+  font-family: sectra, serif, serif;
   letter-spacing: 2px;
   /*  @if $media == large-desktop {
     @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
@@ -238,7 +251,7 @@ h1 {
 h2 {
   font-size: 52px;
   line-height: 46px;
-  font-family: sectra, sans-serif;
+  font-family: sectra, serif;
   letter-spacing: 0px;
   /*  @if $media == large-desktop {
     @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
@@ -278,9 +291,9 @@ h4 {
   font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; }
 
 .serif {
-  font-family: sectra, sans-serif !important; }
+  font-family: sectra, serif !important; }
   .serif p {
-    font-family: sectra, sans-serif !important; }
+    font-family: sectra, serif !important; }
 
 .serif-italic {
   font-family: sectra-italic, serif; }
@@ -353,7 +366,7 @@ ul.list {
   ul.list li {
     font-size: 30px;
     line-height: 40px;
-    font-family: sectra, sans-serif; }
+    font-family: sectra, serif; }
 
 .section-wrap {
   font: 16px / 1 Arial;
@@ -370,6 +383,14 @@ table {
   table tr td {
     vertical-align: middle; }
 
+.backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 75px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #001938; }
+
 @media screen and (max-width: 1000px) {
   h1 {
     font-size: 36px;
@@ -377,10 +398,6 @@ table {
   h3 {
     font-size: 22px;
     line-height: 30px; }
-  .section-wrap {
-    margin-top: 125px;
-    margin-bottom: 50px;
-    width: 100vw; }
   .col-wrap {
     margin-top: 25px;
     display: flex;
@@ -403,7 +420,8 @@ table {
     top: 0px;
     padding: 25px; }
     .col-right img {
-      max-width: 100%; }
+      max-width: 100%;
+      flex-shrink: 0; }
     .col-right .inner-wrap {
       display: flex;
       flex-direction: column;
@@ -412,9 +430,27 @@ table {
       .col-right .inner-wrap .view-investments h3 {
         font-size: 22px; } }
 
+@media screen and (max-width: 768px) {
+  .section-wrap {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 100vw; } }
+
 @media screen and (max-width: 675px) {
+  .backToTop {
+    right: 25px;
+    border: 1px solid #001938; }
   .col-right .inner-wrap .view-investments h3 {
     font-size: 18px; } }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */ }
+
+@media all and (-ms-high-contrast: none) and (max-width: 1000px), all and (-ms-high-contrast: active) and (max-width: 1000px) {
+  .col-right .inner-wrap {
+    text-align: center; }
+    .col-right .inner-wrap img {
+      width: 300px; } }
 
 /*....................................SCSS VARIABLES..................................*/
 @font-face {
@@ -445,6 +481,11 @@ table {
   align-items: center;
   padding: 50px;
   z-index: 10; }
+  .nav-wrap button {
+    background: transparent;
+    border: none; }
+  .nav-wrap .textmark-mobile {
+    display: none; }
   .nav-wrap a,
   .nav-wrap p {
     font-size: 14px;
@@ -456,18 +497,16 @@ table {
   .nav-wrap .hamburger {
     position: RELATIVE;
     z-index: 10;
-    top: 0;
-    left: 25px;
     width: 30px;
-    height: 30px;
-    background: transparent;
+    height: 22px;
+    cursor: pointer;
     display: none; }
     .nav-wrap .hamburger span {
       display: block;
       position: absolute;
       height: 3px;
       width: 100%;
-      background: white;
+      background: #001938;
       opacity: 1;
       left: 0;
       -webkit-transform: rotate(0deg);
@@ -486,19 +525,6 @@ table {
     top: 18px;
     transform: rotate(0deg); }
 
-.mobile-expanded .hamburger span:nth-child(1) {
-  top: 9px !important;
-  transform: rotate(135deg);
-  background: #001938; }
-
-.mobile-expanded .hamburger span:nth-child(2) {
-  top: 9px;
-  transform: rotate(-135deg);
-  background: #001938; }
-
-.textmark-mobile {
-  display: none; }
-
 .logo {
   width: 30vw;
   display: flex;
@@ -510,7 +536,7 @@ table {
   .logo .textmark {
     margin-left: 1em; }
     .logo .textmark p {
-      color: #001938 !important; }
+      color: #001938; }
 
 .text-wrap {
   display: flex;
@@ -584,6 +610,8 @@ table {
   background-color: transparent;
   transition: none;
   color: white; }
+  .nav-wrap.home .hamburger span {
+    background: white; }
   .nav-wrap.home a,
   .nav-wrap.home p {
     color: white !important; }
@@ -600,12 +628,12 @@ table {
     opacity: 0;
     transform: translate(0px, 5px); }
   .nav-wrap.home .animate {
-    opacity: 1 !important;
+    opacity: 1;
     transform: translate(0px, 0px);
     transition-property: transform, opacity;
     transition-duration: 0.4s; }
   .nav-wrap.home .navAnimate {
-    opacity: 1 !important;
+    opacity: 1;
     transform: translate(0px, 0px);
     transition-property: transform, opacity;
     transition-duration: 0.4s;
@@ -619,91 +647,138 @@ table {
   .nav-wrap.home svg .center {
     fill: #001938; }
 
+.mobile-expanded .hamburger {
+  cursor: pointer;
+  display: none; }
+  .mobile-expanded .hamburger span:nth-child(1) {
+    top: 9px !important;
+    transform: rotate(135deg);
+    background: #001938; }
+  .mobile-expanded .hamburger span:nth-child(2) {
+    top: 9px;
+    transform: rotate(-135deg);
+    background: #001938; }
+
+/* --------------------------- BEGIN MEDIA QUERY 1250 --------------------- */
 @media screen and (max-width: 1250px) {
   .nav-wrap {
     flex-direction: column;
     align-items: flex-start;
-    padding: 25px;
+    padding: 0;
     padding-bottom: 0;
-    height: 125px;
     background-color: transparent;
     transition: none;
     overflow-y: scroll; }
     .nav-wrap .logo {
       position: fixed;
-      width: 100%;
-      height: 75px;
-      left: 0;
-      top: 0; }
-      .nav-wrap .logo .hamburger {
-        display: block; }
+      height: 150px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+      justify-content: flex-start;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 50px;
+      z-index: 10;
+      width: 100%; }
       .nav-wrap .logo .logomark {
-        display: none; }
+        cursor: pointer; }
       .nav-wrap .logo a,
       .nav-wrap .logo p {
         font-size: 18px; }
       .nav-wrap .logo .textmark {
-        display: none; }
+        display: inline-block; }
         .nav-wrap .logo .textmark p {
-          color: #001938 !important; }
+          color: #001938; }
     .nav-wrap .text-wrap {
       position: relative;
       height: 100%;
       flex-direction: column;
       justify-content: flex-start;
-      margin-top: 50px;
       padding-top: 1em;
+      display: block;
+      width: 100%;
+      padding: 150px 50px 50px 50px;
+      visibility: hidden;
+      margin-bottom: 100px; }
+  .nav-item.expanded .nav-children {
+    display: block !important; }
+  .nav-item .arrow {
+    display: none; }
+  .nav-item .nav-children {
+    display: block !important; }
+    .nav-item .nav-children .nav-child {
+      color: #001938 !important; }
+  .nav-item {
+    padding-left: 25px; }
+    .nav-item .item-title {
+      font-size: 18px; }
+    .nav-item:hover .expandable {
+      color: #001938 !important; }
+    .nav-item:hover .nav-children a:hover {
+      background-color: transparent; }
+    .nav-item .nav-children {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      border: none;
       display: none; }
-    .nav-wrap .nav-item.expanded .nav-children {
-      display: block !important; }
-    .nav-wrap .nav-item {
-      padding-left: 25px; }
-      .nav-wrap .nav-item .item-title {
-        font-size: 18px; }
-      .nav-wrap .nav-item:hover .expandable {
-        color: #001938; }
-      .nav-wrap .nav-item:hover .nav-children a:hover {
+      .nav-item .nav-children a:hover {
+        background: transparent; }
+      .nav-item .nav-children .nav-child {
+        padding: 0; }
+    .nav-item:hover .nav-children {
+      display: none; }
+      .nav-item:hover .nav-children .nav-children a:hover {
         background-color: transparent; }
-      .nav-wrap .nav-item .nav-children {
-        position: relative;
-        background: transparent;
-        padding: 0;
-        border: none;
-        display: none; }
-        .nav-wrap .nav-item .nav-children a:hover {
-          background: transparent; }
-        .nav-wrap .nav-item .nav-children .nav-child {
-          padding: 0; }
-      .nav-wrap .nav-item:hover .nav-children {
-        display: none; }
-        .nav-wrap .nav-item:hover .nav-children .nav-children a:hover {
-          background-color: transparent; }
-      .nav-wrap .nav-item:hover .down {
-        display: inline-block; }
-      .nav-wrap .nav-item:hover .up {
-        display: none; }
+    .nav-item:hover .down {
+      display: inline-block; }
+    .nav-item:hover .up {
+      display: none; }
   .nav-wrap.home {
     color: white; }
+    .nav-wrap.home .navAnimate {
+      opacity: 0; }
     .nav-wrap.home a,
     .nav-wrap.home p,
     .nav-wrap.home .index,
     .nav-wrap.home .item-title {
       color: #001938; }
+    .nav-wrap.home .logo .textmark p {
+      color: white; }
     .nav-wrap.home .nav-item .index {
-      color: #001938; }
-  .nav-wrap.mobile-expanded {
-    height: 100vh;
-    background-color: white;
-    transition: 0.5s background-color; }
-    .nav-wrap.mobile-expanded .textmark {
+      color: #001938; } }
+
+.nav-wrap.mobile-expanded {
+  height: 100vh;
+  background-color: white;
+  transition: 0.5s background-color; }
+  .nav-wrap.mobile-expanded .logo .textmark p {
+    color: #001938 !important; }
+  .nav-wrap.mobile-expanded .textmark-mobile {
+    display: block;
+    color: #001938 !important;
+    padding-left: 25px; }
+    .nav-wrap.mobile-expanded .textmark-mobile p {
+      color: #001938 !important; }
+  .nav-wrap.mobile-expanded .text-wrap {
+    opacity: 1;
+    visibility: visible; }
+
+/* ----------------------------------- BEGIN MEDIA QUERY 768 ------------------------- */
+@media all and (max-width: 768px) {
+  .nav-wrap {
+    height: 75px; }
+    .nav-wrap .logo {
+      height: 75px;
+      padding: 25px; }
+    .nav-wrap .text-wrap {
+      padding: 100px 25px 50px; }
+    .nav-wrap .mobile-expanded .hamburger {
+      display: block; }
+    .nav-wrap .logo .hamburger {
+      display: block !important; }
+    .nav-wrap .logo .logomark {
       display: none; }
-    .nav-wrap.mobile-expanded .textmark-mobile {
-      display: block;
-      color: #001938 !important;
-      padding-left: 25px; }
-      .nav-wrap.mobile-expanded .textmark-mobile p {
-        color: #001938 !important; }
-    .nav-wrap.mobile-expanded .text-wrap {
-      display: block;
-      width: 100%;
-      margin-bottom: 50px; } }
+  .nav-wrap.home .logo {
+    background: transparent; } }

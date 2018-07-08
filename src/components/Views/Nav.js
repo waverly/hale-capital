@@ -37,13 +37,14 @@ class Nav extends React.Component {
   }
 
   mobileMenuToggle() {
-    this.setState({ mobileMenuExpanded: !this.state.mobileMenuExpanded });
-    console.log("toggling menu");
-    console.log(this.state.mobileMenuExpanded);
+    if (this.props.width < 1250) {
+      this.setState({ mobileMenuExpanded: !this.state.mobileMenuExpanded });
+    }
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ logoClass: "animate" }), 800);
+    console.log("component remounting");
+    setTimeout(() => this.setState({ logoClass: "animate" }), 1000);
     setTimeout(() => this.setState({ navClass: "navAnimate" }), 3500);
   }
 
@@ -54,40 +55,72 @@ class Nav extends React.Component {
       <div
         className={
           path === "/"
-            ? this.state.mobileMenuExpanded
+            ? this.state.mobileMenuExpanded && this.props.width < 1250
               ? "nav-wrap home mobile-expanded"
               : "nav-wrap home"
-            : this.state.mobileMenuExpanded
+            : this.state.mobileMenuExpanded && this.props.width < 1250
               ? "nav-wrap mobile-expanded"
               : "nav-wrap"
         }
-        onClick={this.mobileMenuToggle}
       >
         <div className="logo">
           <div
+            onClick={this.mobileMenuToggle}
             className={
-              this.mobileMenuExpanded ? "hamburger active" : "hamburger"
+              this.mobileMenuExpanded && this.props.width < 1250
+                ? "hamburger active"
+                : "hamburger"
             }
           >
             <span id="one" />
             <span id="two" />
           </div>
-          <div className="logomark">
+          <button onClick={this.mobileMenuToggle} className="logomark">
             <Logo class={this.state.logoClass} />
-          </div>
-          <Link className={"textmark " + this.state.logoClass} to="/">
+          </button>
+          <Link
+            className={"textmark " + this.state.logoClass}
+            to="/"
+            // onClick={
+            //   this.state.mobileMenuExpanded
+            //     ? () => {
+            //         // this.mobileMenuToggle();
+            //         this.props.scrollTopZero();
+            //       }
+            //     : this.props.scrollTopZero
+            // }
+          >
             <p className="name-p">Hale Capital Partners</p>
           </Link>
         </div>
 
         <div className={"text-wrap " + this.state.navClass}>
-          <Link className={"textmark-mobile " + this.state.logoClass} to="/">
+          {/* <Link
+            className={"textmark-mobile " + this.state.logoClass}
+            to="/"
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
+            }
+          >
             <p className="name-p">Hale Capital Partners</p>
-          </Link>
+          </Link> */}
           <Link
             to={`/what-we-do`}
             className={
               "nav-item " + (path === "/what-we-do" ? "active" : "inactive")
+            }
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
             }
           >
             <div className="index">01</div>
@@ -104,7 +137,7 @@ class Nav extends React.Component {
             <div className="item-title expandable">
               Investment Strategies
               <Arrow
-                direction={this.state.arrowdown ? "down" : "up"}
+                direction={"down"}
                 className="down"
                 color={path === "/" ? "lightgrey" : "darkblue"}
               />
@@ -112,6 +145,14 @@ class Nav extends React.Component {
             <div className="nav-children">
               <Link
                 to={`/private-equity`}
+                onClick={
+                  this.state.mobileMenuExpanded
+                    ? () => {
+                        this.mobileMenuToggle();
+                        this.props.scrollTopZero();
+                      }
+                    : this.props.scrollTopZero
+                }
                 className={
                   "nav-child " +
                   (path === "/private-equity" ? "active" : "inactive")
@@ -121,6 +162,14 @@ class Nav extends React.Component {
               </Link>
               <Link
                 to={`/direct-lending`}
+                onClick={
+                  this.state.mobileMenuExpanded
+                    ? () => {
+                        this.mobileMenuToggle();
+                        this.props.scrollTopZero();
+                      }
+                    : this.props.scrollTopZero
+                }
                 className={
                   "nav-child " +
                   (path === "/direct-lending" ? "active" : "inactive")
@@ -132,6 +181,14 @@ class Nav extends React.Component {
           </div>
           <Link
             to={`/portfolio`}
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
+            }
             className={
               "nav-item " + (path === "/portfolio" ? "active" : "inactive")
             }
@@ -141,6 +198,14 @@ class Nav extends React.Component {
           </Link>
           <Link
             to={`/news`}
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
+            }
             className={"nav-item " + (path === "/news" ? "active" : "inactive")}
           >
             <div className="index">04</div>
@@ -148,6 +213,14 @@ class Nav extends React.Component {
           </Link>
           <Link
             to={`/about-us`}
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
+            }
             className={
               "nav-item " + (path === "/about-us" ? "active" : "inactive")
             }
@@ -157,6 +230,14 @@ class Nav extends React.Component {
           </Link>
           <Link
             to={`/contact-us`}
+            onClick={
+              this.state.mobileMenuExpanded
+                ? () => {
+                    this.mobileMenuToggle();
+                    this.props.scrollTopZero();
+                  }
+                : this.props.scrollTopZero
+            }
             className={
               "nav-item contact " +
               (path === "/contact-us" ? "active" : "inactive")

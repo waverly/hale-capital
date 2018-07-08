@@ -12,8 +12,8 @@ class Form extends React.Component {
   }
 
   handleSubmit() {
-    console.log("form was submitted");
-    alert("form submit!");
+    // console.log("form was submitted");
+    // alert("form submit!");
   }
 
   handleInputChange(event) {

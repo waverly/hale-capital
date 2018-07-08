@@ -5,15 +5,16 @@ const NewsItem = props => {
   const root = props.item.data;
   return (
     <div className="news-item">
-      {/* <div className="image-wrap">
-        <img src={root.image.url ? root.image.url : ""} alt="" />
-      </div> */}
       <div className="text-wrap">
         <p className="date">{root.date}</p>
         <h3 className="title">{root.title["0"].text}</h3>
         <p className="excerpt">{root.excerpt["0"].text}</p>
 
-        <a href={root.link.url ? root.link.url : "#"} className="read-more">
+        <a
+          target="_blank"
+          href={root.link.url ? root.link.url : "#"}
+          className="read-more"
+        >
           Read More{" "}
         </a>
       </div>

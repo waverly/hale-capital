@@ -1,6 +1,8 @@
 @import "../variables";
 
-.no-flick{-webkit-transform:translate3d(0,0,0);}
+.no-flick {
+  -webkit-transform: translate3d(0, 0, 0);
+}
 
 svg {
   -webkit-perspective: 1000;
@@ -60,17 +62,17 @@ svg {
 
 svg.animate {
   .sidebar-left {
-    transform: translateY(.3px);
-    transition: all 2s;
+    transform: translateY(0.3px);
+    transition: all 2s, fill 0.2s;
   }
   .sidebar-right {
-    transform: translateY(-.3px);
-    transition: all 2s;
+    transform: translateY(-0.3px);
+    transition: all 2s, fill 0.2s;
   }
 
   .center {
     transform: translateX(-1px);
-    transition: all 2s;
+    transition: all 2s, fill 0.2s;
   }
 }
 

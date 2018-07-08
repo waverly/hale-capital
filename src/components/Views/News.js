@@ -42,6 +42,11 @@ class News extends React.Component {
     return (
       <div>
         <div className="section-wrap news-wrap">
+          <div className="backToTop homepage-caption">
+            <Link smooth to={`/news#2018`}>
+              <p>Back to top</p>
+            </Link>
+          </div>
           {/*  news header  */}
           {/* start header */}
           <div className="news-header">
@@ -58,6 +63,9 @@ class News extends React.Component {
                   <Link
                     smooth
                     to={`/news#${y}`}
+                    scroll={el =>
+                      el.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }
                     className={y === this.currentYear ? "" : "lightgrey"}
                   >
                     <h3 className="year-item">{y}</h3>
@@ -79,15 +87,18 @@ class News extends React.Component {
           <div className="entries">
             {years.map((y, i) => {
               return (
-                <div id={y} className="item-wrap" key={i}>
-                  <h3>{y}</h3>
-                  <div className="news-items">
-                    {articles.map((n, i) => {
-                      if (parseInt(n.data.date.slice(0, 4), 10) === y) {
-                        return <NewsItem key={i} item={n} />;
-                      }
-                      return null;
-                    })}
+                <div key={i} className="pos-rel">
+                  <span id={y} className="anchor-span" />
+                  <div className="item-wrap">
+                    <h3>{y}</h3>
+                    <div className="news-items">
+                      {articles.map((n, i) => {
+                        if (parseInt(n.data.date.slice(0, 4), 10) === y) {
+                          return <NewsItem key={i} item={n} />;
+                        }
+                        return null;
+                      })}
+                    </div>
                   </div>
                 </div>
               );

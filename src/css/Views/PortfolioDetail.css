@@ -26,7 +26,7 @@
   .portfolio-detail-wrap .context {
     position: relative; }
     .portfolio-detail-wrap .context p {
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       font-size: 14px; }
   .portfolio-detail-wrap .inner-wrap {
     margin-top: 50px;
@@ -41,7 +41,7 @@
         max-height: 250px;
         margin-bottom: 2em; }
       .portfolio-detail-wrap .inner-wrap .left .description {
-        font-family: sectra, sans-serif; }
+        font-family: sectra, serif; }
     .portfolio-detail-wrap .inner-wrap .right {
       width: 50%; }
       .portfolio-detail-wrap .inner-wrap .right img {

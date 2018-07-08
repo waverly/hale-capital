@@ -19,6 +19,14 @@
   overflow: hidden; }
   .portfolio-wrap bold {
     font-family: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  .portfolio-wrap .bgImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+    background-size: cover; }
   .portfolio-wrap .grey {
     color: #999999; }
   .portfolio-wrap .portfolio-header {
@@ -54,7 +62,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    transition: 0.5s; }
   .portfolio-wrap .testimonial-wrap {
     width: 100%;
     position: relative;

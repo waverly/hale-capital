@@ -24,7 +24,7 @@
   .form-wrap h3 {
     position: relative;
     z-index: 3;
-    font-family: sectra, sans-serif;
+    font-family: sectra, serif;
     font-size: 25px;
     width: 100%; }
   .form-wrap form {
@@ -59,6 +59,8 @@
       height: 2em;
       border: none;
       background-color: transparent; }
+      .form-wrap form button:hover {
+        color: #999999; }
 
 @media screen and (max-width: 1100px) {
   .form-wrap {

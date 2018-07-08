@@ -22,7 +22,7 @@
     justify-content: space-between;
     align-items: center; }
     .trans-item .trans-title h3 {
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       line-height: 90px;
       max-width: 90%; }
   .trans-item .trans-desc.panel {
@@ -34,7 +34,7 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out; }
     .trans-item .trans-desc.panel p {
-      font-family: sectra, sans-serif;
+      font-family: sectra, serif;
       margin-bottom: 10px;
       margin: 50px; }
 

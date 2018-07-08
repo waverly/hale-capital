@@ -58,7 +58,6 @@ class Portfolio extends React.Component {
       const d = this.props.data.data;
 
       const bgImgUrl = `url(${this.state.bgImg})`;
-      const companies = this.props.companies;
 
       return (
         <div>
@@ -84,7 +83,7 @@ class Portfolio extends React.Component {
                     >
                       Current
                     </span>
-                    /
+                    <span>&nbsp;</span> / <span>&nbsp;</span>
                     <span
                       className={
                         !this.state.current && this.state.current !== null
@@ -101,20 +100,20 @@ class Portfolio extends React.Component {
                   <h3 className="serif">
                     <span
                       className={
-                        this.state.filter === "directlending" ? "active" : ""
-                      }
-                      onClick={() => this.handleFilter("directlending")}
-                    >
-                      Direct Lending
-                    </span>
-                    /
-                    <span
-                      className={
                         this.state.filter === "privateequity" ? "active" : ""
                       }
                       onClick={() => this.handleFilter("privateequity")}
                     >
                       Private Equity
+                    </span>
+                    <span>&nbsp;</span> / <span>&nbsp;</span>
+                    <span
+                      className={
+                        this.state.filter === "directlending" ? "active" : ""
+                      }
+                      onClick={() => this.handleFilter("directlending")}
+                    >
+                      Direct Lending
                     </span>
                   </h3>
                 </div>
@@ -125,29 +124,107 @@ class Portfolio extends React.Component {
               className="portfolio-grid"
               style={{ backgroundImage: bgImgUrl }}
             >
-              {companies.map((c, index) => {
-                // if there is an active filter
-                if (this.state.filter) {
-                  // if there is no current filter
-                  if (this.state.current == null) {
-                    if (this.state.filter === "directlending") {
-                      if (
-                        c.data.type === "directlending" ||
-                        c.data.type === "both"
-                      ) {
-                        return (
-                          <PortfolioItem
-                            onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
-                            data={c}
-                          />
-                        );
+              {this.props.companies
+                ? this.props.companies.map((c, index) => {
+                    // if there is an active filter
+                    if (this.state.filter) {
+                      // if there is no current filter
+                      if (this.state.current == null) {
+                        if (this.state.filter === "directlending") {
+                          if (
+                            c.data.type === "directlending" ||
+                            c.data.type === "both"
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        } else {
+                          if (
+                            c.data.type === "privateequity" ||
+                            c.data.type === "both"
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        }
+                      } else if (this.state.current === true) {
+                        // if the current filter is true
+                        if (this.state.filter === "directlending") {
+                          if (
+                            c.data.current === "current" &&
+                            (c.data.type === "directlending" ||
+                              c.data.type === "both")
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        } else {
+                          if (
+                            c.data.current === "current" &&
+                            (c.data.type === "privateequity" ||
+                              c.data.type === "both")
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        }
+                      } else {
+                        // if the current filter is false
+                        if (this.state.filter === "directlending") {
+                          if (
+                            c.data.current === "past" &&
+                            (c.data.type === "directlending" ||
+                              c.data.type === "both")
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        } else {
+                          if (
+                            c.data.current === "past" &&
+                            (c.data.type === "privateequity" ||
+                              c.data.type === "both")
+                          ) {
+                            return (
+                              <PortfolioItem
+                                onMouseOver={() => this.handleLogoHover(c)}
+                                key={index}
+                                data={c}
+                              />
+                            );
+                          }
+                        }
                       }
                     } else {
-                      if (
-                        c.data.type === "privateequity" ||
-                        c.data.type === "both"
-                      ) {
+                      // if there is no active filter
+                      // if there is no current filter
+                      // this will return all portfolio items b/c both filters are off
+                      if (this.state.current == null) {
                         return (
                           <PortfolioItem
                             onMouseOver={() => this.handleLogoHover(c)}
@@ -156,109 +233,41 @@ class Portfolio extends React.Component {
                           />
                         );
                       }
-                    }
-                  } else if (this.state.current === true) {
-                    // if the current filter is true
-                    if (this.state.filter === "directlending") {
-                      if (
-                        c.data.current === "current" &&
-                        (c.data.type === "directlending" ||
-                          c.data.type === "both")
-                      ) {
-                        return (
-                          <PortfolioItem
-                            onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
-                            data={c}
-                          />
-                        );
-                      }
-                    } else {
-                      if (
-                        c.data.current === "current" &&
-                        (c.data.type === "privateequity" ||
-                          c.data.type === "both")
-                      ) {
-                        return (
-                          <PortfolioItem
-                            onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
-                            data={c}
-                          />
-                        );
-                      }
-                    }
-                  } else {
-                    // if the current filter is false
-                    if (this.state.filter === "directlending") {
-                      if (
-                        c.data.current === "past" &&
-                        (c.data.type === "directlending" ||
-                          c.data.type === "both")
-                      ) {
-                        return (
-                          <PortfolioItem
-                            onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
-                            data={c}
-                          />
-                        );
-                      }
-                    } else {
-                      if (
-                        c.data.current === "past" &&
-                        (c.data.type === "privateequity" ||
-                          c.data.type === "both")
-                      ) {
-                        return (
-                          <PortfolioItem
-                            onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
-                            data={c}
-                          />
-                        );
-                      }
-                    }
-                  }
-                } else {
-                  // if there is no active filter
-                  // if there is no current filter
-                  // this will return all portfolio items b/c both filters are off
-                  if (this.state.current == null) {
-                    return (
-                      <PortfolioItem
-                        onMouseOver={() => this.handleLogoHover(c)}
-                        key={index}
-                        data={c}
-                      />
-                    );
-                  }
 
-                  // if the current filter is true
-                  if (this.state.current) {
-                    if (c.data.current === "current") {
-                      return (
-                        <PortfolioItem
-                          onMouseOver={() => this.handleLogoHover(c)}
-                          key={index}
-                          data={c}
-                        />
-                      );
+                      // if the current filter is true
+                      if (this.state.current) {
+                        if (c.data.current === "current") {
+                          return (
+                            <PortfolioItem
+                              onMouseOver={() => this.handleLogoHover(c)}
+                              key={index}
+                              data={c}
+                            />
+                          );
+                        }
+                      } else {
+                        // if the currnet filter is false
+                        if (c.data.current === "past") {
+                          return (
+                            <PortfolioItem
+                              onMouseOver={() => this.handleLogoHover(c)}
+                              key={index}
+                              data={c}
+                            />
+                          );
+                        }
+                      }
                     }
-                  } else {
-                    // if the currnet filter is false
-                    if (c.data.current === "past") {
-                      return (
-                        <PortfolioItem
-                          onMouseOver={() => this.handleLogoHover(c)}
-                          key={index}
-                          data={c}
-                        />
-                      );
-                    }
-                  }
-                }
-              })}
+                  })
+                : null}
+
+              {/* <div
+                className="bgImg"
+                data-bgImg={bgImgUrl}
+                style={{
+                  background: bgImgUrl + "no-repeat center center fixed"
+                }}
+              /> */}
             </div>
 
             {/* start testimonials */}

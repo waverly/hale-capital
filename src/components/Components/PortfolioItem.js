@@ -2,29 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./../../css/Components/PortfolioItem.css";
 
-const PortfolioItem = props => {
-  const { data } = props;
-
-  if (!data) return null;
-  let logo;
-  if (data.data.logo) {
-    logo = data.data.logo.url;
+class PortfolioItem extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
-  const uid = data.uid;
+  render() {
+    const { data } = this.props;
+    let logo;
+    if (data.data.logo) {
+      logo = data.data.logo.url;
+    }
 
-  if (logo) {
-    return (
-      <div onMouseOver={props.onMouseOver} className="portfolio-item">
-        <Link to={`/portfolio/${uid}`}>
-          <img src={logo} alt="" />
-        </Link>
-        <div className="darken" />
-      </div>
-    );
-  } else {
-    return null;
+    const uid = data.uid;
+    if (logo) {
+      return (
+        <div onMouseOver={this.props.onMouseOver} className="portfolio-item">
+          <Link to={`/portfolio/${uid}`}>
+            <img src={logo} alt="" />
+          </Link>
+          <div className="darken" />
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
-};
+}
 
 export default PortfolioItem;

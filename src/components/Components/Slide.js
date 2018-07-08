@@ -12,6 +12,7 @@ class Slide extends React.Component {
         <img
           className="slide"
           src={media}
+          alt=""
           style={{
             transition: "opacity 0.5s",
             opacity: active ? "1" : "0"
@@ -20,8 +21,10 @@ class Slide extends React.Component {
       );
     } else {
       if (active) {
-        this.vid.currentTime = 0;
-        this.vid.play();
+        if (this.vid) {
+          this.vid.currentTime = 0;
+          this.vid.play();
+        }
       }
 
       return (

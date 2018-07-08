@@ -22,6 +22,9 @@
     display: flex;
     align-items: flex-start;
     min-height: 300px; }
+    .team-member .member-inner-wrap .profile-pic {
+      max-width: 50%;
+      min-height: 1px; }
   .team-member img {
     max-width: 100%;
     display: inline-block; }
@@ -90,11 +93,15 @@
       display: none; }
 
 @media screen and (max-width: 1000px) {
-  .team-member {
-    margin-top: 75px; }
-    .team-member .member-inner-wrap {
-      flex-direction: column; }
-    .team-member .text-wrap {
+  .team-member .member-inner-wrap {
+    flex-direction: column; }
+    .team-member .member-inner-wrap .profile-pic {
+      width: 100%;
+      max-width: 100%; }
+      .team-member .member-inner-wrap .profile-pic img {
+        width: 100%; }
+    .team-member .member-inner-wrap .text-wrap {
+      width: 100%;
       max-width: 100%;
       padding: 0;
-      margin-top: 50px; } }
+      margin-top: 25px; } }

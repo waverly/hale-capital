@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Prismic from "prismic-javascript";
 import Nav from "./Nav";
 import Home from "./Home";
@@ -40,13 +40,19 @@ class App extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
+  scrollTopZero = () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
+  };
+
   componentDidMount() {
     this.updateWindowDimensions();
     setTimeout(() => this.setState({ navClass: "fadeIn" }), 1800);
     window.addEventListener("resize", this.updateWindowDimensions);
 
     Prismic.api(apiEndpoint).then(api => {
-      console.log("inside of prismic api");
+      // console.log("inside of prismic api");
       api
         .query("", {
           pageSize: 100
@@ -55,6 +61,20 @@ class App extends Component {
           this.handleData(response.results);
         });
     });
+
+    Prismic.api(apiEndpoint).then(api => {
+      api
+        .query(Prismic.Predicates.at("document.type", "portfoliocompany"), {
+          orderings: "[my.portfoliocompany.order]",
+          pageSize: 100
+        })
+        .then(response => {
+          // console.log(response); // response is the response object, response.results holds the documents
+          // console.log(response.results);
+          this.handleCompanyData(response.results);
+        });
+    });
+
     // end of api
   }
   // end of didmount
@@ -82,7 +102,7 @@ class App extends Component {
 
   handleData(data) {
     let news = [];
-    let companies = [];
+    // let companies = [];
     data.forEach(d => {
       // this sets state for each type of page and stores data in it
       const type = d.type;
@@ -90,14 +110,24 @@ class App extends Component {
       if (type === "news") {
         news.push(d);
         this.setState({ news });
-      } else if (type === "portfoliocompany") {
-        companies.push(d);
-        this.setState({ companies });
       } else {
+        // else if (type === "portfoliocompany") {
+        //   companies.push(d);
+        //   this.setState({ companies });
+        // }
+
         this.setState({ [type]: d });
       }
     });
     this.processSlides(this.state.home);
+  }
+
+  handleCompanyData(data) {
+    let companies = [];
+    data.forEach(d => {
+      companies.push(d);
+      this.setState({ companies });
+    });
   }
 
   processSlides(data) {
@@ -143,136 +173,139 @@ class App extends Component {
         <HashRouter>
           <Route
             render={({ location }) => (
-              <ReactCSSTransitionReplace
-                transitionName="fade"
-                transitionEnterTimeout={1000}
-                transitionLeaveTimeout={1000}
-              >
-                <div key={location.pathname}>
-                  <Nav
-                    location={location}
-                    width={this.state.width}
-                    height={this.state.height}
-                  />
-                  <Switch location={location}>
-                    <Route
-                      exact
-                      path="/"
-                      render={props => (
-                        <Home
-                          data={this.state.home}
-                          next={this.next}
-                          previous={this.previous}
-                          activeSlide={this.state.activeSlide}
-                          slides={this.state.slides}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/what-we-do"
-                      render={props => (
-                        <WhatWeDo
-                          data={this.state.whatwedo}
-                          socials={this.state.socials}
-                          handleHighlight={text => this.handleHighlight(text)}
-                          width={this.state.width}
-                          height={this.state.height}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/direct-lending"
-                      render={props => (
-                        <DirectLending
-                          data={this.state.directlending}
-                          socials={this.state.socials}
-                          width={this.state.width}
-                          height={this.state.height}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/private-equity"
-                      render={props => (
-                        <PrivateEquity
-                          data={this.state.privateequity}
-                          socials={this.state.socials}
-                          width={this.state.width}
-                          height={this.state.height}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/portfolio"
-                      render={props => (
-                        <Portfolio
-                          data={this.state.portfolio}
-                          socials={this.state.socials}
-                          companies={this.state.companies}
-                          width={this.state.width}
-                          height={this.state.height}
-                        />
-                      )}
-                    />
-                    <Route
-                      path="/portfolio/:name"
-                      render={({ match }) => {
-                        // const portfolioSlug = match.params.name;
-                        let found;
-                        if (Array.isArray(this.state.companies)) {
-                          // console.log(this.state.companies);
-                          found = this.state.companies.find(
-                            p => p.uid === match.params.name
+              <Fragment>
+                <Nav
+                  location={location}
+                  width={this.state.width}
+                  height={this.state.height}
+                  scrollTopZero={this.scrollTopZero}
+                />
+                <ReactCSSTransitionReplace
+                  transitionName="fade"
+                  transitionEnterTimeout={1000}
+                  transitionLeaveTimeout={1000}
+                >
+                  <div key={location.pathname}>
+                    <Switch location={location}>
+                      <Route
+                        exact
+                        path="/"
+                        render={props => (
+                          <Home
+                            data={this.state.home}
+                            next={this.next}
+                            previous={this.previous}
+                            activeSlide={this.state.activeSlide}
+                            slides={this.state.slides}
+                          />
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/what-we-do"
+                        render={props => (
+                          <WhatWeDo
+                            data={this.state.whatwedo}
+                            socials={this.state.socials}
+                            handleHighlight={text => this.handleHighlight(text)}
+                            width={this.state.width}
+                            height={this.state.height}
+                          />
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/direct-lending"
+                        render={props => (
+                          <DirectLending
+                            data={this.state.directlending}
+                            socials={this.state.socials}
+                            width={this.state.width}
+                            height={this.state.height}
+                          />
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/private-equity"
+                        render={props => (
+                          <PrivateEquity
+                            data={this.state.privateequity}
+                            socials={this.state.socials}
+                            width={this.state.width}
+                            height={this.state.height}
+                          />
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/portfolio"
+                        render={props => (
+                          <Portfolio
+                            data={this.state.portfolio}
+                            socials={this.state.socials}
+                            companies={this.state.companies}
+                            width={this.state.width}
+                            height={this.state.height}
+                          />
+                        )}
+                      />
+                      <Route
+                        path="/portfolio/:name"
+                        render={({ match }) => {
+                          // const portfolioSlug = match.params.name;
+                          let found;
+                          if (Array.isArray(this.state.companies)) {
+                            // console.log(this.state.companies);
+                            found = this.state.companies.find(
+                              p => p.uid === match.params.name
+                            );
+                          }
+                          return (
+                            <PortfolioDetail
+                              data={found}
+                              socials={this.state.socials}
+                            />
                           );
-                        }
-                        return (
-                          <PortfolioDetail
-                            data={found}
+                        }}
+                      />
+                      <Route
+                        exact
+                        path="/news"
+                        render={props => (
+                          <News
+                            data={this.state.news}
                             socials={this.state.socials}
                           />
-                        );
-                      }}
-                    />
-                    <Route
-                      exact
-                      path="/news"
-                      render={props => (
-                        <News
-                          data={this.state.news}
-                          socials={this.state.socials}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/about-us"
-                      render={props => (
-                        <AboutUs
-                          data={this.state.about}
-                          socials={this.state.socials}
-                          handleHighlight={text => this.handleHighlight(text)}
-                        />
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/contact-us"
-                      render={props => (
-                        <ContactUs
-                          data={this.state.contactus}
-                          socials={this.state.socials}
-                          width={this.state.width}
-                          height={this.state.height}
-                        />
-                      )}
-                    />
-                  </Switch>
-                </div>
-              </ReactCSSTransitionReplace>
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/about-us"
+                        render={props => (
+                          <AboutUs
+                            data={this.state.about}
+                            socials={this.state.socials}
+                            handleHighlight={text => this.handleHighlight(text)}
+                          />
+                        )}
+                      />
+                      <Route
+                        exact
+                        path="/contact-us"
+                        render={props => (
+                          <ContactUs
+                            data={this.state.contactus}
+                            socials={this.state.socials}
+                            width={this.state.width}
+                            height={this.state.height}
+                          />
+                        )}
+                      />
+                    </Switch>
+                  </div>
+                </ReactCSSTransitionReplace>
+              </Fragment>
             )}
           />
         </HashRouter>

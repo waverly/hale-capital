@@ -52,6 +52,9 @@
       height: 2em;
       border: none;
       background-color: transparent;
+      &:hover {
+        color: $lightgrey;
+      }
     }
   }
   padding: 3em;

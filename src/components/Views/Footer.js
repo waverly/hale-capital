@@ -22,12 +22,15 @@ class Footer extends React.Component {
                 <a href={this.props.socials.data.linkedin.url} target="_blank">
                   LinkedIn
                 </a>
+                <a href={this.props.socials.data.twitter.url} target="_blank">
+                  Twitter
+                </a>
               </div>
             ) : null}
           </div>
         </div>
         <div className="right">
-          <p>Hale Capital Partners 2018</p>
+          <p>Hale Capital Partners</p>
         </div>
       </div>
     );

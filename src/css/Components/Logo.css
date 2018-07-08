@@ -67,15 +67,15 @@ svg {
 
 svg.animate .sidebar-left {
   transform: translateY(0.3px);
-  transition: all 2s; }
+  transition: all 2s, fill 0.2s; }
 
 svg.animate .sidebar-right {
   transform: translateY(-0.3px);
-  transition: all 2s; }
+  transition: all 2s, fill 0.2s; }
 
 svg.animate .center {
   transform: translateX(-1px);
-  transition: all 2s; }
+  transition: all 2s, fill 0.2s; }
 
 @media screen and (max-width: 675px) {
   svg {

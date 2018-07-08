@@ -64,6 +64,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
   padding: $margin-sides;
 
   .tagline {
@@ -82,7 +83,7 @@
 
   .taglineAnimate {
     opacity: 1;
-    transition: 1s all;
+    transition: 1s opacity;
   }
 
   // .reinventClass {
@@ -97,7 +98,7 @@
   .bg-fade {
     background-color: $midgrey;
     opacity: 0.5;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -105,7 +106,7 @@
     z-index: 2;
   }
   .background-carousel {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -120,6 +121,8 @@
 
   .slideshow {
     overflow: hidden;
+    max-height: 100%;
+    height: 100%;
 
     img {
       object-fit: cover;
