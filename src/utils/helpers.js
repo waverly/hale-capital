@@ -11,8 +11,9 @@ export const isImage = filename => {
     case ".bmp":
     case ".png":
       return true;
+    default:
+      return false;
   }
-  return false;
 };
 
 export const isVideo = filename => {
@@ -24,8 +25,9 @@ export const isVideo = filename => {
     case ".mp4":
     case ".mov":
       return true;
+    default:
+      return false;
   }
-  return false;
 };
 
 export const returnImage = (media, active) =>

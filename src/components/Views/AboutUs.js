@@ -124,6 +124,7 @@ class AboutUs extends React.Component {
                         );
                       }
                     }
+                    return <React.Fragment />
                   })}
                 </div>
               </div>

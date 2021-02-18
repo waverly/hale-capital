@@ -22,7 +22,7 @@ class News extends React.Component {
     let years = [];
     let articles = this.props.data;
     if (this.props.data.length > 0) {
-      this.props.data.map((n, index) => {
+      this.props.data.forEach((n) => {
         const date = n.data.date;
         let year = this.extractYear(date);
         // see if this year is already in the array

@@ -261,8 +261,9 @@ class Portfolio extends React.Component {
                       }
                     }
                   }
+                  return <React.Fragment />
                 })
-              : null}
+              : <React.Fragment />}
 
             {/* <div
               className="bgImg"
