@@ -8,7 +8,7 @@ const NewsItem = props => {
       <div className="text-wrap">
         <p className="date">{root.date}</p>
         <h3 className="title">{root.title["0"].text}</h3>
-        <p className="excerpt">{root.excerpt["0"].text}</p>
+        {root.excerpt.length > 0 && (<p className="excerpt">{root.excerpt["0"].text}</p>)}
 
         <a
           target="_blank"

@@ -1,12 +1,11 @@
 import React from "react";
-import { isImage } from "../../utils/helpers";
+import { isImage, isVideo } from "../../utils/helpers";
 
 class Slide extends React.Component {
   componentDidMount() {}
 
   render() {
     const { media, active } = this.props;
-
     if (isImage(media)) {
       return (
         <img
@@ -19,7 +18,8 @@ class Slide extends React.Component {
           }}
         />
       );
-    } else {
+    }
+    if (isVideo(media) ){
       if (active) {
         if (this.vid) {
           this.vid.currentTime = 0;
@@ -49,6 +49,7 @@ class Slide extends React.Component {
         />
       );
     }
+    return (<React.Fragment />)
   }
 }
 
