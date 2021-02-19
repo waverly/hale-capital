@@ -31,6 +31,7 @@ class Footer extends React.Component {
         </div>
         <div className="right">
           <p>Hale Capital Partners</p>
+          <div className="herpderp" />
         </div>
       </div>
     );
