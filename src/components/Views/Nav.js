@@ -144,7 +144,7 @@ class Nav extends React.Component {
             </div>
             <div className="nav-children">
               <Link
-                to={`/private-equity`}
+                to={`/growth-equity`}
                 onClick={
                   this.state.mobileMenuExpanded
                     ? () => {
@@ -155,10 +155,10 @@ class Nav extends React.Component {
                 }
                 className={
                   "nav-child " +
-                  (path === "/private-equity" ? "active" : "inactive")
+                  (path === "/growth-equity" ? "active" : "inactive")
                 }
               >
-                Private Equity
+                Growth Equity
               </Link>
               <Link
                 to={`/direct-lending`}

@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import WhatWeDo from "./WhatWeDo";
 import DirectLending from "./DirectLending";
-import PrivateEquity from "./PrivateEquity";
+import GrowthEquity from "./GrowthEquity";
 import Portfolio from "./Portfolio";
 import PortfolioDetail from "./PortfolioDetail";
 import News from "./News";
@@ -227,9 +227,9 @@ class App extends Component {
                       />
                       <Route
                         exact
-                        path="/private-equity"
+                        path="/growth-equity"
                         render={props => (
-                          <PrivateEquity
+                          <GrowthEquity
                             data={this.state.privateequity}
                             socials={this.state.socials}
                             width={this.state.width}

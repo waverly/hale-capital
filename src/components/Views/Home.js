@@ -71,7 +71,7 @@ class Home extends React.Component {
                 </div>
                 <span> </span>
                 <span className={"taglineText " + this.state.taglineClass}>
-                  Technology Companies Since 2007
+                  Technology Investing Since 2007
                 </span>
               </h1>
             </div>

@@ -11,8 +11,8 @@ class Portfolio extends React.Component {
   state = {
     current: null,
     filter: "directlending",
-    bgImg: this.props.data.data.gridbackground.url
   };
+//    bgImg: this.props.data.data.gridbackground.url
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -107,7 +107,7 @@ class Portfolio extends React.Component {
                     }
                     onClick={() => this.handleFilter("privateequity")}
                   >
-                    Private Equity
+                    Growth Equity
                   </span>
                   <span>&nbsp;</span> / <span>&nbsp;</span>
                   <span
@@ -141,7 +141,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -154,7 +154,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -171,7 +171,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -185,7 +185,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -202,7 +202,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -216,7 +216,7 @@ class Portfolio extends React.Component {
                           return (
                             <PortfolioItem
                               onMouseOver={() => this.handleLogoHover(c)}
-                              key={index}
+                              key={`item_${index}`}
                               data={c}
                             />
                           );
@@ -231,7 +231,7 @@ class Portfolio extends React.Component {
                       return (
                         <PortfolioItem
                           onMouseOver={() => this.handleLogoHover(c)}
-                          key={index}
+                          key={`item_${index}`}
                           data={c}
                         />
                       );
@@ -243,25 +243,25 @@ class Portfolio extends React.Component {
                         return (
                           <PortfolioItem
                             onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
+                            key={`item_${index}`}
                             data={c}
                           />
                         );
                       }
                     } else {
-                      // if the currnet filter is false
+                      // if the current filter is false
                       if (c.data.current === "past") {
                         return (
                           <PortfolioItem
                             onMouseOver={() => this.handleLogoHover(c)}
-                            key={index}
+                            key={`item_${index}`}
                             data={c}
                           />
                         );
                       }
                     }
                   }
-                  return <React.Fragment />
+                  return <React.Fragment key={`item_${index}`} />
                 })
               : <React.Fragment />}
 
@@ -282,7 +282,7 @@ class Portfolio extends React.Component {
               <Testimonial
                 width={this.props.width}
                 height={this.props.height}
-                key={index}
+                key={`testimonial_${index}`}
                 data={c}
               />
             ))}

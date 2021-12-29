@@ -21,7 +21,7 @@ class PrivateEquity extends React.Component {
       return (
         <div>
           <div className="section-wrap private-equity">
-            <Header index="02 Investment Strategies" title="Private Equity" />
+            <Header index="02 Investment Strategies" title="Growth Equity" />
 
             {/* start columns */}
             <div className="col-wrap">
