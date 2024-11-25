@@ -1,9 +1,9 @@
 import React from "react";
 import "./../../css/Views/PortfolioDetail.css";
 
-const PortfolioDetail = props => {
+const PortfolioDetail = (props) => {
   if (!props.data) return " ";
-  console.log(props);
+  // console.log(props);
 
   let logo;
   let img;

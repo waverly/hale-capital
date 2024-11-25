@@ -4,8 +4,7 @@ import PortfolioItem from "../Components/PortfolioItem";
 import Footer from "./Footer";
 import Testimonial from "../Components/Testimonial";
 import "./../../css/Views/Portfolio.css";
-
-const R = require("ramda");
+import * as R from "ramda";
 
 class Portfolio extends React.Component {
   state = {

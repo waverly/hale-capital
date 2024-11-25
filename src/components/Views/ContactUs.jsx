@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
-import MyMap from "../Components/GoogleMap";
+// import MyMap from "../Components/GoogleMap";
 import StaticMap from "../Components/StaticMap";
 import Form from "../Components/Form";
 

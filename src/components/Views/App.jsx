@@ -166,7 +166,7 @@ class App extends Component {
 
   render() {
     if (!this.state.news) return " ";
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className={"router-ex body-wrap " + this.state.navClass}>
         <HashRouter>
