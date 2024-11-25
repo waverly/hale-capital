@@ -21,7 +21,7 @@ class DirectLending extends React.Component {
       return (
         <div>
           <div className="section-wrap direct-lending">
-            <Header index="02 Investment Strategies" title="Direct Lending" />
+            <Header index="02 Investment Strategies" title="Federal Markets" />
 
             {/* start columns */}
             <div className="col-wrap">

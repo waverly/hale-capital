@@ -25,7 +25,7 @@
     "recompose": "^0.30.0"
   },
   "scripts": {
-    "develop": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },

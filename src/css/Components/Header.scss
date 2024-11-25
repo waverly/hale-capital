@@ -16,6 +16,8 @@
     }
     .title {
       h1 {
+        max-width: 50vw;
+        line-height: 1em;
         color: white;
       }
     }
@@ -30,7 +32,8 @@
     .header-info {
       .title {
         h1 {
-          line-height: 65px;
+          max-width: none;
+          line-height: 1em;
         }
       }
     }

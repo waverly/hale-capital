@@ -32,7 +32,7 @@ class App extends Component {
     this.state = {
       activeSlide: 0,
       width: 0,
-      height: 0
+      height: 0,
     };
   }
 
@@ -51,24 +51,24 @@ class App extends Component {
     setTimeout(() => this.setState({ navClass: "fadeIn" }), 1800);
     window.addEventListener("resize", this.updateWindowDimensions);
 
-    Prismic.api(apiEndpoint).then(api => {
+    Prismic.api(apiEndpoint).then((api) => {
       // console.log("inside of prismic api");
       api
         .query("", {
-          pageSize: 100
+          pageSize: 100,
         })
-        .then(response => {
+        .then((response) => {
           this.handleData(response.results);
         });
     });
 
-    Prismic.api(apiEndpoint).then(api => {
+    Prismic.api(apiEndpoint).then((api) => {
       api
         .query(Prismic.Predicates.at("document.type", "portfoliocompany"), {
           orderings: "[my.portfoliocompany.order]",
-          pageSize: 100
+          pageSize: 100,
         })
-        .then(response => {
+        .then((response) => {
           // console.log(response); // response is the response object, response.results holds the documents
           // console.log(response.results);
           this.handleCompanyData(response.results);
@@ -87,7 +87,7 @@ class App extends Component {
     let phrase = text.text;
     if (text.spans.length > 0) {
       let counter = 0;
-      text.spans.forEach(i => {
+      text.spans.forEach((i) => {
         let arr = phrase.split("");
         let first = i.start + counter;
         let last = i.end + 1 + counter;
@@ -103,7 +103,7 @@ class App extends Component {
   handleData(data) {
     let news = [];
     // let companies = [];
-    data.forEach(d => {
+    data.forEach((d) => {
       // this sets state for each type of page and stores data in it
       const type = d.type;
 
@@ -124,7 +124,7 @@ class App extends Component {
 
   handleCompanyData(data) {
     let companies = [];
-    data.forEach(d => {
+    data.forEach((d) => {
       companies.push(d);
       this.setState({ companies });
     });
@@ -135,11 +135,10 @@ class App extends Component {
     const rawSlides = data.data.body;
     let slides = [];
     if (rawSlides) {
-      rawSlides.map(
-        (s, i) =>
-          s.primary.image
-            ? slides.push(s.primary.image.url)
-            : slides.push(s.primary.video.url)
+      rawSlides.map((s, i) =>
+        s.primary.image
+          ? slides.push(s.primary.image.url)
+          : slides.push(s.primary.video.url)
       );
     }
     this.setState({ slides });
@@ -151,7 +150,7 @@ class App extends Component {
         ? 0
         : this.state.activeSlide + 1;
     this.setState({
-      activeSlide
+      activeSlide,
     });
   }
 
@@ -161,13 +160,13 @@ class App extends Component {
         ? this.state.slides.length - 1
         : this.state.activeSlide - 1;
     this.setState({
-      activeSlide
+      activeSlide,
     });
   }
 
   render() {
     if (!this.state.news) return " ";
-
+    console.log(this.state);
     return (
       <div className={"router-ex body-wrap " + this.state.navClass}>
         <HashRouter>
@@ -190,7 +189,7 @@ class App extends Component {
                       <Route
                         exact
                         path="/"
-                        render={props => (
+                        render={(props) => (
                           <Home
                             data={this.state.home}
                             next={this.next}
@@ -203,11 +202,13 @@ class App extends Component {
                       <Route
                         exact
                         path="/what-we-do"
-                        render={props => (
+                        render={(props) => (
                           <WhatWeDo
                             data={this.state.whatwedo}
                             socials={this.state.socials}
-                            handleHighlight={text => this.handleHighlight(text)}
+                            handleHighlight={(text) =>
+                              this.handleHighlight(text)
+                            }
                             width={this.state.width}
                             height={this.state.height}
                           />
@@ -215,8 +216,8 @@ class App extends Component {
                       />
                       <Route
                         exact
-                        path="/direct-lending"
-                        render={props => (
+                        path="/federal-markets"
+                        render={(props) => (
                           <DirectLending
                             data={this.state.directlending}
                             socials={this.state.socials}
@@ -227,8 +228,8 @@ class App extends Component {
                       />
                       <Route
                         exact
-                        path="/growth-equity"
-                        render={props => (
+                        path="/commercial-technology"
+                        render={(props) => (
                           <GrowthEquity
                             data={this.state.privateequity}
                             socials={this.state.socials}
@@ -240,7 +241,7 @@ class App extends Component {
                       <Route
                         exact
                         path="/portfolio"
-                        render={props => (
+                        render={(props) => (
                           <Portfolio
                             data={this.state.portfolio}
                             socials={this.state.socials}
@@ -258,7 +259,7 @@ class App extends Component {
                           if (Array.isArray(this.state.companies)) {
                             // console.log(this.state.companies);
                             found = this.state.companies.find(
-                              p => p.uid === match.params.name
+                              (p) => p.uid === match.params.name
                             );
                           }
                           return (
@@ -272,7 +273,7 @@ class App extends Component {
                       <Route
                         exact
                         path="/news"
-                        render={props => (
+                        render={(props) => (
                           <News
                             data={this.state.news}
                             socials={this.state.socials}
@@ -282,18 +283,20 @@ class App extends Component {
                       <Route
                         exact
                         path="/about-us"
-                        render={props => (
+                        render={(props) => (
                           <AboutUs
                             data={this.state.about}
                             socials={this.state.socials}
-                            handleHighlight={text => this.handleHighlight(text)}
+                            handleHighlight={(text) =>
+                              this.handleHighlight(text)
+                            }
                           />
                         )}
                       />
                       <Route
                         exact
                         path="/contact-us"
-                        render={props => (
+                        render={(props) => (
                           <ContactUs
                             data={this.state.contactus}
                             socials={this.state.socials}
