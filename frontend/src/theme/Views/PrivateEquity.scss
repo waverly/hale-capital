@@ -1,0 +1,70 @@
+.view-investments {
+  margin-top: var(--margin-sides);
+  h3 {
+    background-color: var(--lightblue);
+    padding: 10px;
+    display: inline;
+  }
+}
+
+.private-equity {
+  .list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    .list-item {
+      margin-top: 0;
+      max-width: 45%;
+    }
+  }
+  .transaction-wrap {
+    .section-title {
+      margin-bottom: 20px;
+    }
+    width: calc(100% - 50px);
+    margin-left: var(--margin-sides);
+    margin-bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .private-equity {
+    .list-wrap {
+      margin-left: 0;
+      margin-right: 0;
+      .list-item {
+        max-width: 45%;
+        margin-top: var(--margin-sides);
+      }
+    }
+    .transaction-wrap {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 0px;
+      padding: var(--margin-sides-mobile);
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .private-equity {
+    .list-wrap {
+      margin-bottom: 50px;
+      margin-top: 0;
+
+      h3 {
+        line-height: var(--line-height-h3-mobile);
+      }
+      .list-item {
+        max-width: 100%;
+        margin-top: 0;
+      }
+    }
+  }
+}

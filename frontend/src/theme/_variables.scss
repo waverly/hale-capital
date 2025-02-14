@@ -1,0 +1,103 @@
+/*....................................SCSS VARIABLES..................................*/
+
+// @font-face {
+//   font-family: fabrique;
+//   src: url(./../../assets/fonts/lafabrique-heavy.ttf);
+//   // font-weight:400;
+// }
+//
+// @font-face {
+//   font-family: sectra;
+//   src: url(./../../assets/fonts/GT-Sectra-Fine-Book.ttf);
+//   font-weight: 400;
+// }
+//
+// @font-face {
+//   font-family: sectra-italic;
+//   src: url(./../../assets/fonts/GT-Sectra-Fine-Book-Italic.ttf);
+//   font-weight: 400;
+// }
+
+:root {
+  // ........................................................ELEMENTS
+  --nav-height: 150px;
+  --nav-height-mobile: 125px;
+
+  // ........................................................FONT SIZES
+  --font-size-h1: 58px;
+  --font-size-h2: 52px;
+  --font-size-h3: 30px;
+  --font-size-h4: 22px;
+  --font-size-p: 16px;
+  --font-size-nav: 18px;
+  --font-size-small: 14px;
+
+  --font-size-h1-mobile: 36px;
+  --font-size-h2-mobile: 30px;
+  --font-size-h3-mobile: 22px;
+  --font-size-h4-mobile: 16px;
+  --font-size-p-mobile: 14px;
+
+  // ........................................................FONT FAMILIES
+  --font-family-h1: sectra, serif;
+  --font-family-h2: sectra, serif;
+  --font-family-h3: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  --font-family-p: fabrique, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  --font-sans-serif: fabrique, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  --font-serif: sectra, serif;
+
+  // ........................................................FONT LINEHEIGHTS
+  --line-height-h1: 100px;
+  --line-height-h2: 46px;
+  --line-height-h3: 40px;
+  --line-height-h4: 28px;
+  --line-height-p: 24px;
+
+  --line-height-h1-mobile: 55px;
+  --line-height-h2-mobile: 42px;
+  --line-height-h3-mobile: 30px;
+  --line-height-h4-mobile: 22px;
+  --line-height-p-mobile: 24px;
+
+  --letter-spacing: 1px;
+  --letter-spacing-h1: 2px;
+  --letter-spacing-h2: 0px;
+  --letter-spacing-h3: 1px;
+  --letter-spacing-p: 1px;
+
+  // ........................................................COLORS
+  --black: #000000;
+  --white: #ffffff;
+  --offwhite: #faf8f3;
+  --gold: #ff9e23;
+  --cream: #fffade;
+  --lightblue: #ecf8ff;
+  --midblue: #c2edff;
+  --darkblue: #001938;
+  --lightgrey: #999999;
+  --midgrey: #444444;
+
+  // ........................................................MARGINS
+  --margin-sides: 50px;
+  --margin-top: 150px;
+  --margin-sides-mobile: 10px;
+
+  // ........................................................TRANSITION TIMINGS
+  --transition-slow: 0.6s;
+  --transition-medium: 0.4s;
+
+  // ........................................................Z-INDEXES
+  --z-pop: 14;
+
+  --z-nav: 10;
+  --z-feed: 7;
+
+  // ........................................................MEDIA QUERIES
+  --break-phone: 767px;
+  --break-tablet: 1022px;
+  --break-tablet-landscape: 1024px;
+  --break-laptop-small: 1280px;
+  --break-laptop-medium: 1440px;
+  --break-laptop-large: 1920px;
+  --break-desktop: 50000px;
+}

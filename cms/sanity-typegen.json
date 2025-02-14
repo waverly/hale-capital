@@ -1,0 +1,8 @@
+{
+  // "path": ["./src/**/*.{ts,tsx,js,jsx}", "../frontend/src/lib/sanity/*.ts"], // glob pattern to your typescript files. Can also be an array of paths
+  // "path": "../src/queries/*.gql",
+  "path": "../frontend/src/query/*.ts",
+  "schema": "schema.json", // path to your schema file, generated with 'sanity schema extract' command
+  "generates": "../frontend/src/types/sanity.d.ts", // path to the output file for generated type definitions
+  "namespace": "Sanity"
+}

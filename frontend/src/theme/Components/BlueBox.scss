@@ -1,0 +1,22 @@
+.blue-box {
+  position: absolute;
+  z-index: 1;
+
+  .light-blue {
+    background-color: var(--lightblue);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .dark-blue {
+    background-color: var(--midblue);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}

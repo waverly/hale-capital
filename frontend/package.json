@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/preview-kit": "^5.2.6",
+    "@types/react-transition-group": "^4.4.12",
+    "groq": "^3.75.0",
+    "next": "15.1.7",
+    "next-sanity": "^9.8.56",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-transition-group": "^4.4.5",
+    "sass": "^1.84.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
