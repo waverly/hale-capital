@@ -41,10 +41,10 @@
   }
 
   .hamburger {
-    position: RELATIVE;
+    position: absolute;
     z-index: 10;
-    // top: 0;
-    // left: 25px;
+    top: 40px;
+    right: 25px;
     width: 30px;
     height: 22px;
     cursor: pointer;
@@ -132,28 +132,35 @@
     }
   }
   .index {
+    position: relative;
+    z-index: 1;
     font-size: var(--font-size-small);
     font-weight: 700;
   }
   .item-title {
+    position: relative;
+    z-index: 1;
     font-family: var(--font-serif);
     font-style: italic;
     font-size: var(--font-size-small);
+    white-space: nowrap;
   }
 
   .nav-children {
     font-family: var(--font-serif);
     font-style: italic;
-    display: none;
+    display: block;
     position: absolute;
+    z-index: 0;
     margin-top: 0.7em;
     background-color: white;
-    width: 100%;
     background-color: white;
     top: 0;
     left: 0;
     padding: 60px 0px 0px 0px;
     border: 1px solid var(--lightgrey);
+    opacity: 0;
+    pointer-events: none;
 
     .nav-child {
       font-family: var(--font-serif);
@@ -164,6 +171,7 @@
         color: var(--darkblue);
         line-height: 30px !important;
       }
+      white-space: nowrap;
     }
   }
   // end nav item
@@ -182,7 +190,8 @@
       z-index: var(--z-nav);
     }
     .nav-children {
-      display: block;
+      opacity: 1;
+      pointer-events: all;
       a {
         color: var(--darkblue);
         &:hover {
@@ -191,7 +200,7 @@
       }
     }
     .down {
-      display: none;
+      // display: none;
     }
     .up {
       display: inline-block;
@@ -441,9 +450,9 @@
 //   }
 // }
 
-/* --------------------------- BEGIN MEDIA QUERY 1250 --------------------- */
+/* --------------------------- BEGIN MEDIA QUERY 1024 --------------------- */
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1023px) {
   .nav-wrap {
     flex-direction: column;
     align-items: flex-start;
@@ -550,12 +559,9 @@
 
     &:hover {
       .nav-children {
-        display: none;
-        .nav-children {
-          a {
-            &:hover {
-              background-color: transparent;
-            }
+        a {
+          &:hover {
+            background-color: transparent;
           }
         }
       }
@@ -633,9 +639,10 @@
 
 /* ----------------------------------- BEGIN MEDIA QUERY 768 ------------------------- */
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1023px) {
   .nav-wrap {
-    height: 75px;
+    height: 100px;
+    padding: 12px 0;
 
     .logo {
       height: 75px;
@@ -647,20 +654,8 @@
       padding: 100px 25px 50px;
     }
 
-    .mobile-expanded {
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .logo {
-      .hamburger {
-        display: block !important;
-      }
-
-      .logomark {
-        display: none;
-      }
+    .hamburger {
+      display: block !important;
     }
   }
 

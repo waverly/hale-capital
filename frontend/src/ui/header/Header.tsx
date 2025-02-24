@@ -6,60 +6,42 @@ import "@theme/Components/Arrow.scss"
 import "@theme/Components/Logo.scss"
 import "@theme/Views/Nav.scss"
 import { Arrow, Logo } from "@ui"
+import { useWindowSize } from "@lib"
+import { usePathname } from "next/navigation"
 
 export const Header = () => {
+  const { width } = useWindowSize()
+  const pathname = usePathname()
+
   const [active, setActive] = useState(false)
   const [arrowdown, setArrowdown] = useState(true)
   const [logoClass, setLogoClass] = useState("")
-  const [reinventClass, setReinventClass] = useState("")
   const [navClass, setNavClass] = useState("")
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState(false)
-  const [width, setWidth] = useState(0)
-  const [height, setHeight] = useState(0)
 
   const clickToggle = () => {
-    //   this.setState({ active: !active })
-    //   this.setState({ arrowdown: !arrowdown })
+    setActive(!active)
+    setArrowdown(!arrowdown)
   }
 
-  const arrowToggle = () => {
-    //   if (width > 999) {
-    //     this.setState({ arrowdown: !arrowdown })
-    //   }
-  }
+  const arrowToggle = () => setArrowdown(!arrowdown)
 
-  const mobileMenuToggle = () => {
-    //   if (this.props.width < 1250) {
-    //     this.setState({ mobileMenuExpanded: !mobileMenuExpanded })
-    //   }
-  }
+  const mobileMenuToggle = () => setMobileMenuExpanded(!mobileMenuExpanded)
 
   useEffect(() => {
     setTimeout(() => setLogoClass("animate"), 1000)
     setTimeout(() => setNavClass("navAnimate"), 3500)
   }, [])
 
-  const path: string = "/"
-  // todo: detect path, home is transparent
+  // todo: on location change, scroll to top and hide menu
 
   return (
-    <div className={path === "/donk" ? (mobileMenuExpanded && width < 1250 ? "nav-wrap home mobile-expanded" : "nav-wrap home") : mobileMenuExpanded && width < 1250 ? "nav-wrap mobile-expanded" : "nav-wrap"}>
+    <div className={pathname === "/" ? (mobileMenuExpanded && width < 1250 ? "nav-wrap home mobile-expanded" : "nav-wrap home") : mobileMenuExpanded && width < 1250 ? "nav-wrap mobile-expanded" : "nav-wrap"}>
       <div className="logo">
         <button onClick={mobileMenuToggle} className="logomark">
           <Logo className={logoClass} />
         </button>
-        <Link
-          className={"textmark " + logoClass}
-          href="/"
-          // onClick={
-          //   mobileMenuExpanded
-          //     ? () => {
-          //         // this.mobileMenuToggle();
-          //         this.props.scrollTopZero();
-          //       }
-          //     : this.props.scrollTopZero
-          // }
-        >
+        <Link className={"textmark " + logoClass} href="/">
           <div className="name-p">Hale Capital Partners</div>
         </Link>
       </div>
@@ -67,7 +49,7 @@ export const Header = () => {
       <div className={"text-wrap " + navClass}>
         <Link
           href={`/what-we-do`}
-          className={"nav-item " + (path === "/what-we-do" ? "active" : "inactive")}
+          className={"nav-item " + (pathname === "/what-we-do" ? "active" : "inactive")}
           onClick={
             () =>
               mobileMenuExpanded
@@ -87,7 +69,7 @@ export const Header = () => {
           <div className="index sans-serif expandable">02</div>
           <div className="item-title expandable">
             Investment Strategies
-            <Arrow direction={"down"} className="down" color={path === "/" ? "lightgrey" : "darkblue"} />
+            <Arrow className="down" color={pathname === "/" ? "lightgrey" : "darkblue"} />
           </div>
           <div className="nav-children">
             <Link
@@ -102,7 +84,7 @@ export const Header = () => {
                     : console.log("todo")
                 // this.props.scrollTopZero
               }
-              className={"nav-child " + (path === "/commercial-technology" ? "active" : "inactive")}
+              className={"nav-child " + (pathname === "/commercial-technology" ? "active" : "inactive")}
             >
               Commercial Technology
             </Link>
@@ -118,7 +100,7 @@ export const Header = () => {
                     : console.log("todo")
                 // this.props.scrollTopZero
               }
-              className={"nav-child " + (path === "/federal-markets" ? "active" : "inactive")}
+              className={"nav-child " + (pathname === "/federal-markets" ? "active" : "inactive")}
             >
               Federal Markets
             </Link>
@@ -136,7 +118,7 @@ export const Header = () => {
                 : console.log("todo")
             // this.props.scrollTopZero
           }
-          className={"nav-item " + (path === "/portfolio" ? "active" : "inactive")}
+          className={"nav-item " + (pathname === "/portfolio" ? "active" : "inactive")}
         >
           <div className="index">03</div>
           <div className="item-title">Portfolio</div>
@@ -153,7 +135,7 @@ export const Header = () => {
                 : console.log("todo")
             // this.props.scrollTopZero
           }
-          className={"nav-item " + (path === "/news" ? "active" : "inactive")}
+          className={"nav-item " + (pathname === "/news" ? "active" : "inactive")}
         >
           <div className="index">04</div>
           <div className="item-title">News</div>
@@ -170,7 +152,7 @@ export const Header = () => {
                 : console.log("todo")
             // this.props.scrollTopZero
           }
-          className={"nav-item " + (path === "/about-us" ? "active" : "inactive")}
+          className={"nav-item " + (pathname === "/about-us" ? "active" : "inactive")}
         >
           <div className="index">05</div>
           <div className="item-title">About Us</div>
@@ -187,7 +169,7 @@ export const Header = () => {
                 : console.log("todo")
             // this.props.scrollTopZero
           }
-          className={"nav-item contact " + (path === "/contact-us" ? "active" : "inactive")}
+          className={"nav-item contact " + (pathname === "/contact-us" ? "active" : "inactive")}
         >
           <div className="item-title sans-serif">Contact Us</div>
         </Link>

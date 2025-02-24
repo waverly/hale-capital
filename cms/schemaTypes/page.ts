@@ -28,7 +28,7 @@ export default defineType({
       name: 'sidebar',
       type: 'array',
       of: [{type: 'block'}],
-      hidden: ({parent}) => parent.metadata?.slug?.current !== 'what-we-do',
+      hidden: ({parent}) => parent.metadata?.slug?.current === 'home',
     }),
 
     defineField({

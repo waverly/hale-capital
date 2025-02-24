@@ -7,7 +7,7 @@ export const metadataQuery = defineQuery(`
   *[_type == 'page' && metadata.slug.current == $slug][0]{
     metadata {
       ...,
-      poster ${imageFragment}
+      image ${imageFragment}
     }
   }
 `)

@@ -26,8 +26,10 @@
 
     .team-members h3 {
       color: var(--lightgrey);
+      cursor: pointer;
     }
-    .active {
+    .active,
+    span:hover {
       color: var(--midgrey);
     }
     h3 {

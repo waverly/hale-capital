@@ -1,5 +1,4 @@
 import { processMetadata } from "@lib"
-// import { Page } from "@ui"
 import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
 import { getPage, getMetadata, getSiteSettings } from "@query"
 import { SLUG } from "./"

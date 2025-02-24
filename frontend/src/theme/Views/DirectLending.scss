@@ -8,20 +8,20 @@
 }
 
 .direct-lending {
-  .list-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 0;
-    margin-bottom: 150px;
-    margin-left: 100px;
-    margin-right: 100px;
-
-    .list-item {
-      margin-top: 0;
-      width: 45%;
-    }
-  }
+  //   .list-wrap {
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     justify-content: space-between;
+  //     padding-bottom: 0;
+  //     margin-bottom: 150px;
+  //     margin-left: 100px;
+  //     margin-right: 100px;
+  //
+  //     .list-item {
+  //       margin-top: 0;
+  //       width: 45%;
+  //     }
+  //   }
 }
 
 .transaction-wrap {
@@ -35,19 +35,19 @@
 
 @media screen and (max-width: 1000px) {
   .direct-lending {
-    .list-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 50px;
-      margin-bottom: 50px;
-
-      .list-item {
-        width: 100%;
-      }
-    }
+    //     .list-wrap {
+    //       display: flex;
+    //       flex-wrap: wrap;
+    //       justify-content: space-between;
+    //       margin-left: 0;
+    //       margin-right: 0;
+    //       margin-top: 50px;
+    //       margin-bottom: 50px;
+    //
+    //       .list-item {
+    //         width: 100%;
+    //       }
+    //     }
     .transaction-wrap {
       margin-left: var(--margin-sides-mobile);
     }
@@ -56,11 +56,11 @@
 
 @media screen and (max-width: 775px) {
   .direct-lending {
-    .list-wrap {
-      .list-item {
-        max-width: 100%;
-        margin-top: 0;
-      }
-    }
+    // .list-wrap {
+    //   .list-item {
+    //     max-width: 100%;
+    //     margin-top: 0;
+    //   }
+    // }
   }
 }

@@ -64,24 +64,9 @@ export type PortfolioCompany = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
+  metadata?: Metadata;
+  current?: "current" | "past";
+  type?: "federalMarkets" | "directLending" | "growthEquity" | "privateEquity" | "all";
   description?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -100,8 +85,6 @@ export type PortfolioCompany = {
     _type: "block";
     _key: string;
   }>;
-  current?: "current" | "past";
-  type?: "privateequity" | "directlending" | "both";
   logo?: {
     asset?: {
       _ref: string;
@@ -540,26 +523,27 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../frontend/src/query/getMetadata.ts
 // Variable: metadataQuery
-// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    }  }
+// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    }  }
 export type MetadataQueryResult = {
   metadata: {
     _type: "metadata";
     title?: string;
     slug: Slug;
     description?: string;
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
+    image: {
+      asset: {
+        metadata: {
+          lqip: string | null;
+          blurHash: string | null;
+          dimensions: SanityImageDimensions | null;
+        } | null;
+        url: string | null;
+      } | null;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
-    };
+    } | null;
     noIndex?: boolean;
-    poster: null;
   } | null;
 } | null;
 
@@ -742,7 +726,7 @@ export type SiteSettingsQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
+    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    address,\n    phoneNumber,\n    email\n  }\n": PageQueryResult;
     "\n  *[_type == 'siteSettings'][0]{\n    title,\n    description,\n    shareImage \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": SiteSettingsQueryResult;
   }

@@ -2,3 +2,5 @@
 export * from "./processMetadata"
 export * from "./imageKitLoader"
 export * from "./sanity"
+export * from "./platforms"
+export * from "./useWindowSize"

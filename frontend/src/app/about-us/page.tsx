@@ -1,5 +1,4 @@
 import { processMetadata } from "@lib"
-// import { Page } from "@ui"
 import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
 import { getPage, getMetadata, getSiteSettings } from "@query"
 import { SLUG } from "./"
@@ -9,6 +8,7 @@ import { Page, Team, Sidebar } from "@ui"
 export default async function AboutPage() {
   const pageData = await getPage({ slug: SLUG })
   if (!pageData) return notFound()
+  console.log(pageData.banner)
   return (
     <Page pageData={pageData} sidebar={<Sidebar banner={pageData.banner} sidebar={pageData.sidebar} />}>
       {!!pageData.teamTagline && !!pageData.team && <Team teamTagline={pageData.teamTagline} team={pageData.team} />}
