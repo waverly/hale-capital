@@ -60,7 +60,7 @@ export const Header = () => {
           //     : this.props.scrollTopZero
           // }
         >
-          <p className="name-p">Hale Capital Partners</p>
+          <div className="name-p">Hale Capital Partners</div>
         </Link>
       </div>
 

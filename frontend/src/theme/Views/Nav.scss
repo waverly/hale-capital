@@ -126,17 +126,24 @@
 
   &.contact {
     width: auto;
+    div {
+      font-weight: 700;
+      font-style: normal;
+    }
   }
   .index {
     font-size: var(--font-size-small);
+    font-weight: 700;
   }
   .item-title {
-    font-family: var(--font-serif)-italic;
+    font-family: var(--font-serif);
+    font-style: italic;
     font-size: var(--font-size-small);
   }
 
   .nav-children {
-    font-family: var(--font-serif)-italic;
+    font-family: var(--font-serif);
+    font-style: italic;
     display: none;
     position: absolute;
     margin-top: 0.7em;
@@ -149,7 +156,8 @@
     border: 1px solid var(--lightgrey);
 
     .nav-child {
-      font-family: var(--font-serif)-italic;
+      font-family: var(--font-serif);
+      font-style: italic;
       height: 30px !important;
       padding: 0 14px;
       a {
@@ -193,7 +201,8 @@
 }
 
 .logo {
-  p {
+  div {
+    font-family: var(--font-sans);
     text-transform: uppercase;
     font-size: 22px;
   }

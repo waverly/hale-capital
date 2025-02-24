@@ -18,13 +18,6 @@ export default defineType({
     }),
 
     defineField({
-      name: 'tagline',
-      type: 'array',
-      of: [{type: 'block'}],
-      // todo: home tagline only has title block
-    }),
-
-    defineField({
       name: 'content',
       type: 'array',
       of: [{type: 'block'}],
@@ -70,16 +63,20 @@ export default defineType({
       name: 'strategyFeatures',
       type: 'array',
       of: [{type: 'strategyFeature'}],
-      hidden: true,
-      // todo: hidden
+      hidden: ({parent}) =>
+        ['home', 'contact-us', 'about-us', 'portfolio', 'news'].includes(
+          parent.metadata?.slug?.current
+        ),
     }),
 
     defineField({
       name: 'transactionTypes',
       type: 'array',
       of: [{type: 'transactionType'}],
-      hidden: true,
-      // todo: hidden
+      hidden: ({parent}) =>
+        ['home', 'contact-us', 'about-us', 'portfolio', 'news'].includes(
+          parent.metadata?.slug?.current
+        ),
     }),
   ],
 })

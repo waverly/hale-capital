@@ -9,7 +9,6 @@ export const pageQuery = defineQuery(`
       ...,
       poster ${imageFragment}
     },
-    tagline,
     content,
     sidebar,
     banner {

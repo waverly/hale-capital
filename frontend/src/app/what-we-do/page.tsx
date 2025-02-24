@@ -4,12 +4,12 @@ import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
 import { getPage, getMetadata, getSiteSettings } from "@query"
 import { SLUG } from "./"
 import { notFound } from "next/navigation"
-import { Page } from "@ui"
+import { Page, Sidebar } from "@ui"
 
 export default async function WhatWeDoPage() {
   const pageData = await getPage({ slug: SLUG })
   if (!pageData) return notFound()
-  return <Page pageData={pageData} />
+  return <Page pageData={pageData} sidebar={<Sidebar banner={pageData.banner} sidebar={pageData.sidebar} />} />
 }
 
 export async function generateMetadata() {

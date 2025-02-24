@@ -331,24 +331,6 @@ export type Page = {
   _updatedAt: string;
   _rev: string;
   metadata?: Metadata;
-  tagline?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -583,7 +565,7 @@ export type MetadataQueryResult = {
 
 // Source: ../frontend/src/query/getPage.ts
 // Variable: pageQuery
-// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    tagline,    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    address,    phoneNumber,    email  }
+// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    address,    phoneNumber,    email  }
 export type PageQueryResult = {
   metadata: {
     _type: "metadata";
@@ -604,24 +586,6 @@ export type PageQueryResult = {
     noIndex?: boolean;
     poster: null;
   } | null;
-  tagline: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }> | null;
   content: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -779,7 +743,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
-    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    tagline,\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    address,\n    phoneNumber,\n    email\n  }\n": PageQueryResult;
+    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    address,\n    phoneNumber,\n    email\n  }\n": PageQueryResult;
     "\n  *[_type == 'siteSettings'][0]{\n    title,\n    description,\n    shareImage \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": SiteSettingsQueryResult;
   }
 }

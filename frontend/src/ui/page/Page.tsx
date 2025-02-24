@@ -14,12 +14,7 @@ export const Page = ({ pageData, sidebar, children }: IPage) => {
       <div className={`${pageData.metadata?.slug.current} section-wrap`}>
         <PageHeader index="01" title={pageData.metadata?.title} />
         <div className="col-wrap">
-          <div className="col-left">
-            {/* <h3 className="serif description" /> */}
-            {pageData.tagline !== null && <PortableText value={pageData.tagline} />}
-            {pageData.content !== null && <PortableText value={pageData.content} />}
-          </div>
-
+          <div className="col-left">{pageData.content !== null && <PortableText value={pageData.content} />}</div>
           <div className="col-right">{sidebar}</div>
         </div>
         {children}

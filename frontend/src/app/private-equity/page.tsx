@@ -4,12 +4,12 @@ import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
 import { getPage, getMetadata, getSiteSettings } from "@query"
 import { SLUG } from "./"
 import { notFound } from "next/navigation"
+import { Page } from "@ui"
 
-export default async function Home() {
-  const page = await getPage({ slug: SLUG })
-  if (!page) return notFound()
-  return <p>page</p>
-  // return <Page page={page} />
+export default async function PrivateEquityPage() {
+  const pageData = await getPage({ slug: SLUG })
+  if (!pageData) return notFound()
+  return <Page pageData={pageData} />
 }
 
 export async function generateMetadata() {
