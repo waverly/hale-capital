@@ -32,7 +32,8 @@ export const pageQuery = defineQuery(`
     },
     address,
     phoneNumber,
-    email
+    email,
+    transactionTypes
   }
 `)
 // team,

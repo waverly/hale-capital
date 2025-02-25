@@ -823,11 +823,11 @@ highlight {
     line-height: var(--line-height-h3);
     font-family: var(--font-serif);
     letter-spacing: var(--letter-spacing-h3);
+    margin-bottom: 1em;
     @include respond-to(phone) {
       font-size: var(--font-size-h3-mobile);
       line-height: var(--line-height-h3-mobile);
     }
-    margin-bottom: 1em;
   }
 }
 
@@ -882,6 +882,7 @@ p {
   ul {
     position: relative;
     z-index: 3;
+    margin-bottom: 1em;
     li {
       font-size: var(--font-size-h4);
       line-height: var(--line-height-h4);
