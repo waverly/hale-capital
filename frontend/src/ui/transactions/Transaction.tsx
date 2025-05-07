@@ -1,20 +1,24 @@
+"use client"
+
+import { useState } from "react"
 import { PortableText } from "next-sanity"
+import { Expand } from "./Expand"
+import "../../theme/Components/Transaction.scss"
 
 export const Transaction = ({ transaction }: { transaction: Sanity.TransactionType | null }) => {
-  return !transaction || !transaction.description ? null : (
-    <div className="trans-item" onClick={this.handleExpand}>
+  const [expanded, setExpanded] = useState(false)
+
+  return (
+    <div className="trans-item" onClick={() => setExpanded(!expanded)}>
       <div className="trans-title">
-        <h3>{transaction.title}</h3>
-        <Expand expanded={this.state.expanded} />
+        <h3>{transaction?.title || ""}</h3>
+        {!!transaction?.description && <Expand expanded={expanded} />}
       </div>
-      <div
-        className={this.state.expanded ? "trans-desc panel expanded" : "trans-desc panel"}
-        ref={(div) => {
-          this.panel = div
-        }}
-      >
-        <PortableText value={transaction.description} />
-      </div>
+      {!!transaction?.description && (
+        <div className={expanded ? "trans-desc panel expanded" : "trans-desc panel"}>
+          <PortableText value={transaction.description} />
+        </div>
+      )}
     </div>
   )
 }

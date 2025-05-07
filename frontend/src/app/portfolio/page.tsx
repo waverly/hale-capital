@@ -1,29 +1,6 @@
-import { processMetadata } from "@lib"
-import { Page } from "@ui"
-import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
-import { getPage, getMetadata, getSiteSettings } from "@query"
-import { SLUG } from "./"
-import { notFound } from "next/navigation"
+import { default as PageTemplate, generateMetadata } from "../[slug]/page"
 
-export default async function Home() {
-  const pageData = await getPage({ slug: SLUG })
-  if (!pageData) return notFound()
-  return <Page pageData={pageData} />
-}
+export default async () => await PageTemplate({ params: Promise.resolve({ slug: "portfolio" }) })
 
-export async function generateMetadata() {
-  const metadataResult = await getMetadata({ slug: SLUG })
-  const siteSettings = await getSiteSettings()
-  const metadata = processMetadata(metadataResult, siteSettings, "page")
-  return {
-    ...metadata,
-    title: DEFAULT_SITE_TITLE,
-    openGraph: {
-      ...metadata.openGraph,
-      title: DEFAULT_SITE_TITLE,
-    },
-    alternates: {
-      canonical: BASE_URL,
-    },
-  }
-}
+const generateMetadataWithSlug = async () => await generateMetadata({ params: Promise.resolve({ slug: "portfolio" }) })
+export { generateMetadataWithSlug as generateMetadata }

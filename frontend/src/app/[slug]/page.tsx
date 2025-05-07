@@ -1,23 +1,26 @@
 import { processMetadata } from "@lib"
 import { BASE_URL, DEFAULT_SITE_TITLE } from "@const"
 import { getPage, getMetadata, getSiteSettings } from "@query"
-import { SLUG } from "./"
 import { notFound } from "next/navigation"
-import { Page, Team, Sidebar } from "@ui"
+import { Page, Team, Sidebar, Transactions } from "@ui"
 
-export default async function AboutPage() {
-  const pageData = await getPage({ slug: SLUG })
+export type ContextBundle = { params: Promise<{ slug: string }> }
+
+export default async function BasicPage({ params }: ContextBundle) {
+  const { slug } = await params
+  const pageData = await getPage({ slug })
   if (!pageData) return notFound()
-  console.log(pageData.banner)
   return (
     <Page pageData={pageData} sidebar={<Sidebar banner={pageData.banner} sidebar={pageData.sidebar} />}>
       {!!pageData.teamTagline && !!pageData.team && <Team teamTagline={pageData.teamTagline} team={pageData.team} />}
+      {!!pageData.transactionTypes && <Transactions transactionTypes={pageData.transactionTypes} />}
     </Page>
   )
 }
 
-export async function generateMetadata() {
-  const metadataResult = await getMetadata({ slug: SLUG })
+export async function generateMetadata({ params }: ContextBundle) {
+  const { slug } = await params
+  const metadataResult = await getMetadata({ slug })
   const siteSettings = await getSiteSettings()
   const metadata = processMetadata(metadataResult, siteSettings, "page")
   return {

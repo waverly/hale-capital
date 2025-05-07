@@ -1,14 +1,13 @@
-.dl-trans-wrap {
-  .icon {
-    display: none;
-  }
-}
+// .dl-trans-wrap {
+//   .icon {
+//     display: none;
+//   }
+// }
 
 .icon {
-  // position: absolute;
-  // right: 10px;
-  // top: calc(50% - 10px);
-  position: relative;
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px);
   height: 20px;
   width: 20px;
 

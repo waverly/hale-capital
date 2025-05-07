@@ -17,7 +17,6 @@
   }
   .news-header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
     position: relative;
     .text-left {
@@ -62,6 +61,25 @@
   .entries {
     width: 60%;
     margin-left: 20%;
+  }
+}
+
+.year-index-item {
+  display: inline !important;
+  a,
+  span {
+    font-size: 30px !important;
+    line-height: 40px !important;
+    font-family: var(--font-serif);
+    letter-spacing: 1px;
+    color: #999;
+  }
+  span {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  &:last-child span {
+    display: none;
   }
 }
 
