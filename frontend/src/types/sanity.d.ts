@@ -641,7 +641,7 @@ export type NewsQueryResult = Array<{
 
 // Source: ../frontend/src/query/getPage.ts
 // Variable: pageQuery
-// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    testimonials[],    address,    phoneNumber,    email,    transactionTypes  }
+// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel[] {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    testimonials[],    address,    phoneNumber,    email,    transactionTypes  }
 export type PageQueryResult = {
   metadata: {
     _type: "metadata";
@@ -734,7 +734,33 @@ export type PageQueryResult = {
       _type: "image";
     } | null;
   } | null;
-  carousel: null;
+  carousel: Array<{
+    _key: string;
+    _type: "carouselItem";
+    type?: "image" | "video";
+    image: {
+      asset: {
+        metadata: {
+          lqip: string | null;
+          blurHash: string | null;
+          dimensions: SanityImageDimensions | null;
+        } | null;
+        url: string | null;
+      } | null;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    video: {
+      asset: {
+        url: string | null;
+      } | null;
+      media?: unknown;
+      _type: "file";
+    } | null;
+    caption?: string;
+  }> | null;
   teamTagline: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -904,7 +930,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
     "\n  *[_type == 'newsEntry'] | order(date desc){\n    _id,\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    date,\n    excerpt[],\n    link,\n    pressRelease \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n  }\n": NewsQueryResult;
-    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    testimonials[],\n    address,\n    phoneNumber,\n    email,\n    transactionTypes\n  }\n": PageQueryResult;
+    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel[] {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    testimonials[],\n    address,\n    phoneNumber,\n    email,\n    transactionTypes\n  }\n": PageQueryResult;
     "\n  *[_type == 'portfolioCompany']{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    ...,\n    image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n    logo \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n    blackLogo \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": PortfolioQueryResult;
     "\n  *[_type == 'siteSettings'][0]{\n    title,\n    description,\n    shareImage \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": SiteSettingsQueryResult;
   }

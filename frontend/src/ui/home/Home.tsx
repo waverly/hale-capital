@@ -9,8 +9,8 @@ import "@theme/Views/Home.scss"
 export const Home = ({ pageData }: { pageData: Sanity.PageQueryResult }) => {
   const [taglineClass] = useState("")
   const [innerClass] = useState("")
-
-  return (
+  console.log(pageData.carousel)
+  return !pageData ? null : (
     <div className="fixed-wrapper">
       <div className="home-wrap">
         <div className="tagline">
@@ -40,7 +40,9 @@ export const Home = ({ pageData }: { pageData: Sanity.PageQueryResult }) => {
         </div>
         <div className="bg-fade" />
         <div className="homepage-caption">{/* <p>{caption.length > 0 ? this.props.data.data.body[this.props.activeSlide].primary.caption[0].text : " "}</p> */}</div>
-        <div className="background-carousel">{/* <Slideshow next={this.props.next} previous={this.props.previous} activeSlide={this.props.activeSlide} slides={this.props.slides} /> */}</div>
+        <div className="background-carousel">
+          <Slideshow carousel={pageData.carousel} />
+        </div>
       </div>
     </div>
   )

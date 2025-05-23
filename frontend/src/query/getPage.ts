@@ -16,7 +16,7 @@ export const pageQuery = defineQuery(`
       caption,
       image ${imageFragment}
     },
-    carousel {
+    carousel[] {
       ...,
       image ${imageFragment},
       video ${fileFragment}
