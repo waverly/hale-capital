@@ -804,7 +804,7 @@ export type PageQueryResult = {
 
 // Source: ../frontend/src/query/getPortfolio.ts
 // Variable: portfolioQuery
-// Query: *[_type == 'portfolioCompany']{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    ...,    image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}  }
+// Query: *[_type == 'portfolioCompany']{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    ...,    image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},    logo {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},    blackLogo {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}  }
 export type PortfolioQueryResult = Array<{
   metadata?: Metadata;
   _id: string;
@@ -832,30 +832,34 @@ export type PortfolioQueryResult = Array<{
     _type: "block";
     _key: string;
   }>;
-  logo?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+  logo: {
+    asset: {
+      metadata: {
+        lqip: string | null;
+        blurHash: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+      url: string | null;
+    } | null;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
-  };
-  blackLogo?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+  } | null;
+  blackLogo: {
+    asset: {
+      metadata: {
+        lqip: string | null;
+        blurHash: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+      url: string | null;
+    } | null;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
-  };
+  } | null;
   image: {
     asset: {
       metadata: {
@@ -901,7 +905,7 @@ declare module "@sanity/client" {
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
     "\n  *[_type == 'newsEntry'] | order(date desc){\n    _id,\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    date,\n    excerpt[],\n    link,\n    pressRelease \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n  }\n": NewsQueryResult;
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    testimonials[],\n    address,\n    phoneNumber,\n    email,\n    transactionTypes\n  }\n": PageQueryResult;
-    "\n  *[_type == 'portfolioCompany']{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    ...,\n    image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": PortfolioQueryResult;
+    "\n  *[_type == 'portfolioCompany']{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    ...,\n    image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n    logo \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n    blackLogo \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": PortfolioQueryResult;
     "\n  *[_type == 'siteSettings'][0]{\n    title,\n    description,\n    shareImage \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": SiteSettingsQueryResult;
   }
 }

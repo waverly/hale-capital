@@ -9,7 +9,9 @@ export const portfolioQuery = defineQuery(`
       poster ${imageFragment}
     },
     ...,
-    image ${imageFragment}
+    image ${imageFragment},
+    logo ${imageFragment},
+    blackLogo ${imageFragment}
   }
 `)
 // team,
