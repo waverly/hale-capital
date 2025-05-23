@@ -30,6 +30,7 @@ export const pageQuery = defineQuery(`
       bio,
       role
     },
+    testimonials[],
     address,
     phoneNumber,
     email,

@@ -78,5 +78,13 @@ export default defineType({
           parent.metadata?.slug?.current
         ),
     }),
+
+    defineField({
+      name: 'testimonials',
+      title: 'Testimonials',
+      type: 'array',
+      of: [{type: 'testimonial'}],
+      hidden: ({parent}) => parent.metadata?.slug?.current !== 'portfolio',
+    }),
   ],
 })

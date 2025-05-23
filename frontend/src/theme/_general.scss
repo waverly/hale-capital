@@ -871,6 +871,7 @@ p {
 .list-wrap {
   position: relative;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   margin-top: 0;
   background: var(--lightblue);

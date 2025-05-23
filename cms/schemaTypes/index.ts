@@ -8,6 +8,7 @@ import {default as metadata} from './metadata'
 import {default as strategyFeature} from './strategyFeature'
 import {default as carouselItem} from './carouselItem'
 import {default as siteSettings} from './siteSettings'
+import {default as testimonial} from './testimonial'
 
 export const schemaTypes = [
   siteSettings,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   metadata,
   strategyFeature,
   page,
+  testimonial,
 ]

@@ -6,15 +6,19 @@ interface IPage {
   pageData: Sanity.PageQueryResult
   sidebar?: React.ReactNode
   children?: React.ReactNode
+  pageComponent?: React.ReactNode
 }
 
-export const Page = ({ pageData, sidebar, children }: IPage) => {
+export const Page = ({ pageComponent, pageData, sidebar, children }: IPage) => {
   return !pageData ? null : (
     <div>
       <div className={`${pageData.metadata?.slug.current} section-wrap`}>
         <PageHeader index="01" title={pageData.metadata?.title} />
         <div className="col-wrap">
-          <div className="col-left">{pageData.content !== null && <PortableText value={pageData.content} />}</div>
+          <div className="col-left">
+            {pageData.content !== null && <PortableText value={pageData.content} />}
+            {!!pageComponent && pageComponent}
+          </div>
           <div className="col-right">{sidebar}</div>
         </div>
         {children}

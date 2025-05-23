@@ -46,6 +46,30 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Testimonial = {
+  _type: "testimonial";
+  name: string;
+  company: string;
+  statement: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type StrategyFeature = {
   _type: "strategyFeature";
   title?: string;
@@ -92,6 +116,7 @@ export type PortfolioCompany = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -103,6 +128,7 @@ export type PortfolioCompany = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -114,6 +140,7 @@ export type PortfolioCompany = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -154,6 +181,7 @@ export type NewsEntry = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
     };
+    media?: unknown;
     _type: "file";
   };
 };
@@ -196,6 +224,7 @@ export type TeamMember = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -231,6 +260,7 @@ export type CarouselItem = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -242,6 +272,7 @@ export type CarouselItem = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
     };
+    media?: unknown;
     _type: "file";
   };
   caption?: string;
@@ -262,6 +293,7 @@ export type SiteSettings = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -385,6 +417,9 @@ export type Page = {
   transactionTypes?: Array<{
     _key: string;
   } & TransactionType>;
+  testimonials?: Array<{
+    _key: string;
+  } & Testimonial>;
 };
 
 export type SanityFileAsset = {
@@ -418,6 +453,7 @@ export type ImageWithCaption = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -512,6 +548,7 @@ export type Metadata = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -519,7 +556,7 @@ export type Metadata = {
   noIndex?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | StrategyFeature | Slug | PortfolioCompany | NewsEntry | TransactionType | TeamMember | CarouselItem | SiteSettings | Link | Page | SanityFileAsset | ImageWithCaption | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Metadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Testimonial | StrategyFeature | Slug | PortfolioCompany | NewsEntry | TransactionType | TeamMember | CarouselItem | SiteSettings | Link | Page | SanityFileAsset | ImageWithCaption | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Metadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../frontend/src/query/getMetadata.ts
 // Variable: metadataQuery
@@ -539,6 +576,7 @@ export type MetadataQueryResult = {
         } | null;
         url: string | null;
       } | null;
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -549,7 +587,7 @@ export type MetadataQueryResult = {
 
 // Source: ../frontend/src/query/getNews.ts
 // Variable: newsQuery
-// Query: *[_type == 'newsEntry']{    _id,    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    date,    excerpt[],    link,    pressRelease {  ...,  asset-> {    url  }}  }
+// Query: *[_type == 'newsEntry'] | order(date desc){    _id,    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    date,    excerpt[],    link,    pressRelease {  ...,  asset-> {    url  }}  }
 export type NewsQueryResult = Array<{
   _id: string;
   metadata: {
@@ -564,6 +602,7 @@ export type NewsQueryResult = Array<{
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -595,13 +634,14 @@ export type NewsQueryResult = Array<{
     asset: {
       url: string | null;
     } | null;
+    media?: unknown;
     _type: "file";
   } | null;
 }>;
 
 // Source: ../frontend/src/query/getPage.ts
 // Variable: pageQuery
-// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    address,    phoneNumber,    email,    transactionTypes  }
+// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    content,    sidebar,    banner {      alt,      caption,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    carousel {      ...,      image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      video {  ...,  asset-> {    url  }}    },    teamTagline,    team[] -> {      _id,      name,      jobTitle,      headShot {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }},      bio,      role    },    testimonials[],    address,    phoneNumber,    email,    transactionTypes  }
 export type PageQueryResult = {
   metadata: {
     _type: "metadata";
@@ -615,6 +655,7 @@ export type PageQueryResult = {
         _weak?: boolean;
         [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       };
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -687,6 +728,7 @@ export type PageQueryResult = {
         } | null;
         url: string | null;
       } | null;
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -724,6 +766,7 @@ export type PageQueryResult = {
         } | null;
         url: string | null;
       } | null;
+      media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
       _type: "image";
@@ -748,6 +791,9 @@ export type PageQueryResult = {
     }>;
     role: "operations" | "team";
   }> | null;
+  testimonials: Array<{
+    _key: string;
+  } & Testimonial> | null;
   address: null;
   phoneNumber: null;
   email: null;
@@ -755,6 +801,76 @@ export type PageQueryResult = {
     _key: string;
   } & TransactionType> | null;
 } | null;
+
+// Source: ../frontend/src/query/getPortfolio.ts
+// Variable: portfolioQuery
+// Query: *[_type == 'portfolioCompany']{    metadata {      ...,      poster {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}    },    ...,    image {  ...,  asset-> {    metadata {      lqip,      blurHash,      dimensions    },    url  }}  }
+export type PortfolioQueryResult = Array<{
+  metadata?: Metadata;
+  _id: string;
+  _type: "portfolioCompany";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  current?: "current" | "past";
+  type?: "all" | "directLending" | "federalMarkets" | "growthEquity" | "privateEquity";
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  logo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  blackLogo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  image: {
+    asset: {
+      metadata: {
+        lqip: string | null;
+        blurHash: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+      url: string | null;
+    } | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
 
 // Source: ../frontend/src/query/getSiteSettings.ts
 // Variable: siteSettingsQuery
@@ -771,6 +887,7 @@ export type SiteSettingsQueryResult = {
       } | null;
       url: string | null;
     } | null;
+    media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
@@ -782,8 +899,9 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    }\n  }\n": MetadataQueryResult;
-    "\n  *[_type == 'newsEntry']{\n    _id,\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    date,\n    excerpt[],\n    link,\n    pressRelease \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n  }\n": NewsQueryResult;
-    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    address,\n    phoneNumber,\n    email,\n    transactionTypes\n  }\n": PageQueryResult;
+    "\n  *[_type == 'newsEntry'] | order(date desc){\n    _id,\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    date,\n    excerpt[],\n    link,\n    pressRelease \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n  }\n": NewsQueryResult;
+    "\n  *[_type == 'page' && metadata.slug.current == $slug][0]{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    content,\n    sidebar,\n    banner {\n      alt,\n      caption,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    carousel {\n      ...,\n      image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      video \n{\n  ...,\n  asset-> {\n    url\n  }\n}\n\n    },\n    teamTagline,\n    team[] -> {\n      _id,\n      name,\n      jobTitle,\n      headShot \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n,\n      bio,\n      role\n    },\n    testimonials[],\n    address,\n    phoneNumber,\n    email,\n    transactionTypes\n  }\n": PageQueryResult;
+    "\n  *[_type == 'portfolioCompany']{\n    metadata {\n      ...,\n      poster \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n    },\n    ...,\n    image \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": PortfolioQueryResult;
     "\n  *[_type == 'siteSettings'][0]{\n    title,\n    description,\n    shareImage \n{\n  ...,\n  asset-> {\n    metadata {\n      lqip,\n      blurHash,\n      dimensions\n    },\n    url\n  }\n}\n\n  }\n": SiteSettingsQueryResult;
   }
 }
