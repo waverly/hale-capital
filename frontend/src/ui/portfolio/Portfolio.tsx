@@ -19,8 +19,6 @@ export const Portfolio = ({ portfolio }: { portfolio: Sanity.PortfolioQueryResul
     [current, type]
   )
 
-  console.log(portfolio)
-
   return (
     <>
       <div className="portfolio-header">
