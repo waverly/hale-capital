@@ -16,3 +16,31 @@
     padding: 0 0 20px 20px;
   }
 }
+
+.portfolio-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.portfolio-filter {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  button {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  li.active button {
+    color: var(--gold);
+  }
+}
