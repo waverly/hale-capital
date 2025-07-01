@@ -1,0 +1,16 @@
+{
+  "name": "Resident Company Club",
+  "short_name": "Resident",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "color(display-p3 1 0.97 0.94)",
+  "theme_color": "color(display-p3 0.06 0.18 0.29)",
+  "description": "",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

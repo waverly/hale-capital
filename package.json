@@ -1,43 +1,60 @@
 {
-  "name": "waverly2018",
-  "version": "0.2.0",
+  "name": "hale-capital",
+  "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=22.0.0"
+  "scripts": {
+    "predev": "npm run typegen",
+    "dev": "next dev",
+    "prebuild": "npm run typegen",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typegen": "sanity schema extract --enforce-required-fields --path=src/sanity/extract.json && sanity typegen generate"
   },
   "type": "module",
   "dependencies": {
-    "@vitejs/plugin-react": "^4.3.3",
-    "classnames": "^2.3.1",
-    "history": "^5.0.0",
-    "prismic-javascript": "^3.0.2",
-    "ramda": "^0.30.1",
-    "react": "^18.3.1",
-    "react-addons-css-transition-group": "^15.6.2",
-    "react-css-transition": "^0.7.4",
-    "react-css-transition-replace": "^5.0.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^5.3.4",
-    "react-router-hash-link": "^2.4.1",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "react-transition-group": "^4.4.1",
-    "vite": "^5.4.11"
+    "@linaria/core": "^6.3.0",
+    "@linaria/react": "^6.3.0",
+    "@portabletext/block-tools": "^1.1.27",
+    "@portabletext/react": "^3.2.1",
+    "@sanity/client": "^7.3.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.89.0",
+    "lodash-es": "^4.17.21",
+    "next": "15.3.2",
+    "next-sanity": "^9.11.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-transition-group": "^4.4.5",
+    "sanity": "^3.89.0",
+    "sanity-plugin-link-field": "^1.4.0",
+    "sass": "^1.89.0",
+    "styled-components": "^6.1.18",
+    "usehooks-ts": "^3.1.1"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "@types/react-transition-group": "^4.4.12",
+    "typescript": "^5.8.3"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "packageManager": "pnpm@9.0.4",
+  "pnpm": {
+    "pnpm": {
+      "peerDependencyRules": {
+        "allowAny": [
+          "react",
+          "react-dom"
+        ]
+      }
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }

@@ -1,0 +1,22 @@
+.testimonial {
+  margin: 50px 0 !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .author {
+    display: inline;
+    font-family: var(--font-serif);
+    font-size: 0.8em;
+    strong {
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+    em {
+      display: inline-block;
+      margin-left: 15px;
+      font-style: italic;
+    }
+  }
+}

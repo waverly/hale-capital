@@ -1,0 +1,5 @@
+export * from "./getPage"
+export * from "./getMetadata"
+export * from "./getSiteSettings"
+export * from "./getNews"
+export * from "./getPortfolio"
